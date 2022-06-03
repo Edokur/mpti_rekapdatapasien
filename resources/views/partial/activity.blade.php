@@ -8,11 +8,14 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" >
     <!-- CSS Assets -->
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Mulish' rel='stylesheet'>
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 
     <title>Problem Solver | Activity</title>
 </head>
@@ -20,86 +23,7 @@
 <body>
     <div class="container">
         <div class="left">
-            <div class="navbar border-radius">
-                <img class="watermark" src="image/icon_problemsolver.png">
-
-                <a href="/">
-                    <div class="dashboard color-primary">
-                        <img src="vectors/icon_dashboard.svg" alt="">
-                        <h2>Dashboard</h2>
-                    </div>
-                </a>
-
-                <div class="line-h"></div>
-
-                <div class="admin">
-                    <h1>Admin</h1>
-                    <a href="/note">
-                        <div class="catatan color-primary">
-                            <img src="vectors/icon_catatan.svg" alt="">
-                            <h2>Catatan</h2>
-                        </div>
-                    </a>
-                    <a href="/activity">
-                        <div class="aktivitas active">
-                            <img src="vectors/icon_aktivitas2.svg" alt="">
-                            <h2>Aktivitas</h2>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="report-data">
-                    <h1>Report Data</h1>
-                    <a href="/kesehatan-jiwa">
-                        <div class="kesehatan-jiwa color-primary">
-                            <img src="vectors/icon_kesehatan-jiwa.svg" alt="">
-                            <h2>Kesehatan Jiwa</h2>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="surveilans-1 color-primary">
-                            <img src="vectors/icon_surveilans.svg" alt="">
-                            <h2>Surveilans 1</h2>
-                        </div>
-                    </a>
-                    <a href="/surveilans-2">
-                        <div class="surveilans-2 color-primary">
-                            <img src="vectors/icon_surveilans.svg" alt="">
-                            <h2>Surveilans 2</h2>
-                        </div>
-                    </a>
-                    <a href="/perkesmas">
-                        <div class="perkesmas color-primary">
-                            <img src="vectors/icon_perkesmas.svg" alt="">
-                            <h2>Perkesmas</h2>
-                        </div>
-                    </a>
-                    <a href="/identitas-pasien">
-                        <div class="identitas-pasien color-primary">
-                            <img src="vectors/icon_identitas-pasien.svg" alt="">
-                            <h2>Identitas Pasien</h2>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="penyakit color-primary">
-                            <img src="vectors/icon_penyakit.svg" alt="">
-                            <h2>Penyakit</h2>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="pengaturan color-primary">
-                            <img src="vectors/icon_pengaturan.svg" alt="">
-                            <h2>Pengaturan</h2>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="keluar color-primary">
-                            <img src="vectors/icon_keluar.svg" alt="">
-                            <h2>Keluar</h2>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            @include('partial/sidebar')
         </div>
 
         <div class="l-right">
@@ -177,8 +101,8 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script> -->
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <script src="js/script.js"></script>

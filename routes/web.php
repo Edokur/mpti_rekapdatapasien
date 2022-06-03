@@ -30,24 +30,17 @@ Route::get('/tambahdata-kesehatan-jiwa', function () {
 });
 
 Route::get('/identitas-pasien', function () {
-    return view('partial/identitas-pasien');
+    return view('partial/identitas-pasien/identitas-pasien');
 });
 
 Route::get('/note', function () {
-    return view('partial/note');
-});
-Route::get('/index', function () {
-    return view('index');
+    return view('partial/catatan/note');
 });
 
 Route::get('/perkesmas', function () {
-    return view('partial/perkesmas');
+    return view('partial/perkesmas/perkesmas');
 });
 
 Route::get('/surveilans-2', function () {
-    return view('partial/surveilans-2');
-});
-
-Route::get('/navbar', function () {
-    return view('navbar');
+    return view('partial/surveilans-2/surveilans-2');
 });

@@ -366,15 +366,6 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-        // $(document).ready(function(){
-        //     // 
-        //     $('.sub-btn').click(function(){
-        //         $(this).next('.sub-menu').slideToggle();
-        //     });
-        // });
-    </script>
-
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

@@ -8,8 +8,6 @@ body{
 
 .container{
     position: absolute;
-    left: 18px;
-    height: 1024px;
 }
 
 /* Layout */
@@ -38,9 +36,6 @@ body{
 
 /* Navbar */
 
-body{
-    font-family: 'Poppins';
-}
 .border-bottom{
     border : 5px 0px 0px 0px solid #ffffff;
 }
