@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,9 +34,9 @@ Route::get('/identitas-pasien', function () {
     return view('partial/identitas-pasien/identitas-pasien');
 });
 
-Route::get('/note', function () {
-    return view('partial/catatan/note');
-});
+// Route::get('/note', function () {
+//     return view('partial/catatan/note');
+// });
 
 Route::get('/perkesmas', function () {
     return view('partial/perkesmas/perkesmas');
@@ -44,3 +45,5 @@ Route::get('/perkesmas', function () {
 Route::get('/surveilans-2', function () {
     return view('partial/surveilans-2/surveilans-2');
 });
+
+Route::resource('note', NoteController::class);
