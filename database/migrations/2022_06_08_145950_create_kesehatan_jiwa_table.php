@@ -32,7 +32,7 @@ class CreateKesehatanJiwaTable extends Migration
             $table->integer('kunjungan');
             $table->text('keterangan');
             $table->timestamps();
-            $table->foreign('id_pasien')->references('id')->on('identitas_pasien');
+            // $table->foreign('id_pasien')->references('id')->on('identitas_pasien');
         });
     }
 
