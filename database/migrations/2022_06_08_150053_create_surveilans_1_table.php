@@ -21,7 +21,7 @@ class CreateSurveilans1Table extends Migration
             $table->date('tanggal');
             $table->text('diagnosa');
             $table->timestamps();
-            $table->foreign('id_pasien')->references('id')->on('identitas_pasien');
+            // $table->foreign('id_pasien')->references('id')->on('identitas_pasien');
         });
     }
 
