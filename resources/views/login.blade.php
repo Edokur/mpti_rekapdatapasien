@@ -1,44 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<!-- <script src="https://kit.fontawesome.com/a81368914c.js"></script> -->
+	<script src="js/dist/sweetalert1.all.min.js"></script>
+	<script src="js/dist/sweetalert2.all.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<div class="img">
-        <img src="img/bg.jpeg" />
-      </div>
-	<div class="container">
-		<form action="" method="POST" class="login-email" >
-			<p class="login-text" style="font-size: 2rem; ">Selamat Datang...</p>
-			<h5>Mohon masukkan email dan kata sandi anda</h5><br>
-			<div class="input-group">
-				<input type="email" placeholder="Masukkan e-mail anda" name="email" required>
+	<div class="bg mx-3 my-4">
+		<div class="row">
+			<div class="col-7">
+				<div class="col">
+					<img class="m-5" src="image/icon_problemsolver.png" alt="">
+				</div>
+				<div class="col py-5">
+					<img class="img-background" src="image/Illustration.png" alt="">
+				</div>
+				<div class="col footer">
+					<h1><i> Sistem Rekapitulasi Data</i></h1>
+					<p>Created by Problem Solver</p>
+				</div>
 			</div>
-			<div class="input-group">
-				<input type="password" placeholder="Masukkan kata sandi anda" name="password" required>
+			<div class="col">
+				<div class="border m-5 py-5 bg-white login text-center">
+					<form class="py-5">
+						<h1 class="pt-5">Selamat Datang...</h1>
+						<h2 class="text-secondary">Mohon masukkan email dan kata sandi anda</h2>
+						<div class="mx-5 mt-5 form-group">
+							<input type="email" class="form-control p-4" id="email" aria-describedby="emailHelp" placeholder="Masukkan email anda">
+						</div>
+						<div class="mx-5 form-group">
+							<input type="password" class="form-control p-4" id="password" placeholder="Masukkan password anda">
+						</div>
+						<div class="mx-5 form-group">
+							<div class="input-group mb-2">
+								<div class="input-group-prepend">
+									<span class="input-group-text captcha" id="basic-addon3">B12RE3</span>
+								</div>
+								<input type="text" class="form-control p-4" id="basic-url" aria-describedby="basic-addon3"  placeholder="Input captcha">
+							</div>
+							<div class="text-right">
+								<a href="resetpw" class=" text-secondary">Forgot password ?</a>
+							</div>
+						</div>
+							<button type="button" class="mt-5 btn btn-login text-white" onclick="Login()">Login</button>
+					</form>
+				</div>
 			</div>
-			<div class="code">
-				<table>
-				<tr>
-				<td><h3> kode </h3></td>
-				<td><input placeholder="Masukkan captcha" type='text' class="input-code"><td>
-				</tr>
-			</table>
-			</div>	
-            <a href="#">Forgot Password?</a>
-			<div class="input-group">
-				<button name="submit" class="button">Login</button>
-			</div>
-		</form>
+		</div>
 	</div>
-	</div></div>
-	<footer>
-		<p class="foot-sistem">Sistem Rekapitulasi Data</p>
-		<p class="foot-created">Created by Problem Solver</p>	
-	</footer>
+
+	<script>
+		function Login(){
+			Swal.fire({
+			title: 'Do you want to save the changes?',
+			showDenyButton: true,
+			showCancelButton: true,
+			confirmButtonText: 'Save',
+			denyButtonText: `Don't save`,
+			}).then((result) => {
+			/* Read more about isConfirmed, isDenied below */
+			if (result.isConfirmed) {
+				Swal.fire('Saved!', '', 'success')
+				if(result.){
+					window.location = "/"
+				}
+			} else if (result.isDenied) {
+				Swal.fire('Changes are not saved', '', 'info')
+			}
+			})
+	}	
+    </script>
 </body>
+
 </html>

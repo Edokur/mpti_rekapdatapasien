@@ -35,7 +35,7 @@
             <div class="ttable border-line bg-grey table-hover border-radius mt-4">
                 <div class="mt-2">
                     <table class="table">
-                        <thead class="bg-grey color-white">
+                        <thead class="bg-grey table-borderless color-white rounded-bottom-0">
                             <tr>
                                 <th class="col-1">ID</th>
                                 <th class="col-1">Tanggal</th>

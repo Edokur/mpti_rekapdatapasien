@@ -15,7 +15,7 @@ body{
 .left{
     position: absolute;
     width: 280px;
-    left: 0px;
+    left: 12px;
 }
 
 .center{
@@ -34,7 +34,7 @@ body{
     left: 1044px;
 }
 
-/* Navbar */
+/* sidebar */
 
 .border-bottom{
     border : 5px 0px 0px 0px solid #ffffff;
@@ -48,6 +48,7 @@ body{
     position: fixed;
     top: 0;
     left: 20;
+    z-index: 2;
     overflow: auto;
 }
 .side-bar .menu{
@@ -266,9 +267,6 @@ td{
     left: 160px;
 }
 
-.card-text{
-}
-
 .title{
     position: relative;
 }
@@ -358,6 +356,10 @@ h8{
     border-radius: 12px;
 }
 
+.rounded-bottom-0{
+    border-radius: 12px 12px 12px 0px;
+}
+
 .line-h{
     position: absolute;
     width: 240px;
@@ -411,6 +413,9 @@ h8{
 .btn-purple{
     background-color: #6145E3 !important;
 }
+.btn-purple:hover{
+    background-color: #4e2de0 !important;
+}
 
 .btn-insertdata{
     position: absolute;
@@ -427,4 +432,24 @@ h8{
 
 .color-neutral-400{
     color: #969696;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+select{
+    appearance: d;
+}
+
+select option{
+
 }

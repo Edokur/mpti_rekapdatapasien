@@ -1,179 +1,72 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@media screen and (max-width: 680px) {
-    #maincontent {
-        width: auto;
-        float: none;
-    }
-    #sidebar {
-        width: auto;
-        float: none;
-    }
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins";
-}
-
 body {
-    width: 100%;
-    min-height: 100vh;
-    background-position: center;
-    background-size: cover;
-    display: flex;
+    background-color: #f6f6f6;
+    font-family: 'Poppins';
+    color: #FFFFFF;
+}
+
+.bg{
     position: relative;
+    width: auto;
+    height: 1040px;
+    background-image: url('../image/BG-Login.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    overflow: hidden;
 }
 
-.img {
-    display: block;
-    margin: auto;
-    justify-content: flex-end;
-    align-items: center;
-}
-.img img {
-    display: block;
-    margin: auto;
-    width: 1350px;
-    height: 680px;
+div div.row{
+    height: 150px;
 }
 
-.container {
-    width: 400px;
-    min-height: 100px;
-    background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    padding: 40px 30px;
-    position: absolute;
-    left: 852px;
-    top: 50px;
+div div div.footer{
+    margin-top: 120px;
 }
 
-.container .login-text {
-    color: #515151;
-    font-weight: 500;
-    font-family: "Poppins", sans-serif;
-    font-size: 2rem;
+div div div div h1{
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+div div div .img-background{
+    margin: 0 25%;
+    width: 500px;
+    height: 600px;
+}
+
+div div div .login{
+    /* width: 480px; */
+    border-radius: 12px;
+}
+
+div div div div form h1{
+    font-size: 32px;
+}
+
+div div div div form h2{
     font-style: normal;
-    text-align: left;
+    font-weight: 200;
+    font-size: 16px;
 }
 
-h5 {
-    color: #969696;
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    text-align: left;
+div div div div form div .captcha{
+    background-color: #D6E4FF;
 }
 
-.container .login-email .input-group {
-    width: 100%;
-    height: 50px;
-    margin-bottom: 25px;
+div div div div form div input{
     font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
 }
-
-.container .login-email .input-group input {
-    width: 100%;
-    height: 100%;
-    border: 2px solid #e7e7e7;
-    padding: 15px 20px;
-    font-size: 1rem;
+div div div div form div a{
     font-style: italic;
-    border-radius: 12px;
-    background: transparent;
-    outline: none;
-    transition: 0.3s;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
 }
 
-.container .login-email .code {
-    width: 100%;
-    height: 100%;
-    border: 2px solid #e7e7e7;
-    font-size: 1rem;
-    border-radius: 12px;
-    background: transparent;
-    outline: none;
-    transition: 0.3s;
-    margin-bottom: 20px;
-}
-
-h3 {
-    border: 1px;
-    background-color: #d6e4ff;
-    color: #6145e3;
-    border-radius: 12px;
-    font-size: 1rem;
-    padding: 10px 20px;
-}
-
-.container .login-email .code .input-code {
-    border-style: none;
-    width: 100%;
-    height: 100%;
-    font-size: 1rem;
-    font-style: italic;
-    background: transparent;
-}
-
-.container .login-email .input-group input:focus,
-.container .login-email .input-group input:valid {
-    border-color: #6145e3;
-}
-
-a {
-    font-style: italic;
-    margin-bottom: 30px;
-    display: block;
-    text-align: right;
-    text-decoration: none;
-    color: #999;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.container .login-email .input-group .button {
-    display: block;
-    width: 100%;
-    height: 50px;
-    border-radius: 12px;
-    outline: none;
-    border: none;
-    background-color: #6145e3;
-    background-size: 200%;
-    font-size: 1.2rem;
-    color: #fff;
-    font-family: "Source Code Pro";
-    font-size: 20px;
-    margin: 1rem 0;
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-.container .login-email .input-group .button:hover {
-    background-position: right;
-}
-footer {
-    background-color: #fff;
-    font-family: "Poppins";
-    font-style: italic;
-}
-.foot-sistem {
-    color: #515151;
-    font-size: 24px;
-    width: 480px;
-    position: absolute;
-    bottom: 20px;
-    left: 50px;
-    line-height: 70px;
-}
-
-.foot-created {
-    color: #515151;
-    font-size: 13px;
-    width: 480px;
-    position: absolute;
-    bottom: 20px;
-    left: 50px;
+.btn-login{
+    background: #6145E3 !important;
+    width: 80%;
+    height: 64px;
 }

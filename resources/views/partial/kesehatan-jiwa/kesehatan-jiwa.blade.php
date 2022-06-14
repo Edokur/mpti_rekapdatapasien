@@ -27,7 +27,7 @@
                 </div>
                 <div class="col text-right">
                     <button class="btn btn-outline-success border-radius px-5 py-3">
-                    <i class="fa-solid fa-print"></i> Cetak Data
+                    <i class="fa-solid fa-print"></i>Cetak Data
                     </button>
                 </div>
             </div>

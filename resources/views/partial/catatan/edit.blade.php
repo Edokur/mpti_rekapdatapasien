@@ -31,7 +31,7 @@
 
         <div class="l-right">
             <div class="title">
-                <h4 class="text-title color-black lead font-bold">Kesehatan Jiwa</h4>
+                <h4 class="text-title color-black lead font-bold">Catatan</h4>
                 <h1 class="color-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor adipiscing in consectetur sem ut netus scelerisque. Viverra urna vitae viverra habitant a magna vitae, fermentum morbi. Magna magna non ridiculus vitae viverra feugiat morbi sed.</h1>
             </div>
 
