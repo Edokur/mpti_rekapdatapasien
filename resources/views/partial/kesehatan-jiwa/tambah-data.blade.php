@@ -2,21 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" >
-    <!-- CSS Assets -->
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Mulish' rel='stylesheet'>
-    <link rel="stylesheet" href="css/style.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
-
     <title>Problem Solver | Kesehatan Jiwa</title>
 </head>
 
@@ -32,12 +17,136 @@
                 <h1 class="color-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor adipiscing in consectetur sem ut netus scelerisque. Viverra urna vitae viverra habitant a magna vitae, fermentum morbi. Magna magna non ridiculus vitae viverra feugiat morbi sed.</h1>
             </div>
 
-            <div class="ttable border bg-white border-radius mt-4">
-                <div class="p-4">
-                    
+            <div class="ttable border-line bg-white border-radius mt-4">
+                <div class="p-2 bg-light rounded-bottom-0">
+                    <p class="m-3 text-secondary">Tambah Data</p>
                 </div>
-                
-                <div class="p-4">
+                <div class="p-2 text-dark">
+                    <form class="ml-3">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Tanggal Kunjungan</label>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" id="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">ID Register</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" id="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" id="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                            <div class="col-sm-8">
+                                <div class="dropdown">
+                                    <button class="btn border bg-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                                        Pilih Jenis Kelamin
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Laki-laki</a>
+                                        <a class="dropdown-item" href="#">Perempuan</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Alamat</label>
+                            <div class="col-sm-8">
+                                <input type="textarea" class="form-control" id="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Kepala Keluarga</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">NIK</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" id="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" id="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
+                            <div class="col-sm-8">
+                                <div class="dropdown">
+                                    <button class="btn border bg-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                                        Pilih Pendidikan
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">SD</a>
+                                        <a class="dropdown-item" href="#">SMP</a>
+                                        <a class="dropdown-item" href="#">SMA/SMK/Sederajat</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Diagnosa</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Terapi</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" id="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Dosis</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Keterangan</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-8">
+                                <button type="button" class="btn btn-outline-danger btn-block" width>Reset</button>
+                                <button type="button" class="btn btn-purple text-white btn-block">Save</button>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>
@@ -47,7 +156,7 @@
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <script src="js/script.js"></script>
