@@ -15,6 +15,7 @@ class CreateIdentitasPasienTable extends Migration
     {
         Schema::create('identitas_pasien', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('id_pasien');
             $table->string('nama');
             $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
