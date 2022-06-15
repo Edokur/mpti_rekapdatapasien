@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\IdentitasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,3 +48,4 @@ Route::get('/surveilans-2', function () {
 });
 
 Route::resource('note', NoteController::class);
+Route::resource('identitas-pasien', IdentitasController::class);
