@@ -23,6 +23,14 @@ Route::get('/activity', function () {
     return view('partial/activity');
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/resetpw', function () {
+    return view('resetpw');
+});
+
 Route::get('/kesehatan-jiwa', function () {
     return view('partial/kesehatan-jiwa/kesehatan-jiwa');
 });
