@@ -31,6 +31,10 @@ Route::get('/resetpw', function () {
     return view('resetpw');
 });
 
+Route::get('/ubahpw', function () {
+    return view('ubahpw');
+});
+
 Route::get('/kesehatan-jiwa', function () {
     return view('partial/kesehatan-jiwa/kesehatan-jiwa');
 });
