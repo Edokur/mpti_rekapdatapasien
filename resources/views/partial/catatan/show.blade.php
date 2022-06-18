@@ -26,8 +26,47 @@
             @include('partial/sidebar')
         </div>
 
+        <div class="l-right">
+            <div class="title">
+                <h4 class="text-title color-black lead font-bold">Catatan</h4>
+                <h1 class="color-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor adipiscing in consectetur sem ut netus scelerisque. Viverra urna vitae viverra habitant a magna vitae, fermentum morbi. Magna magna non ridiculus vitae viverra feugiat morbi sed.</h1>
+            </div>
 
-        <a href="{{ route('note.index') }}">Kembali</a>
+            <div class="ttable border-line bg-white border-radius mt-4">
+                <div class="p-2 bg-light rounded-bottom-0">
+                    <p class="m-3 text-secondary">Tambah Data</p>
+                </div>
+                <div class="p-2 text-dark border-top">
+                    <form method="POST" class="px-3" action="{{ route('note.update', $note->id) }}">
+                        @csrf
+                        @method('PUT')
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Status</label>
+                            <div class="col-sm-8">
+                                <div class="dropdown"> 
+                                    <input type="text" class="form-control" name="judul" value="{{$note->status}}" disabled>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Judul</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" value="{{$note->judul}}" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Deskripsi</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" value="{{$note->deskripsi}}" disabled>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <tr>
             <th>Status</th>
             <th>Judul</th>

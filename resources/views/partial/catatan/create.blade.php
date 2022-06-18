@@ -17,18 +17,18 @@
                 <h1 class="color-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor adipiscing in consectetur sem ut netus scelerisque. Viverra urna vitae viverra habitant a magna vitae, fermentum morbi. Magna magna non ridiculus vitae viverra feugiat morbi sed.</h1>
             </div>
 
-            <div class="ttable border-line bg-white border-radius mt-4">
+            <div class="ttable border-line bg-grey border-radius mt-4">
                 <div class="p-2 bg-light rounded-bottom-0">
                     <p class="m-3 text-secondary">Tambah Data</p>
                 </div>
-                <div class="p-2 text-dark">
+                <div class="p-2 text-dark bg-white border-top">
                     <form class="ml-3" method="POST" action="{{ route('note.store') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Status</label>
                             <div class="col-sm-8">
-                                <div class="dropdown"> 
-                                    <select name="status" id="status" class="btn border btn-block text-left">
+                                <div class="dropdown bg-grey"> 
+                                    <select name="status" id="status" class="btn border btn-block text-left color-neutral-400 px-4">
                                         <option disabled selected>Pilih Status</option>
                                         <option value="BIASA">Biasa</option>
                                         <option value="MENENGAH">Menengah</option>
@@ -41,14 +41,14 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Judul</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="judul">
+                                <input type="text" class="form-control color-neutral-400 bg-grey pl-4" name="judul">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Deskripsi</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="deskripsi"></textarea>
+                                <textarea class="form-control color-neutral-400 bg-grey pl-4" id="exampleFormControlTextarea1" rows="3" name="deskripsi"></textarea>
                             </div>
                         </div>
 

@@ -26,7 +26,7 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Kunjungan</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control" id="">
+                                <input type="date" class="form-control" id="" placeholder="" disabled>
                             </div>
                         </div>
 
@@ -47,21 +47,19 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control" id="">
+                                <input type="date" class="form-control" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
-                                <div class="dropdown">
-                                    <button class="btn border bg-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                                        Pilih Jenis Kelamin
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Laki-laki</a>
-                                        <a class="dropdown-item" href="#">Perempuan</a>
-                                    </div>
+                                <div class="dropdown"> 
+                                    <select name="status" id="status" class="btn border btn-block text-left form-control" disabled>
+                                        <option> </option>
+                                        <option>Laki-laki</option>
+                                        <option>Perempuan</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -69,43 +67,41 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
-                                <input type="textarea" class="form-control" id="">
+                                <input type="textarea" class="form-control" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Kepala Keluarga</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">NIK</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="">
+                                <input type="number" class="form-control" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="">
+                                <input type="number" class="form-control" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
-                                <div class="dropdown">
-                                    <button class="btn border bg-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                                        Pilih Pendidikan
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">SD</a>
-                                        <a class="dropdown-item" href="#">SMP</a>
-                                        <a class="dropdown-item" href="#">SMA/SMK/Sederajat</a>
-                                    </div>
+                                <div class="dropdown"> 
+                                    <select name="status" id="status" class="btn border btn-block text-left form-control" disabled>
+                                        <option> </option>
+                                        <option>SD</option>
+                                        <option>SMP</option>
+                                        <option>SMA</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -113,28 +109,28 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Diagnosa</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Terapi</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="">
+                                <input type="number" class="form-control" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Dosis</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Keterangan</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
                             </div>
                         </div>
 

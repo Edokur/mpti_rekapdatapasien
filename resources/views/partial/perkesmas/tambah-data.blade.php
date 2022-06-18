@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Problem Solver | Identitas Jiwa</title>
+    <title>Problem Solver | Perkesmas</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 
         <div class="l-right">
             <div class="title">
-                <h4 class="text-title color-black lead font-bold">Identitas Jiwa</h4>
+                <h4 class="text-title color-black lead font-bold">Perkesmas</h4>
                 <h1 class="color-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor adipiscing in consectetur sem ut netus scelerisque. Viverra urna vitae viverra habitant a magna vitae, fermentum morbi. Magna magna non ridiculus vitae viverra feugiat morbi sed.</h1>
             </div>
 
@@ -26,21 +26,28 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control bg-grey color-neutral-400" id="">
+                                <input type="number" class="form-control" id="">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Tanggal</label>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" id="" disabled>
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control bg-grey color-neutral-400" id="">
+                                <input type="text" class="form-control" id="">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control bg-grey color-neutral-400" id="">
+                                <input type="date" class="form-control" id="" disabled>
                             </div>
                         </div>
 
@@ -48,7 +55,7 @@
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
                                 <div class="dropdown"> 
-                                    <select name="status" id="status" class="btn border bg-grey color-neutral-400 btn-block text-left form-control">
+                                    <select name="status" id="status" class="btn border btn-block text-left form-control" disabled>
                                         <option> </option>
                                         <option>Laki-laki</option>
                                         <option>Perempuan</option>
@@ -60,28 +67,28 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control bg-grey color-neutral-400" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Kepala Keluarga</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control bg-grey color-neutral-400" id="">
+                                <input type="text" class="form-control" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">NIK</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control bg-grey color-neutral-400" id="">
+                                <input type="number" class="form-control" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control bg-grey color-neutral-400" id="">
+                                <input type="number" class="form-control" id="" disabled>
                             </div>
                         </div>
 
@@ -89,7 +96,7 @@
                             <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
                                 <div class="dropdown"> 
-                                    <select name="status" id="status" class="btn border bg-grey color-neutral-400 btn-block text-left form-control">
+                                    <select name="status" id="status" class="btn border btn-block text-left form-control" disabled>
                                         <option> </option>
                                         <option>SD</option>
                                         <option>SMP</option>
@@ -102,7 +109,7 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Pekerjaan</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control bg-grey color-neutral-400" id="">
+                                <input type="text" class="form-control" id="" disabled>
                             </div>
                         </div>
 

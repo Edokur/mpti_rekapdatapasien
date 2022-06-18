@@ -11,36 +11,18 @@
             @include('partial/sidebar')
         </div>
 
-        <!-- <form method="POST" action="{{ route('note.update', $note->id) }}">
-            @csrf
-            @method('PUT')
-            <div class="form-group">
-                <label for="exampleInputEmail1">Status</label>
-                <input type="text" class="form-control" name="status" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Status" value="{{$note->status}}">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Judul</label>
-                <input type="text" class="form-control" name="judul" id="exampleInputPassword1" placeholder="Judul" value="{{$note->judul}}">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Deskripsi</label>
-                <input type="text" class="form-control" name="deskripsi" id="exampleInputPassword1" placeholder="deskripsi" value="{{$note->deskripsi}}">
-            </div>
-            <button type="submit" class="btn btn-primary">Update</button>
-        </form> -->
-
         <div class="l-right">
             <div class="title">
                 <h4 class="text-title color-black lead font-bold">Catatan</h4>
                 <h1 class="color-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor adipiscing in consectetur sem ut netus scelerisque. Viverra urna vitae viverra habitant a magna vitae, fermentum morbi. Magna magna non ridiculus vitae viverra feugiat morbi sed.</h1>
             </div>
 
-            <div class="ttable border-line bg-white border-radius mt-4">
+            <div class="ttable border-line bg-grey border-radius mt-4">
                 <div class="p-2 bg-light rounded-bottom-0">
                     <p class="m-3 text-secondary">Tambah Data</p>
                 </div>
-                <div class="p-2 text-dark">
-                    <form method="POST" action="{{ route('note.update', $note->id) }}">
+                <div class="p-2 bg-white border-top text-dark">
+                    <form method="POST" class="px-3" action="{{ route('note.update', $note->id) }}">
                         @csrf
                         @method('PUT')
                         <div class="form-group row">

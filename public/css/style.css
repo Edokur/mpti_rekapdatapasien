@@ -386,10 +386,6 @@ h8{
     background-color: #FFFFFF;
 }
 
-.bg-neutral-100{
-    background: #F6F6F6;
-}
-
 .bg-grey{
     background-color: #F6F6F6;
 }
@@ -444,12 +440,4 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
-}
-
-select{
-    appearance: d;
-}
-
-select option{
-
 }

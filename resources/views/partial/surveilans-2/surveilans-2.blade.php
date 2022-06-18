@@ -34,9 +34,11 @@
 
             <div class="row mt-5">
                 <div class="col">
-                <button class="btn btn-purple text-white border-radius px-5 py-3">
-                    + Tambah Data
-                </button>
+                    <a href="/tambahdata-surveilans-2">
+                        <button class="btn btn-purple text-white border-radius px-5 py-3">
+                            + Tambah Data
+                        </button>
+                    </a>
                 </div>
                 <div class="col text-right">
                     <button class="btn btn-outline-success border-radius px-5 py-3">
@@ -47,23 +49,21 @@
 
             
             <div class="mt-4">
-                <div class="row ml-0">
-                    <div class="col-11 px-0">
-                        <input class="form-control" type="search" placeholder="" aria-label="Search">
-                    </div>
-                    <div class="col p-0">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control pl-4" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
                         <button class="btn btn-purple"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FFFFFF" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                             </svg>
                         </button>
                     </div>
                 </div>
             </div>
             
-            <div class="ttable border-line bg-grey table-hover border-radius mt-4">    
+            <div class="ttable border-line bg-white border-radius mt-4">    
                 <div class="mt-2">
-                    <table class="table table-bordered rounded">
-                        <thead class="bg-grey color-white">
+                    <table class="table rounded">
+                        <thead class="table-borderless">
                             <tr>
                                 <th class="col-1">No</th>
                                 <th class="col-1">ID Register</th>
@@ -73,7 +73,7 @@
                                 <th class="col-1">Total Kunjungan</th>
                             </tr>
                         </thead>
-                        <tbody class="color-white color-neutral-400">
+                        <tbody class="color-neutral-400">
                             <tr>
                                 <td class="col-1">1.</td>
                                 <td class="col-1">#12345</td>
