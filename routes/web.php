@@ -47,16 +47,28 @@ Route::get('/identitas-pasien', function () {
     return view('partial/identitas-pasien/identitas-pasien');
 });
 
-// Route::get('/note', function () {
-//     return view('partial/catatan/note');
-// });
+Route::get('/tambahdata-identitas-pasien', function () {
+    return view('partial/identitas-pasien/tambah-data');
+});
 
 Route::get('/perkesmas', function () {
     return view('partial/perkesmas/perkesmas');
 });
 
+Route::get('/tambahdata-perkesmas', function () {
+    return view('partial/perkesmas/tambah-data');
+});
+
 Route::get('/surveilans-2', function () {
     return view('partial/surveilans-2/surveilans-2');
+});
+
+Route::get('/tambahdata-surveilans-2', function () {
+    return view('partial/surveilans-2/show');
+});
+
+Route::get('/edit-surveilans-2', function () {
+    return view('partial/surveilans-2/edit');
 });
 
 Route::resource('note', NoteController::class);

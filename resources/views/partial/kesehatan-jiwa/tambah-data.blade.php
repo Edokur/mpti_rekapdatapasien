@@ -19,10 +19,10 @@
 
             <div class="ttable border-line bg-white border-radius mt-4">
                 <div class="p-2 bg-light rounded-bottom-0">
-                    <p class="m-3 text-secondary">Tambah Data</p>
+                    <p class="m-3 text-dark">Tambah Data</p>
                 </div>
-                <div class="p-2 text-dark">
-                    <form class="ml-3">
+                <div class="text-dark border-top">
+                    <form class="ml-5 p-5">
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Kunjungan</label>
                             <div class="col-sm-8">
@@ -33,7 +33,7 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="">
+                                <input type="number" class="form-control" id="" disabled>
                             </div>
                         </div>
 
@@ -109,28 +109,28 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Diagnosa</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Terapi</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="" disabled>
+                                <input type="number" class="form-control" id="">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Dosis</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" disabled>
+                                <input type="text" class="form-control" id="">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Keterangan</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
                         </div>
 
