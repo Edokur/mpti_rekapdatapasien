@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Note;
 
 class NoteController extends Controller
@@ -108,6 +109,7 @@ class NoteController extends Controller
     {
         $note->delete();
 
-        return redirect()->route('note.index');
+        // return redirect()->route('sisw.index')->with('succes', 'Siswa Berhasil di Hapus');
+        return redirect()->route('note.index')->with('succes', 'Siswa Berhasil di Hapus');
     }
 }
