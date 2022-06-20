@@ -12,7 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Mulish' rel='stylesheet'>
-    <link rel="stylesheet" href="css/setting.css">
+    <link rel="stylesheet" href="css/resetpw.css">
 
 	<title>Ubah Kata Sandi</title>
 </head>
