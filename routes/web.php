@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\IdentitasController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('partial/home');
+    return view('partial/home')->name('home');
 });
 
 Route::get('/activity', function () {
@@ -73,3 +74,5 @@ Route::get('/edit-surveilans-2', function () {
 
 Route::resource('note', NoteController::class);
 Route::resource('identitas-pasien', IdentitasController::class);
+Route::get('login', [LoginController::class, 'halamanlogin'])->name('login');
+Route::POST('postlogin', [LoginController::class, 'postlogin'])->name('postlogin');

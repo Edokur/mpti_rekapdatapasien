@@ -32,14 +32,15 @@
 			</div>
 			<div class="col">
 				<div class="border m-5 py-5 bg-white login text-center">
-					<form class="py-5">
+					<form action="{{ route('postlogin') }}" method="post" class="py-5">
+						{{ csrf_field() }}
 						<h1 class="pt-5">Selamat Datang...</h1>
 						<h2 class="text-secondary">Mohon masukkan email dan kata sandi anda</h2>
 						<div class="mx-5 mt-5 form-group">
-							<input type="email" class="form-control p-4" id="email" aria-describedby="emailHelp" placeholder="Masukkan email anda">
+							<input type="email" class="form-control p-4" id="email" name="email" aria-describedby="emailHelp" placeholder="Masukkan email anda">
 						</div>
 						<div class="mx-5 form-group">
-							<input type="password" class="form-control p-4" id="password" placeholder="Masukkan password anda">
+							<input type="password" class="form-control p-4" id="password" name="password" placeholder="Masukkan password anda">
 						</div>
 						<div class="mx-5 form-group">
 							<div class="input-group mb-2">
@@ -52,7 +53,7 @@
 								<a href="resetpw" class=" text-secondary">Forgot password ?</a>
 							</div>
 						</div>
-							<button type="button" class="mt-5 btn btn-login text-white" onclick="Login()">Login</button>
+							<button type="submit" class="mt-5 btn btn-login text-white">Login</button>
 					</form>
 				</div>
 			</div>
