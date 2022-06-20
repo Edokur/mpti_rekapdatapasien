@@ -21,7 +21,7 @@
 
 <body>
     <div class="container">
-        <div class="left ml-2">
+        <div class="left">
             <div class="side-bar m-3">
                 <div class="menu mt-5">
                     <div class="item mx-4"><img src="image/icon_problemsolver.png" alt=""></div>
@@ -65,7 +65,7 @@
             </script>
         </div>
 
-        <div class="l-right ml-4">
+        <div class="l-right">
             <div class="title mt-4">
                 <h4 class="text-title color-black lead font-bold">Setting</h4>
             </div>
