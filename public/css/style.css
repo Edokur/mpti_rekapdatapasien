@@ -4,6 +4,8 @@ body{
     background-color: #f6f6f6;
     font-family: 'Poppins';
     color: #FFFFFF;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .container{
@@ -34,6 +36,15 @@ body{
     left: 1044px;
 }
 
+.side-bar::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 12px;
+}
+
 /* sidebar */
 
 .border-bottom{
@@ -48,6 +59,8 @@ body{
     position: fixed;
     top: 0;
     left: 20;
+    scrollbar-color: #6969dd #e0e0e0;
+    scrollbar-width: thin;
     z-index: 2;
     overflow: auto;
 }

@@ -19,7 +19,7 @@
 
             <div class="ttable border-line bg-grey border-radius mt-4">
                 <div class="p-2 bg-light rounded-bottom-0">
-                    <p class="m-3 text-secondary">Tambah Data</p>
+                    <p class="m-3 text-dark">Tambah Data</p>
                 </div>
                 <div class="p-2 bg-white border-top text-dark">
                     <form method="POST" class="px-3" action="{{ route('note.update', $note->id) }}">
@@ -53,12 +53,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3 col-form-label"></label>
-                            <div class="col-sm-8">
-                                <button type="button" class="btn btn-outline-danger btn-block" width>Reset</button>
-                                <button type="submit" class="btn btn-purple text-white btn-block">Save</button>
-                            </div>
+                        <div class="form-group row mx-1 py-2">
+                            <label for="" class="col-3"></label>
+                            <a href="/note" type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</a>
+                            <button type="submit" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
                         </div>
                     </form>
                 </div>
