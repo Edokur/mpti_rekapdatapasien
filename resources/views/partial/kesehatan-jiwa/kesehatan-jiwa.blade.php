@@ -19,7 +19,7 @@
 
             <div class="row mt-5">
                 <div class="col">
-                    <a href="/tambahdata-kesehatan-jiwa">
+                    <a href="{{ route('kesehatan-jiwa.create') }}">
                         <button class="btn btn-purple text-white border-radius px-5 py-3">
                             + Tambah Data
                         </button>
@@ -52,6 +52,7 @@
                 </div>
                 
                 <div class="px-4">
+                    @csrf
                     <table class="table table-bordered rounded">
                         <thead class="bg-grey color-white">
                             <tr>
@@ -61,41 +62,47 @@
                                 <th class="col-1">Nama Pasien</th>
                                 <th class="col-1">Diagnosa</th>
                                 <th class="col-1">Terapi</th>
-                                <th class="col-1">Dosis</th>
+                                <th class="col-1">Pendidikan</th>
                                 <th class="col-3">Keterangan</th>
                                 <th class="col-3">Action</th>
                             </tr>
                         </thead>
                         <tbody class="color-white color-neutral-400">
+                        @foreach($data as $key=>$value)
                             <tr>
-                                <td class="col-1">1.</td>
-                                <td class="col-1">#12345</td>
-                                <td class="col-1">01-01-2022</td>
-                                <td class="col-1">Putra Dino</td>
-                                <td class="col-1">Sakit Kepala</td>
-                                <td class="col-1">Psikoedukasi</td>
-                                <td class="col-1">F 32.3</td>
-                                <td class="col-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque impedit quaerat, cum exercitationem repellendus corrupti molestias veritatis tempora rerum sit cupiditate vitae quibusdam quod dolor quas optio aliquam maxime iusto.</td>
+                                <td class="col-1">{{ $value->id }}</td>
+                                <td class="col-1">{{ $value->id_register }}</td>
+                                <td class="col-1">{{ $value->tanggal_lahir }}</td>
+                                <td class="col-1">{{ $value->nama }}</td>
+                                <td class="col-1">{{ $value->diagnosa }}</td>
+                                <td class="col-1">{{ $value->terapi }}</td>
+                                <td class="col-1">{{ $value->pendidikan }}</td>
+                                <td class="col-3">{{ $value->keterangan }}</td>
                                 <td class="col-3">
-                                    <button class="btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4C4C" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-                                        </svg>
-                                    </button>
-                                    <button class="btn" id="edit_btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffc107" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                        </svg>
-                                    </button>
-                                    <button class="btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#3366FF" class="bi bi-info-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                                        </svg>
-                                    </button>
+                                <form action="{{ route('kesehatan-jiwa.destroy',$value->id) }}" method="POST">
+
+                                <a href="{{ route('kesehatan-jiwa.edit', $value->id) }}" class="btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffc107" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                </svg>
+                                </a>
+                                <a href="{{ route('kesehatan-jiwa.show', $value->id) }}" class="btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#3366FF" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                </svg>
+                                </a>
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" class="btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4C4C" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                                </svg></button>
+                                </form>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\IdentitasController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\KJiwaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,13 +37,13 @@ Route::get('/ubahpw', function () {
     return view('ubahpw');
 });
 
-Route::get('/kesehatan-jiwa', function () {
-    return view('partial/kesehatan-jiwa/kesehatan-jiwa');
-});
+// Route::get('/kesehatan-jiwa', function () {
+//     return view('partial/kesehatan-jiwa/kesehatan-jiwa');
+// });
 
-Route::get('/tambahdata-kesehatan-jiwa', function () {
-    return view('partial/kesehatan-jiwa/tambah-data');
-});
+// Route::get('/create-kesehatan-jiwa', function () {
+//     return view('partial/kesehatan-jiwa/create');
+// });
 
 Route::get('/identitas-pasien', function () {
     return view('partial/identitas-pasien/identitas-pasien');
@@ -74,5 +75,6 @@ Route::get('/edit-surveilans-2', function () {
 
 Route::resource('note', NoteController::class);
 Route::resource('identitas-pasien', IdentitasController::class);
+Route::resource('kesehatan-jiwa', KJiwaController::class);
 Route::get('login', [LoginController::class, 'halamanlogin'])->name('login');
 Route::POST('postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
