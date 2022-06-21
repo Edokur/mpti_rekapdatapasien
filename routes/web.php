@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('partial/home')->name('home');
+    return view('partial/home');
 });
 
 Route::get('/activity', function () {
@@ -37,20 +37,12 @@ Route::get('/ubahpw', function () {
     return view('ubahpw');
 });
 
-// Route::get('/kesehatan-jiwa', function () {
-//     return view('partial/kesehatan-jiwa/kesehatan-jiwa');
-// });
-
-// Route::get('/create-kesehatan-jiwa', function () {
-//     return view('partial/kesehatan-jiwa/create');
-// });
-
 Route::get('/identitas-pasien', function () {
     return view('partial/identitas-pasien/identitas-pasien');
 });
 
 Route::get('/tambahdata-identitas-pasien', function () {
-    return view('partial/identitas-pasien/tambah-data');
+    return view('partial/identitas-pasien/create');
 });
 
 Route::get('/perkesmas', function () {
