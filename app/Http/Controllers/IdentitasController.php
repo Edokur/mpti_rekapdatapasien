@@ -71,39 +71,46 @@ class IdentitasController extends Controller
         // return view('note.show', compact('note'));
     }
 
-    // /**
-    //  * Show the form for editing the specified resource.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function edit(Note $note)
-    // {
-    //     return view('partial.catatan.edit', compact(
-    //         'note'
-    //     ));
-    //     // return view('note.edit', compact('note'));
-    // }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Identitas $identitas)
+    {
+        return view('partial.identitas-pasien.edit', compact(
+            'identitas'
+        ));
+        // return view('note.edit', compact('note'));
+    }
 
-    // /**
-    //  * Update the specified resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function update(Request $request, Note $note)
-    // {
-    //     $request->validate([
-    //         'status' => 'required',
-    //         'judul' => 'required',
-    //         'deskripsi' => 'required',
-    //     ]);
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Identitas $identitas)
+    {
+        $request->validate([
+            'id_pasien' => 'required',
+            'nama' => 'required',
+            'tanggal_lahir' => 'required',
+            'jenis_kelamin' => 'required',
+            'alamat' => 'required',
+            'kepala_keluarga' => 'required',
+            'nik' => 'required',
+            'no_bpjs' => 'required',
+            'pendidikan' => 'required',
+            'pekerjaan' => 'required',
+        ]);
 
-    //     $note->update($request->all());
+        $identitas->update($request->all());
 
-    //     return redirect()->route('note.index');
-    // }
+        return redirect()->route('identitas-pasien.index');
+    }
 
     // /**
     //  * Remove the specified resource from storage.
