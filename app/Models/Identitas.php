@@ -14,11 +14,14 @@ class Identitas extends Model
     protected $fillable = [
         'id',
         'id_pasien',
-        'nama_pasien',
+        'nama',
         'tanggal_lahir',
         'jenis_kelamin',
         'alamat',
         'kepala_keluarga',
+        'nik',
         'no_bpjs',
+        'pendidikan',
+        'pekerjaan',
     ];
 }

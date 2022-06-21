@@ -41,17 +41,20 @@ class IdentitasController extends Controller
     {
         $request->validate([
             'id_pasien' => 'required',
-            'nama_pasien' => 'required',
+            'nama' => 'required',
             'tanggal_lahir' => 'required',
             'jenis_kelamin' => 'required',
             'alamat' => 'required',
             'kepala_keluarga' => 'required',
+            'nik' => 'required',
             'no_bpjs' => 'required',
+            'pendidikan' => 'required',
+            'pekerjaan' => 'required',
         ]);
 
         Identitas::create($request->all());
 
-        // return redirect()->route('identitas-pasien.index');
+        return redirect()->route('identitas-pasien.index');
     }
 
     /**

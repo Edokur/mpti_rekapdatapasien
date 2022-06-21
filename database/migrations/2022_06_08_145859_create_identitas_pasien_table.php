@@ -21,6 +21,7 @@ class CreateIdentitasPasienTable extends Migration
             $table->string('jenis_kelamin');
             $table->text('alamat');
             $table->string('kepala_keluarga');
+            $table->integer('nik');
             $table->integer('no_bpjs');
             $table->string('pendidikan');
             $table->string('pekerjaan');

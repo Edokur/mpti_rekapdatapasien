@@ -80,7 +80,7 @@
                             <tr>
                                 <th class="col-1">1</th>
                                 <th class="col-1">{{ $value->id_pasien}}</th>
-                                <th class="col-1">{{ $value->nama_pasien}}</th>
+                                <th class="col-1">{{ $value->nama}}</th>
                                 <th class="col-1">{{ $value->tanggal_lahir}}</th>
                                 <th class="col-2">{{ $value->jenis_kelamin}}</th>
                                 <th class="col-2">{{ $value->alamat}}</th>
