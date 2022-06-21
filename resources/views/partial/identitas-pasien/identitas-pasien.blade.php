@@ -34,7 +34,7 @@
 
             <div class="row mt-5">
                 <div class="col">
-                    <a href="/tambahdata-identitas-pasien">
+                    <a href="{{ route('identitas-pasien.create') }}">
                         <button class="btn btn-purple text-white border-radius px-5 py-3">
                             + Tambah Data
                         </button>
@@ -62,6 +62,7 @@
 
                 <div class="p-4">
                     <table class="table table-bordered rounded">
+                        @csrf
                         <thead class="bg-grey color-white">
                             <tr>
                                 <th class="col-1">No</th>

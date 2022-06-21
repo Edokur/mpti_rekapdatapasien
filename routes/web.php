@@ -66,7 +66,9 @@ Route::get('/edit-surveilans-2', function () {
 });
 
 Route::resource('note', NoteController::class);
-Route::resource('identitas-pasien', IdentitasController::class);
 Route::resource('kesehatan-jiwa', KJiwaController::class);
 Route::get('login', [LoginController::class, 'halamanlogin'])->name('login');
 Route::POST('postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
+
+# Sendy
+Route::resource('identitas-pasien', IdentitasController::class);

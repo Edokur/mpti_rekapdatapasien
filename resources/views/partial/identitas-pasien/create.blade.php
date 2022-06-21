@@ -22,14 +22,15 @@
                     <p class="m-3 text-dark">Tambah Data</p>
                 </div>
                 <div class="p-2 text-dark border-top">
-                    <form class="ml-3 p-5">
+                    <form class="ml-3 p-5" method="POST" action="{{ route('identitas-pasien.store') }}">
+                        @csrf
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
                                 <input type="number" class="form-control color-neutral-400" id="" placeholder="Ex : #1234">
                             </div>
                         </div>
-                        
+
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
@@ -47,7 +48,7 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
-                                <div class="dropdown"> 
+                                <div class="dropdown">
                                     <select name="status" id="status" class="btn border color-neutral-400 btn-block text-left form-control">
                                         <option selected>-- Pilih Jenis Kelamin --</option>
                                         <option>Laki-laki</option>
@@ -56,7 +57,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
@@ -88,7 +89,7 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
-                                <div class="dropdown"> 
+                                <div class="dropdown">
                                     <select name="status" id="status" class="btn border color-neutral-400 btn-block text-left form-control">
                                         <option selected>-- Pilih Pendidikan --</option>
                                         <option>SD</option>
@@ -109,7 +110,7 @@
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
                             <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</button>
-                            <button type="button" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
+                            <button type="submit" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
                         </div>
                     </form>
                 </div>
