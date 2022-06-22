@@ -34,7 +34,7 @@
 
             <div class="ttable border-line bg-white border-radius mt-4">
                 <div class="p-2 bg-light rounded-bottom-0">
-                    <p class="m-3 text-secondary">Tambah Data</p>
+                    <p class="m-3 text-secondary">Detail Data</p>
                 </div>
                 <div class="p-2 text-dark border-top">
                     <form method="POST" class="px-3" action="{{ route('note.update', $note->id) }}">

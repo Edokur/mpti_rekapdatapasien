@@ -41,7 +41,7 @@
             </div>
             
             <div class="ttable mt-4">
-                    <table class="table border bg-white">
+                    <table class="table border-line bg-white">
                         <thead class=" table-borderless bg-grey">
                             <tr>
                                 <th class="col-1">No</th>
@@ -61,7 +61,7 @@
                                 <td class="col-1">120</td>
                                 <td class="col-1">40</td>
                                 <td class="col-1">180</td>
-                                <td class="col-1"><a href="/tambahdata-surveilans-2">Lihat Detail</a></td>
+                                <td class="col-1"><a href="/detaildata-surveilans-2">Lihat Detail</a></td>
                             </tr>
                         </tbody>
                     </table>

@@ -19,7 +19,7 @@
 
             <div class="ttable border-line bg-white border-radius my-4">
                 <div class="p-2 bg-light rounded-bottom-0">
-                    <p class="m-3 text-dark">Tambah Data</p>
+                    <p class="m-3 text-dark">Edit Data</p>
                 </div>
                 <div class="p-2 text-dark border-top">
                     <form class="ml-5 p-5">

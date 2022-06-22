@@ -20,7 +20,7 @@
             <div class="ttable border-line bg-white border-radius my-4">
                 <div class="p-2 text-dark bg-light rounded-bottom-0">
                     <div class="m-3 row">
-                        <div class="col-6"><label>Detail Data</label></div>
+                        <div class="col-6"><label>Edit Data</label></div>
                     </div>
                 </div>
                 <div class="text-dark border-top">
