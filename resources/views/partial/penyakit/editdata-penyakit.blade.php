@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/style1.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
-    <title>Surveilans - Edit Data</title>
+    <title>Penyakit - Edit Data</title>
 </head>
 
 <body>
@@ -39,11 +39,11 @@
                         <a class="sub-btn"><i class="fa-solid fa-stethoscope"></i>Report Data<i class="fas fa-angle-right dropdown"></i></a>
                         <div class="sub-menu">
                             <a href="#" class="sub-item"><img src="vectors/icon_kesehatan-jiwa.svg" alt="">Kesehatan Jiwa</a>
-                            <a href="/surveilans-1" class="list-group-item list-group-item-action"><img src="vectors/icon_surveilans-ungu.svg" alt="">Surveilans 1</a>
+                            <a href="/surveilans-1" class="sub-item"><img src="vectors/icon_surveilans.svg" alt="">Surveilans 1</a>
                             <a href="#" class="sub-item"><img src="vectors/icon_surveilans.svg" alt="">Surveilans 2</a>
                             <a href="#" class="sub-item"><img src="vectors/icon_perkesmas.svg" alt="">Perkesmas</a>
                             <a href="#" class="sub-item"><img src="vectors/icon_identitas-pasien.svg" alt="">Identitas Pasien</a>
-                            <a href="/penyakit" class="sub-item"><img src="vectors/icon_penyakit.svg" alt="">Penyakit</a>
+                            <a href="/penyakit" class="list-group-item list-group-item-action"><img src="vectors/icon_penyakit-ungu.svg" alt="">Penyakit</a>
                         </div>
                     </div>
                     <hr class="mx-4 border-bottom"></hr>
@@ -85,22 +85,16 @@
                                 <td class="p-4">ID. Register</td>
                                 <td><input type="text" class="td-groupe p-3" placeholder="#12345"></td>
                             </tr>
+                            <tr class="color-neutral-500" >
+                                <td class="p-4">Nama Penyakit</td>
+                                <td><input type="text" class="td-groupe p-3" placeholder="Kolera"></td>
+                            </tr>
                             <tr class="color-neutral-500">
                                 <td class="p-4">Tanggal</td>
                                 <td><input type="date" class="td-groupe p-3"></td>
                             </tr>
-                            
-                            <tr class="color-neutral-500" >
-                                <td class="p-4">Minggu</td>
-                                <td><input type="text" class="td-groupe p-3" placeholder="Kolera"></td>
-                            </tr>
-                            
-                            <tr class="color-neutral-500" >
-                                <td class="p-4">Nama Pasien</td>
-                                <td><input type="text" class="td-groupe p-3" placeholder="Kolera"></td>
-                            </tr>
                             <tr class="color-neutral-500">
-                                <td class="p-4">Diagnosa</td>
+                                <td class="p-4">Deskripsi</td>
                                 <td><input type="text" class="td-groupe p-5" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque impedit quaerat, cum exercitationem repellendus corrupti molestias veritatis tempora rerum sit cupiditate vitae quibusdam quod dolor quas optio aliquam maxime iusto."></td>
                             </tr>
                         </tbody>
