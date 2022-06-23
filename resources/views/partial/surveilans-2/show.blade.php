@@ -21,7 +21,7 @@
                 <div class="p-2 text-dark bg-light rounded-bottom-0">
                     <div class="m-3 row">
                         <div class="col-6"><label>Detail Data</label></div>
-                        <div class="col-6 text-right"><a href="/edit-surveilans-2"><small> Ubah data</small></a></div>
+                        <div class="col-6 text-right"><a href="/edit-surveilans-2"><small class="text-dark"> Ubah data</small></a></div>
                     </div>
                 </div>
                 <div class="text-dark border-top">

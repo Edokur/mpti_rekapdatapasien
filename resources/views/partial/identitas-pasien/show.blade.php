@@ -27,77 +27,76 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control color-neutral-400" id="" value="{{$data->id_pasien}}">
+                                <input type="number" class="form-control color-neutral-400" id="" value="{{$data->id_pasien}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->nama}}">
+                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->nama}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control color-neutral-400" id="" value="{{$data->tanggal_lahir}}">
+                                <input type="date" class="form-control color-neutral-400" id="" value="{{$data->tanggal_lahir}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control color-neutral-400" id="" value="{{$data->jenis_kelamin}}">
+                                <input type="date" class="form-control color-neutral-400" id="" value="{{$data->jenis_kelamin}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control color-neutral-400" id="exampleFormControlTextarea1" rows="3" value="{{$data->alamat}}">{{$data->alamat}}</textarea>
+                                <textarea class="form-control color-neutral-400" id="exampleFormControlTextarea1" rows="3" value="{{$data->alamat}}" disabled>{{$data->alamat}}</textarea>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Kepala Keluarga</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" id="" placeholder="" value="{{$data->kepala_keluarga}}">
+                                <input type="text" class="form-control color-neutral-400" id="" placeholder="" value="{{$data->kepala_keluarga}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">NIK</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control color-neutral-400" id="" value="{{$data->nik}}">
+                                <input type="number" class="form-control color-neutral-400" id="" value="{{$data->nik}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control color-neutral-400" id="" value="{{$data->no_bpjs}}">
+                                <input type="number" class="form-control color-neutral-400" id="" value="{{$data->no_bpjs}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->pendidikan}}">
+                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->pendidikan}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Pekerjaan</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->pekerjaan}}">
+                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->pekerjaan}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
-                            <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</button>
-                            <button type="button" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
+                            <a href="/identitas-pasien" type="button" class="col-8 py-3 btn btn-purple text-white ">Kembali</a>
                         </div>
                     </form>
                 </div>
