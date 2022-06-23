@@ -4,6 +4,7 @@ use App\Http\Controllers\NoteController;
 use App\Http\Controllers\IdentitasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KJiwaController;
+use App\Http\Controllers\PerkesmasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -76,7 +77,7 @@ Route::get('/edit-surveilans-2', function () {
     return view('partial/surveilans-2/edit');
 });
 
-// Route::resource('note', NoteController::class);
+// Route Catatan
 Route::get('/note', [NoteController::class, 'index']);
 Route::get('/note/create', [NoteController::class, 'create']);
 Route::post('/note/insertNote', [NoteController::class, 'insertNote']);
@@ -84,6 +85,12 @@ Route::get('/note/editNote/{id}', [NoteController::class, 'editNote']);
 Route::post('/note/updateNote', [NoteController::class, 'updateNote']);
 Route::get('/note/hapusNote/{id}', [NoteController::class, 'hapusNote']);
 Route::get('/note/detailNote/{id}', [NoteController::class, 'detailNote']);
+
+// Route Perkesmas
+Route::get('/perkesmas', [PerkesmasController::class, 'index']);
+Route::get('/perkesmas/create', [PerkesmasController::class, 'create']);
+Route::post('/perkesmas/insertPerkesmas', [PerkesmasController::class, 'insertPerkesmas']);
+
 
 Route::resource('kesehatan-jiwa', KJiwaController::class);
 Route::get('login', [LoginController::class, 'halamanlogin'])->name('login');

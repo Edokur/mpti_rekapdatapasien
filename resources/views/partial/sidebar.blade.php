@@ -20,8 +20,9 @@
         <div class="menu mt-5">
             <div class="item mx-4"><img src="../../image/icon_problemsolver.png" alt=""></div>
             <div class="item mt-5 ml-4"><a href="/"><img src="../../vectors/icon_dashboard.svg" alt=""></i>Dashboard</a></div>
-            <hr class="mx-4 border-bottom"></hr>
-            
+            <hr class="mx-4 border-bottom">
+            </hr>
+
             <div class="item ml-4">
                 <a class="sub-btn"><i class="fa-solid fa-user"></i>Admin<i class="fas fa-angle-right dropdown"></i></a>
                 <div class="sub-menu">
@@ -40,18 +41,22 @@
                     <a href="/penyakit" class="sub-item"><img src="../../vectors/icon_penyakit.svg" alt="">Penyakit</a>
                 </div>
             </div>
-            <hr class="mx-4 border-bottom"></hr>
+            <hr class="mx-4 border-bottom">
+            </hr>
             <div class="item ml-4"><a href="#"><img src="../../vectors/icon_pengaturan.svg" alt=""></i>Pengaturan</a></div>
             <div class="item ml-4"><a href="#"><img src="../../vectors/icon_keluar.svg" alt="">Keluar</a></div>
         </div>
     </div>
 
+    <script src="lib/jquery-3.5.1/jquery.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function() {
             // 
-            $('.sub-btn').click(function(){
+            $('.sub-btn').click(function() {
                 $(this).next('.sub-menu').slideToggle();
             });
         });
     </script>
+    <script src="lib/js/scripts.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> --}}
 </body>

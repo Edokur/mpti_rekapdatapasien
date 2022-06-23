@@ -22,18 +22,28 @@
                     <p class="m-3 text-dark">Tambah Data</p>
                 </div>
                 <div class="p-2 text-dark border-top">
-                    <form class="ml-5 p-5">
+                    <form class="ml-5 p-5" method="POST" action="insertPerkesmas">
+                        @csrf
+                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Tanggal</label>
                             <div class="col-sm-8">
                                 <input type="date" class="form-control" id="" disabled>
                             </div>
                         </div>
-                        
+
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="">
+                                <div class="dropdown">
+                                    <select name="nama_pasien" id="nama_pasien" class="btn border btn-block text-left form-control">
+                                        <option value="" selected>-- Pilih Pasien --</option>
+                                        @foreach($identitas_pasien as $key)
+                                        <option value="{{ $key->id }}">{{ $key->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <!-- <input type="text" class="form-control" id="nama_pasien"> -->
                             </div>
                         </div>
 
@@ -47,7 +57,7 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
-                                <div class="dropdown"> 
+                                <div class="dropdown">
                                     <select name="status" id="status" class="btn border btn-block text-left form-control" disabled>
                                         <option> </option>
                                         <option>Laki-laki</option>
@@ -56,7 +66,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
@@ -88,7 +98,7 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
-                                <div class="dropdown"> 
+                                <div class="dropdown">
                                     <select name="status" id="status" class="btn border btn-block text-left form-control" disabled>
                                         <option> </option>
                                         <option>SD</option>
@@ -117,19 +127,32 @@
         </div>
     </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script> -->
+    <script src="jquery.min.js"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <script src="js/script.js"></script>
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-    -->
 </body>
+<script>
+    $(document).ready(function() {
+        $("#nama_pasien").select2({
+            ajax: {
+                url: site_url + 'PuskesmasController/get_pasien',
+                type: "post",
+                dataType: 'json',
+                data: function(params) {
+                    return {
+                        searchTerm: params.term
+                    };
+                },
+                processResults: function(response) {
+                    return {
+                        results: response
+                    };
+                },
+            }
+        });
+    });
+</script>
 
 </html>
