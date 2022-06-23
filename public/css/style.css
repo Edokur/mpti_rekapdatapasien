@@ -38,10 +38,12 @@ body{
 
 .side-bar::-webkit-scrollbar {
     width: 10px;
+    background-color: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: grey;
+    background: #4e2de0;
+    border: 1px solid #f6f6f6;
     border-radius: 12px;
 }
 
@@ -277,10 +279,6 @@ td{
 
 .card-body div.inline{
     left: 160px;
-}
-
-.title{
-    position: relative;
 }
 
 .text-title{
