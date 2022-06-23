@@ -22,12 +22,13 @@
                     <p class="m-3 text-dark">Tambah Data</p>
                 </div>
                 <div class="p-2 text-dark bg-white border-top">
-                    <form class="ml-3" method="POST" action="{{ route('note.store') }}">
+                    <form class="ml-3" method="POST" action="insertNote">
                         @csrf
+                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Status</label>
                             <div class="col-sm-8">
-                                <div class="dropdown bg-grey"> 
+                                <div class="dropdown bg-grey">
                                     <select name="status" id="status" class="btn border btn-block text-left color-neutral-400 px-4">
                                         <option disabled selected>Pilih Status</option>
                                         <option value="BIASA">Biasa</option>
@@ -51,7 +52,7 @@
                                 <textarea class="form-control color-neutral-400 bg-grey pl-4" id="exampleFormControlTextarea1" rows="3" name="deskripsi"></textarea>
                             </div>
                         </div>
-                        
+
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
                             <button type="reset" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Reset</button>

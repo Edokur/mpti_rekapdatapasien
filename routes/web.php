@@ -76,7 +76,15 @@ Route::get('/edit-surveilans-2', function () {
     return view('partial/surveilans-2/edit');
 });
 
-Route::resource('note', NoteController::class);
+// Route::resource('note', NoteController::class);
+Route::get('/note', [NoteController::class, 'index']);
+Route::get('/note/create', [NoteController::class, 'create']);
+Route::post('/note/insertNote', [NoteController::class, 'insertNote']);
+Route::get('/note/editNote/{id}', [NoteController::class, 'editNote']);
+Route::post('/note/updateNote', [NoteController::class, 'updateNote']);
+Route::get('/note/hapusNote/{id}', [NoteController::class, 'hapusNote']);
+Route::get('/note/detailNote/{id}', [NoteController::class, 'detailNote']);
+
 Route::resource('kesehatan-jiwa', KJiwaController::class);
 Route::get('login', [LoginController::class, 'halamanlogin'])->name('login');
 Route::POST('postlogin', [LoginController::class, 'postlogin'])->name('postlogin');

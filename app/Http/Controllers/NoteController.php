@@ -16,10 +16,8 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $data = Note::all();
-        return view('partial.catatan.note', compact(
-            'data'
-        ));
+        $data = DB::table('note')->paginate(10);
+        return view('partial.catatan.note', ['data' => $data]);
     }
 
     /**
@@ -38,17 +36,18 @@ class NoteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function insertNote(Request $post)
     {
-        $request->validate([
+        $validatedData = $post->validate([
             'status' => 'required',
             'judul' => 'required',
             'deskripsi' => 'required',
         ]);
 
-        Note::create($request->all());
+        Note::create($validatedData);
 
-        return redirect()->route('note.index');
+        return redirect('/note')->with('success', 'Data baru berhasil ditambahkan!');;
+        // return redirect()->route('note.index');
     }
 
     /**
@@ -57,11 +56,13 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Note $note)
+    public function detailNote($id_note)
     {
-        return view('partial.catatan.show', compact(
-            'note'
-        ));
+        $data = DB::table('note')->where('id', $id_note)->first();
+        return view('partial.catatan.show', ['data' => $data]);
+        // return view('partial.catatan.show', compact(
+        //     'note'
+        // ));
         // return view('note.show', compact('note'));
     }
 
@@ -71,11 +72,13 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Note $note)
+    public function editNote($id_note)
     {
-        return view('partial.catatan.edit', compact(
-            'note'
-        ));
+        $data = DB::table('note')->where('id', $id_note)->first();
+        return view('partial.catatan.edit', ['data' => $data]);
+        // return view('partial.catatan.edit', compact(
+        //     'note'
+        // ));
         // return view('note.edit', compact('note'));
     }
 
@@ -86,17 +89,16 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Note $note)
+    public function updateNote(Request $post)
     {
-        $request->validate([
-            'status' => 'required',
-            'judul' => 'required',
-            'deskripsi' => 'required',
+        DB::table('note')->where('id', $post->id)->update([
+            'status' => $post->status,
+            'judul' => $post->judul,
+            'deskripsi' => $post->deskripsi,
         ]);
+        return redirect('/note')->with('success', 'Data berhasil diupdate!');;
 
-        $note->update($request->all());
-
-        return redirect()->route('note.index');
+        // return redirect()->route('note.index')->with('succes', 'Catatan Berhasil di Update');
     }
 
     /**
@@ -105,11 +107,10 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Note $note)
+    public function hapusNote($id_note)
     {
-        $note->delete();
+        $note = DB::table('note')->where('id', $id_note)->delete();
 
-        // return redirect()->route('sisw.index')->with('succes', 'Siswa Berhasil di Hapus');
-        return redirect()->route('note.index')->with('succes', 'Siswa Berhasil di Hapus');
+        return redirect('/note')->with('success', 'Data berhasil dihapus!');;
     }
 }

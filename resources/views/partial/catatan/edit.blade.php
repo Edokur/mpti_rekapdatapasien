@@ -22,15 +22,15 @@
                     <p class="m-3 text-dark">Edit Data</p>
                 </div>
                 <div class="p-2 bg-white border-top text-dark">
-                    <form method="POST" class="px-3" action="{{ route('note.update', $note->id) }}">
-                        @csrf
-                        @method('PUT')
+                    <form method="POST" class="px-3" action="/note/updateNote/">
+                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                        <input type="hidden" id="id" name="id" value="{{ $data->id }}" class="form-control select2bs4">
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Status</label>
                             <div class="col-sm-8">
-                                <div class="dropdown"> 
+                                <div class="dropdown">
                                     <select name="status" id="status" class="btn border btn-block text-left">
-                                        <option disabled selected>{{$note->status}}</option>
+                                        <option disabled selected>{{$data->status}}</option>
                                         <option value="BIASA">Biasa</option>
                                         <option value="MENENGAH">Menengah</option>
                                         <option value="PENTING">Penting</option>
@@ -42,14 +42,14 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Judul</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="judul" value="{{$note->judul}}">
+                                <input type="text" class="form-control" name="judul" value="{{$data->judul}}">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Deskripsi</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="deskripsi">{{$note->deskripsi}}</textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="deskripsi">{{$data->deskripsi}}</textarea>
                             </div>
                         </div>
 

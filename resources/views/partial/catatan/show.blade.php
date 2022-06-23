@@ -31,20 +31,23 @@
                 <h4 class="text-title color-black lead font-bold">Catatan</h4>
                 <h1 class="color-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor adipiscing in consectetur sem ut netus scelerisque. Viverra urna vitae viverra habitant a magna vitae, fermentum morbi. Magna magna non ridiculus vitae viverra feugiat morbi sed.</h1>
             </div>
-
+            <div class="row mt-5">
+                <div class="col">
+                    <a href="/note" class="btn btn-purple text-white border-radius px-5 py-3">Kembali</a>
+                </div>
+            </div>
             <div class="ttable border-line bg-white border-radius mt-4">
                 <div class="p-2 bg-light rounded-bottom-0">
                     <p class="m-3 text-secondary">Detail Data</p>
                 </div>
                 <div class="p-2 text-dark border-top">
-                    <form method="POST" class="px-3" action="{{ route('note.update', $note->id) }}">
+                    <form method="POST" class="px-3" action="/note">
                         @csrf
-                        @method('PUT')
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Status</label>
                             <div class="col-sm-8">
-                                <div class="dropdown"> 
-                                    <input type="text" class="form-control" name="judul" value="{{$note->status}}" disabled>
+                                <div class="dropdown">
+                                    <input type="text" class="form-control" name="judul" value="{{$data->status}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -52,35 +55,20 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Judul</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" value="{{$note->judul}}" disabled>
+                                <input type="text" class="form-control" value="{{$data->judul}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Deskripsi</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" value="{{$note->deskripsi}}" disabled>
+                                <input type="text" class="form-control" value="{{$data->deskripsi}}" disabled>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
-        <tr>
-            <th>Status</th>
-            <th>Judul</th>
-            <th>Deskripsi</th>
-        </tr>
-        <br>
-
-        <tr>
-            <td>{{ $note->status}}</td>
-            <td>{{ $note->judul}}</td>
-            <td>{{ $note->deskripsi}}</td>
-        </tr>
-
-    </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
