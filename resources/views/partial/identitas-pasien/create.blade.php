@@ -22,8 +22,9 @@
                     <p class="m-3 text-dark">Tambah Data</p>
                 </div>
                 <div class="p-2 text-dark border-top">
-                    <form class="ml-3 p-5" method="POST" action="{{ route('identitas-pasien.store') }}">
+                    <form class="ml-3 p-5" method="POST" action="insertIdentitas">
                         @csrf
+                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">

@@ -90,4 +90,12 @@ Route::get('login', [LoginController::class, 'halamanlogin'])->name('login');
 Route::POST('postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 
 # Sendy
-Route::resource('identitas-pasien', IdentitasController::class);
+// Route::resource('identitas-pasien', IdentitasController::class);
+
+Route::get('/identitas-pasien', [IdentitasController::class, 'index']);
+Route::get('/identitas-pasien/create', [IdentitasController::class, 'create']);
+Route::post('/identitas-pasien/insertIdentitas', [IdentitasController::class, 'insertIdentitas']);
+Route::get('/identitas-pasien/editIdentitas/{id}', [IdentitasController::class, 'editIdentitas']);
+Route::post('/identitas-pasien/updateIdentitas', [IdentitasController::class, 'updateIdentitas']);
+Route::get('/identitas-pasien/hapusIdentitas/{id}', [IdentitasController::class, 'hapusIdentitas']);
+Route::get('/identitas-pasien/detailIdentitas/{id}', [IdentitasController::class, 'detailIdentitas']);
