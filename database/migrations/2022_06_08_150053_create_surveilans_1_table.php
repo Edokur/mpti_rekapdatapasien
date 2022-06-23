@@ -15,8 +15,9 @@ class CreateSurveilans1Table extends Migration
     {
         Schema::create('surveilans_1', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_pasien');
+            $table->string('id_pasien');
             $table->string('nama_pasien');
+            $table->integer('minggu');
             $table->integer('umur');
             $table->date('tanggal');
             $table->text('diagnosa');

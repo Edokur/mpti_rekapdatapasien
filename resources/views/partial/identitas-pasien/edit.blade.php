@@ -22,30 +22,25 @@
                     <p class="m-3 text-dark">Edit Data</p>
                 </div>
                 <div class="p-2 text-dark border-top">
-                    <?php
-                    var_dump($identitas['id']);
-                    die;
-                    ?>
-                    <form class="ml-3 p-5" method="POST" action="{{ route('identitas-pasien.update', $identitas->id) }}">
-                        @csrf
-                        @method('PUT')
+                    <form class="ml-3 p-5" method="POST" action="/identitas-pasien/updateIdentitas">
+                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                        <input type="hidden" id="id" name="id" value="{{ $data->id }}" class="form-control select2bs4">
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" name="id_pasien" id="" placeholder="{{$identitas->id_pasien}}">
-                            </div>
-                            <div class="form-group row py-2">
-                                <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control color-neutral-400" name="nama" id="" placeholder="{{$identitas->nama}}">
-                                </div>
+                                <input type="text" class="form-control color-neutral-400" name="id_pasien" id="" value="{{$data->id_pasien}}">
                             </div>
                         </div>
-
+                        <div class="form-group row py-2">
+                            <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control color-neutral-400" name="nama" id="" value="{{$data->nama}}">
+                            </div>
+                        </div>
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control color-neutral-400" name="tanggal_lahir" id="" placeholder="{{$identitas->tanggal_lahir}}">
+                                <input type="date" class="form-control color-neutral-400" name="tanggal_lahir" id="" value="{{$data->tanggal_lahir}}">
                             </div>
                         </div>
 
@@ -54,7 +49,7 @@
                             <div class="col-sm-8">
                                 <div class="dropdown">
                                     <select name="jenis_kelamin" id="status" class="btn border color-neutral-400 btn-block text-left form-control">
-                                        <option selected>{{$identitas->jenis_kelamin}}</option>
+                                        <option selected>{{$data->jenis_kelamin}}</option>
                                         <option>Laki-laki</option>
                                         <option>Perempuan</option>
                                     </select>
@@ -65,28 +60,28 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control color-neutral-400" name="alamat" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control color-neutral-400" name="alamat" id="exampleFormControlTextarea1" rows="3" value="{{$data->alamat}}">{{$data->alamat}}</textarea>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Kepala Keluarga</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" name="kepala_keluarga" id="" placeholder="{{$identitas->alamat}}">
+                                <input type="text" class="form-control color-neutral-400" name="kepala_keluarga" id="" value="{{$data->kepala_keluarga}}">
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">NIK</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control color-neutral-400" name="nik" id="" placeholder="{{$identitas->nik}}">
+                                <input type="number" class="form-control color-neutral-400" name="nik" id="" value="{{$data->nik}}">
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control color-neutral-400" name="no_bpjs" id="" placeholder="{{$identitas->no_bpjs}}">
+                                <input type="number" class="form-control color-neutral-400" name="no_bpjs" id="" value="{{$data->no_bpjs}}">
                             </div>
                         </div>
 
@@ -95,7 +90,7 @@
                             <div class="col-sm-8">
                                 <div class="dropdown">
                                     <select name="pendidikan" id="pendidikan" class="btn border color-neutral-400 btn-block text-left form-control">
-                                        <option selected>{{$identitas->pendidikan}}</option>
+                                        <option selected>{{$data->pendidikan}}</option>
                                         <option>SD</option>
                                         <option>SMP</option>
                                         <option>SMA</option>
@@ -107,7 +102,7 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Pekerjaan</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" name="pekerjaan" id="" placeholder="{{$identitas->pekerjaan}}">
+                                <input type="text" class="form-control color-neutral-400" name="pekerjaan" id="" value="{{$data->pekerjaan}}">
                             </div>
                         </div>
 

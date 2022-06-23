@@ -43,7 +43,7 @@
             </div>
             <hr class="mx-4 border-bottom">
             </hr>
-            <div class="item ml-4"><a href="#"><img src="../../vectors/icon_pengaturan.svg" alt=""></i>Pengaturan</a></div>
+            <div class="item ml-4"><a href="/settings"><img src="../../vectors/icon_pengaturan.svg" alt=""></i>Pengaturan</a></div>
             <div class="item ml-4"><a href="#"><img src="../../vectors/icon_keluar.svg" alt="">Keluar</a></div>
         </div>
     </div>

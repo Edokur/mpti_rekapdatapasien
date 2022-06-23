@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\IdentitasController;
+use App\Http\Controllers\Surveilans1Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KJiwaController;
 use App\Http\Controllers\PerkesmasController;
@@ -64,6 +65,19 @@ Route::get('/show-perkesmas', function () {
     return view('partial/perkesmas/show');
 });
 
+// Surveilans 1
+Route::get('/surveilans-1', function () {
+    return view('partial/surveilans-1/surveilans-1');
+});
+
+Route::get('/detaildata-surveilans-1', function () {
+    return view('partial/surveilans-1/show');
+});
+
+Route::get('/edit-surveilans-1', function () {
+    return view('partial/surveilans-1/edit');
+});
+
 // Surveilans 2
 Route::get('/surveilans-2', function () {
     return view('partial/surveilans-2/surveilans-2');
@@ -96,5 +110,22 @@ Route::resource('kesehatan-jiwa', KJiwaController::class);
 Route::get('login', [LoginController::class, 'halamanlogin'])->name('login');
 Route::POST('postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 
-# Sendy
-Route::resource('identitas-pasien', IdentitasController::class);
+//  Sendy
+// Route::resource('identitas-pasien', IdentitasController::class);
+// Identitas Pasien
+Route::get('/identitas-pasien', [IdentitasController::class, 'index']);
+Route::get('/identitas-pasien/create', [IdentitasController::class, 'create']);
+Route::post('/identitas-pasien/insertIdentitas', [IdentitasController::class, 'insertIdentitas']);
+Route::get('/identitas-pasien/editIdentitas/{id}', [IdentitasController::class, 'editIdentitas']);
+Route::post('/identitas-pasien/updateIdentitas', [IdentitasController::class, 'updateIdentitas']);
+Route::get('/identitas-pasien/hapusIdentitas/{id}', [IdentitasController::class, 'hapusIdentitas']);
+Route::get('/identitas-pasien/detailIdentitas/{id}', [IdentitasController::class, 'detailIdentitas']);
+
+// Surveilans 1
+Route::get('/surveilans-1', [Surveilans1Controller::class, 'index']);
+Route::get('/surveilans-1/create', [Surveilans1Controller::class, 'create']);
+Route::post('/surveilans-1/insertSur', [Surveilans1Controller::class, 'insertSur']);
+Route::get('/surveilans-1/editSurveilans1/{id}', [Surveilans1Controller::class, 'editSurveilans1']);
+Route::post('/surveilans-1/updateSurveilans1', [Surveilans1Controller::class, 'updateSurveilans1']);
+Route::get('/surveilans-1/hapusSurveilans1/{id}', [Surveilans1Controller::class, 'hapusSurveilans1']);
+Route::get('/surveilans-1/detailSurveilans1/{id}', [Surveilans1Controller::class, 'detailSurveilans1']);
