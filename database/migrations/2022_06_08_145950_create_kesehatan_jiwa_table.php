@@ -14,25 +14,26 @@ class CreateKesehatanJiwaTable extends Migration
     public function up()
     {
         Schema::create('kesehatan_jiwa', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_kesehatan_jiwa');
             $table->string('id_register');
-            $table->integer('id_pasien');
-            $table->string('nama');
-            $table->integer('nik');
+            $table->integer('pasien_id');
+            $table->string('nama_pasien');
+            $table->string('nik', 16);
             $table->date('tanggal_lahir');
             $table->text('alamat');
             $table->string('jenis_kelamin');
-            $table->integer('no_bpjs');
+            $table->string('no_bpjs', 15);
             $table->string('kepala_keluarga');
             $table->string('pendidikan');
             $table->string('pekerjaan');
-            $table->text('diagnosa');
-            $table->text('terapi');
             $table->date('tanggal_kunjungan');
             $table->integer('kunjungan');
             $table->text('keterangan');
+            // $table->text('diagnosa');
+            // $table->text('terapi');
             $table->timestamps();
-            // $table->foreign('id_pasien')->references('id')->on('identitas_pasien');
+
+            $table->foreign('pasien_id')->references('id_pasien')->on('identitas_pasien');
         });
     }
 

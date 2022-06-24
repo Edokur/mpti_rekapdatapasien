@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNoteTable extends Migration
+class CreateLogIdentitasPasienTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateNoteTable extends Migration
      */
     public function up()
     {
-        Schema::create('note', function (Blueprint $table) {
-            $table->increments('id_note');
-            $table->string('status');
-            $table->string('judul', 100);
+        Schema::create('log_identitas_pasien', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('identitas_pasien_id');
             $table->text('deskripsi');
             $table->timestamps();
+
+            $table->foreign('identitas_pasien_id')->references('id_pasien')->on('identitas_pasien');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateNoteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('note');
+        Schema::dropIfExists('log_identitas_pasien');
     }
 }

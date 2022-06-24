@@ -14,15 +14,15 @@ class CreatePerkesmasTable extends Migration
     public function up()
     {
         Schema::create('perkesmas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_perkesmas');
             $table->string('id_register');
-            $table->integer('id_pasien');
+            $table->integer('pasien_id');
             $table->string('nama_pasien');
-            $table->integer('nik');
+            $table->string('nik', 16);
             $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
             $table->text('alamat');
-            $table->integer('no_bpjs');
+            $table->string('no_bpjs', 15);
             $table->string('kepala_keluarga');
             $table->string('pendidikan');
             $table->date('tanggal_kunjungan');
@@ -32,7 +32,8 @@ class CreatePerkesmasTable extends Migration
             $table->text('implementasi_keperawatan');
             $table->text('keterangan');
             $table->timestamps();
-            // $table->foreign('id_pasien')->references('id')->on('identitas_pasien');
+
+            $table->foreign('pasien_id')->references('id_pasien')->on('identitas_pasien');
         });
     }
 

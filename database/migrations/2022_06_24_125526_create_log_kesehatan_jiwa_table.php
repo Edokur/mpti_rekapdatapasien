@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActivityTable extends Migration
+class CreateLogKesehatanJiwaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateActivityTable extends Migration
      */
     public function up()
     {
-        Schema::create('activity', function (Blueprint $table) {
+        Schema::create('log_kesehatan_jiwa', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('tanggal');
-            $table->string('nama');
-            $table->text('jenis_data');
+            $table->integer('kesehatan_jiwa_id');
+            $table->text('deskripsi');
             $table->timestamps();
+
+            $table->foreign('kesehatan_jiwa_id')->references('id_kesehatan_jiwa')->on('kesehatan_jiwa');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateActivityTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activity');
+        Schema::dropIfExists('log_kesehatan_jiwa');
     }
 }

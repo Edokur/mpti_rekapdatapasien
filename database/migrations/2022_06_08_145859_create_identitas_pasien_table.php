@@ -14,15 +14,14 @@ class CreateIdentitasPasienTable extends Migration
     public function up()
     {
         Schema::create('identitas_pasien', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('id_pasien');
-            $table->string('nama');
+            $table->increments('id_pasien');
+            $table->string('nama_pasien');
+            $table->string('nik', 16);
             $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
             $table->text('alamat');
             $table->string('kepala_keluarga');
-            $table->integer('nik');
-            $table->integer('no_bpjs');
+            $table->string('no_bpjs', 15);
             $table->string('pendidikan');
             $table->string('pekerjaan');
             $table->timestamps();

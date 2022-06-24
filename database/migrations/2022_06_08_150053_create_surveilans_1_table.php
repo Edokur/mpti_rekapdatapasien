@@ -14,15 +14,15 @@ class CreateSurveilans1Table extends Migration
     public function up()
     {
         Schema::create('surveilans_1', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('id_pasien');
+            $table->increments('id_surveilens1');
+            $table->integer('pasien_id');
             $table->string('nama_pasien');
-            $table->integer('minggu');
-            $table->integer('umur');
+            $table->string('umur', 10);
             $table->date('tanggal');
             $table->text('diagnosa');
             $table->timestamps();
-            // $table->foreign('id_pasien')->references('id')->on('identitas_pasien');
+
+            $table->foreign('pasien_id')->references('id_pasien')->on('identitas_pasien');
         });
     }
 

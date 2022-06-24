@@ -14,12 +14,15 @@ class CreateSurveilans2Table extends Migration
     public function up()
     {
         Schema::create('surveilans_2', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_sureilens2');
+            $table->integer('identitas_penyakit_id', 20)->nullable();
             $table->string('nama_penyakit');
-            $table->integer('laki_laki');
-            $table->integer('perempuan');
-            $table->integer('total_kunjungan');
+            $table->string('pria', 10);
+            $table->string('wanita', 10);
+            $table->string('total_kunjungan', 10);
             $table->timestamps();
+
+            $table->foreign('identitas_penyakit_id')->references('id_identitas_penyakit')->on('identitas_penyakit');
         });
     }
 
