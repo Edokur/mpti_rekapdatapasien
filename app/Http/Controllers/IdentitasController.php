@@ -44,7 +44,7 @@ class IdentitasController extends Controller
     {
         $valididatedData = $post->validate([
             'id_pasien' => 'required',
-            'nama' => 'required',
+            'nama_pasien' => 'required',
             'tanggal_lahir' => 'required',
             'jenis_kelamin' => 'required',
             'alamat' => 'required',
@@ -68,7 +68,7 @@ class IdentitasController extends Controller
      */
     public function detailIdentitas($id_identitas)
     {
-        $data = DB::table('identitas_pasien')->where('id', $id_identitas)->first();
+        $data = DB::table('identitas_pasien')->where('id_pasien', $id_identitas)->first();
         return view('partial.identitas-pasien.show', ['data' => $data]);
         // return view('partial.identitas.show', compact(
         //     'identitas'
@@ -84,7 +84,7 @@ class IdentitasController extends Controller
      */
     public function editIdentitas($id_identitas)
     {
-        $data = DB::table('identitas_pasien')->where('id', $id_identitas)->first();
+        $data = DB::table('identitas_pasien')->where('id_pasien', $id_identitas)->first();
         return view('partial.identitas-pasien.edit', ['data' => $data]);
         // return view('partial.identitas-pasien.edit', compact(
         //     'identitas'
@@ -101,10 +101,9 @@ class IdentitasController extends Controller
      */
     public function updateIdentitas(Request $post)
     {
-        DB::table('identitas_pasien')->where('id', $post->id)->update([
-            'id' => $post->id,
+        DB::table('identitas_pasien')->where('id_pasien', $post->id_pasien)->update([
             'id_pasien' => $post->id_pasien,
-            'nama' => $post->nama,
+            'nama_pasien' => $post->nama_pasien,
             'tanggal_lahir' => $post->tanggal_lahir,
             'jenis_kelamin' => $post->jenis_kelamin,
             'alamat' => $post->alamat,
@@ -129,7 +128,7 @@ class IdentitasController extends Controller
      */
     public function hapusIdentitas($id_identitas)
     {
-        $identitas = DB::table('identitas_pasien')->where('id', $id_identitas)->delete();
+        $identitas = DB::table('identitas_pasien')->where('id_pasien', $id_identitas)->delete();
 
         return redirect('/identitas-pasien')->with('success', 'Data berhasil dihapus!');;
     }

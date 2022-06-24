@@ -35,7 +35,7 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" name="nama" id="" placeholder="Ex : Julian">
+                                <input type="text" class="form-control color-neutral-400" name="nama_pasien" id="" placeholder="Ex : Julian">
                             </div>
                         </div>
 
