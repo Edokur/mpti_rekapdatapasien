@@ -14,9 +14,11 @@ class CreateKesehatanJiwaTable extends Migration
     public function up()
     {
         Schema::create('kesehatan_jiwa', function (Blueprint $table) {
+
+            $table->engine = 'InnoDB';
             $table->increments('id_kesehatan_jiwa');
             $table->string('id_register');
-            $table->integer('pasien_id');
+            $table->integer('pasien_id')->unsigned();
             $table->string('nama_pasien');
             $table->string('nik', 16);
             $table->date('tanggal_lahir');

@@ -15,7 +15,7 @@ class CreateSurveilans2Table extends Migration
     {
         Schema::create('surveilans_2', function (Blueprint $table) {
             $table->increments('id_sureilens2');
-            $table->integer('identitas_penyakit_id', 20)->nullable();
+            $table->integer('identitas_penyakit_id')->unsigned();
             $table->string('nama_penyakit');
             $table->string('pria', 10);
             $table->string('wanita', 10);

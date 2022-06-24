@@ -15,7 +15,7 @@ class CreateSurveilans1Table extends Migration
     {
         Schema::create('surveilans_1', function (Blueprint $table) {
             $table->increments('id_surveilens1');
-            $table->integer('pasien_id');
+            $table->integer('pasien_id')->unsigned();
             $table->string('nama_pasien');
             $table->string('umur', 10);
             $table->date('tanggal');

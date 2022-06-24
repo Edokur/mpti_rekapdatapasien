@@ -15,7 +15,7 @@ class CreateLogPerkesmasTable extends Migration
     {
         Schema::create('log_perkesmas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('perkesmas_id');
+            $table->integer('perkesmas_id')->unsigned();
             $table->text('deskripsi');
             $table->timestamps();
 

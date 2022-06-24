@@ -15,7 +15,7 @@ class CreateLogKesehatanJiwaTable extends Migration
     {
         Schema::create('log_kesehatan_jiwa', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('kesehatan_jiwa_id');
+            $table->integer('kesehatan_jiwa_id')->unsigned();
             $table->text('deskripsi');
             $table->timestamps();
 

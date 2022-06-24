@@ -15,7 +15,7 @@ class CreateLogIdentitasPasienTable extends Migration
     {
         Schema::create('log_identitas_pasien', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('identitas_pasien_id');
+            $table->integer('identitas_pasien_id')->unsigned();
             $table->text('deskripsi');
             $table->timestamps();
 
