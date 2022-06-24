@@ -40,14 +40,14 @@
                         </button>
                     </a>
                 </div>
-                <div class="col text-right">
+                <div class="col-sm-6 col-md-8 text-right">
                     <button class="btn btn-outline-success border-radius px-5 py-3">
                         <i class="fa-solid fa-print"></i> Cetak Data
                     </button>
                 </div>
             </div>
 
-            <div class="ttable border-line bg-white border-radius mt-4">
+            <div class="col col-md-12 ttable border-line bg-white border-radius mt-4">
                 <div class="p-4">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">

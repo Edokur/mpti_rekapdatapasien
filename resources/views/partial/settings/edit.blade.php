@@ -13,7 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Mulish' rel='stylesheet'>
-    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <title>Setting</title>
@@ -22,51 +22,50 @@
 <body>
     <div class="container">
         <div class="left">
-            <div class="side-bar m-3">
-                <div class="menu mt-5">
-                    <div class="item mx-4"><img src="image/icon_problemsolver.png" alt=""></div>
-                    <div class="item mt-5 ml-4"><a href="#"><img src="vectors/icon_dashboard.svg" alt=""></i>Dashboard</a></div>
-                    <hr class="mx-4 border-bottom"></hr>
-                    
-                    <div class="item ml-4">
-                        <a class="sub-btn"><i class="fa-solid fa-user"></i>Admin<i class="fas fa-angle-right dropdown"></i></a>
-                        <div class="sub-menu">
-                            <a href="#" class="sub-item"><img src="vectors/icon_catatan.svg" alt="">Catatan</a>
-                            <a href="#" class="sub-item"><img src="vectors/icon_aktivitas.svg" alt="">Aktivitas</a>
-                        </div>
-                    </div>
-                    <div class="item ml-4">
-                        <a class="sub-btn"><i class="fa-solid fa-stethoscope"></i>Report Data<i class="fas fa-angle-right dropdown"></i></a>
-                        <div class="sub-menu">
-                            <a href="#" class="sub-item"><img src="vectors/icon_kesehatan-jiwa.svg" alt="">Kesehatan Jiwa</a>
-                            <a href="/surveilans-1" class="sub-item"><img src="vectors/icon_surveilans.svg" alt="">Surveilans 1</a>
-                            <a href="#" class="sub-item"><img src="vectors/icon_surveilans.svg" alt="">Surveilans 2</a>
-                            <a href="#" class="sub-item"><img src="vectors/icon_perkesmas.svg" alt="">Perkesmas</a>
-                            <a href="#" class="sub-item"><img src="vectors/icon_identitas-pasien.svg" alt="">Identitas Pasien</a>
-                            <a href="/penyakit" class="sub-item"><img src="vectors/icon_penyakit.svg" alt="">Penyakit</a>
-                        </div>
-                    </div>
-                    <hr class="mx-4 border-bottom"></hr>
-                    <div class="item ml-4">
-                        <a href="/setting" class="list-group-item list-group-item-action">
-                        <img src="vectors/icon_pengaturan-ungu.svg" ></i>Pengaturan</a>
-                    </div>
-                    <div class="item ml-4"><a href="#"><img src="vectors/icon_keluar.svg" alt="">Keluar</a></div>
-                </div>
-            </div>
-
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    // 
-                    $('.sub-btn').click(function(){
-                        $(this).next('.sub-menu').slideToggle();
-                    });
-                });
-            </script>
+            @include('partial/sidebar') 
         </div>
 
-        <div class="l-right mt-4">
-            <div class="content">
+        <div class="l-right mt-3 border">
+            <div class="border-line bg-white border-radius">
+                <div class="p-2 bg-light border-bottom rounded-bottom-0">
+                    <div class="m-3 row">
+                        <p class="col-6 text-dark">General Account Settings</p>
+                    </div>
+                </div>
+                <div class="text-dark p-5">
+                    <div class="ml-2 form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Nama</label>
+                        <div class="col-sm-8 mt-2">
+                            <p>Karoni Marliani</p>
+                        </div>
+                    </div>
+                    <div class="ml-2 form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Username</label>
+                        <div class="col-sm-8 mt-2">
+                            <p>Admin123</p>
+                        </div>
+                    </div>
+                    <div class="ml-2 form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-8 mt-2">
+                            <p>Admin123@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="ml-2 form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Alamat</label>
+                        <div class="col-sm-8 mt-2">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At placerat pellentesque fusce felis at ultricies.</p>
+                        </div>
+                    </div>
+                    <div class="ml-2 form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Kontak</label>
+                        <div class="col-sm-8 mt-2">
+                            <p>081234567890</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <!-- <div class="content">
                 <div class="content-body border">
                     <table class="table table-borderless">
                         <thead class="color-neutral-500 bg-neutral-100">
@@ -109,7 +108,7 @@
                         </div>
                     </div>   
                 </div>
-            </div> 
+            </div>  -->
         </div>
     </div>        
 </body>

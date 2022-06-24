@@ -36,21 +36,30 @@ body{
     left: 1044px;
 }
 
+/* Settings */
+div div div a#toggle-dropdown{
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+div div div div#form-password{
+    display: none;
+}
+div div #item #toggle-dropdown{
+    cursor: pointer;
+}
+div div #item a:hover{
+    transform: 0.3s ease;
+}
+
+/* sidebar */
 .side-bar::-webkit-scrollbar {
     width: 10px;
     background-color: #ffffff;
 }
-
 ::-webkit-scrollbar-thumb {
     background: #4e2de0;
     border: 1px solid #f6f6f6;
     border-radius: 12px;
-}
-
-/* sidebar */
-
-.border-bottom{
-    border : 5px 0px 0px 0px solid #ffffff;
 }
 .side-bar{
     background-color: #6145E3;
