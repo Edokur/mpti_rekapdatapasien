@@ -24,7 +24,7 @@
                 <div class="p-2 bg-white border-top text-dark">
                     <form method="POST" class="px-3" action="/note/updateNote/">
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
-                        <input type="hidden" id="id" name="id" value="{{ $data->id }}" class="form-control select2bs4">
+                        <input type="hidden" id="id_note" name="id_note" value="{{ $data->id_note }}" class="form-control select2bs4">
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Status</label>
                             <div class="col-sm-8">

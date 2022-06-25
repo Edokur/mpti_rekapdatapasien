@@ -58,7 +58,7 @@ class NoteController extends Controller
      */
     public function detailNote($id_note)
     {
-        $data = DB::table('note')->where('id', $id_note)->first();
+        $data = DB::table('note')->where('id_note', $id_note)->first();
         return view('partial.catatan.show', ['data' => $data]);
         // return view('partial.catatan.show', compact(
         //     'note'
@@ -74,7 +74,7 @@ class NoteController extends Controller
      */
     public function editNote($id_note)
     {
-        $data = DB::table('note')->where('id', $id_note)->first();
+        $data = DB::table('note')->where('id_note', $id_note)->first();
         return view('partial.catatan.edit', ['data' => $data]);
         // return view('partial.catatan.edit', compact(
         //     'note'
@@ -91,7 +91,7 @@ class NoteController extends Controller
      */
     public function updateNote(Request $post)
     {
-        DB::table('note')->where('id', $post->id)->update([
+        DB::table('note')->where('id_note', $post->id)->update([
             'status' => $post->status,
             'judul' => $post->judul,
             'deskripsi' => $post->deskripsi,
@@ -109,7 +109,7 @@ class NoteController extends Controller
      */
     public function hapusNote($id_note)
     {
-        $note = DB::table('note')->where('id', $id_note)->delete();
+        $note = DB::table('note')->where('id_note', $id_note)->delete();
 
         return redirect('/note')->with('success', 'Data berhasil dihapus!');;
     }
