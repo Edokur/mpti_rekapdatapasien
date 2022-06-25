@@ -56,7 +56,7 @@
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
                             <button type="reset" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Reset</button>
-                            <button type="submit" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
+                            <button type="submit" id="btn-submit" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -64,19 +64,30 @@
         </div>
     </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <script src="js/script.js"></script>
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-    -->
+    <script>
+        // $('#btn-submit').click(function() {
+        //     var judul = $('[name=judul]').val();
+        //     swal({
+        //             title: "Apakah Anda Yakin?",
+        //             text: "Kamu akan Menambah data dengan Judul " + judul + " ",
+        //             icon: "warning",
+        //             method: "POST",
+        //             buttons: true,
+        //             dangerMode: true,
+        //         })
+        //         .then((willDelete) => {
+        //             if (willDelete) {
+        //                 window.location = "/note/insertNote";
+        //                 swal("Data Berhasil di Tambahkan", {
+        //                     title: "Sukses",
+        //                     icon: "success",
+        //                 });
+        //             } else {
+        //                 swal("Data Tidak jadi Di Tambahkan");
+        //             }
+        //         });
+        // })
+    </script>
 </body>
 
 </html>

@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Note;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
-use App\Models\Note;
+use RealRashid\SweetAlert\Facades\Alert;
+
+
 
 class NoteController extends Controller
 {
@@ -46,7 +50,12 @@ class NoteController extends Controller
 
         Note::create($validatedData);
 
-        return redirect('/note')->with('success', 'Data baru berhasil ditambahkan!');;
+        Alert::success('Sukses', 'Data Berhasil Tersimpan');     //dapat digunakan
+        return redirect('/note');
+
+
+        // return redirect('/note')->with('success', 'Data Berhasil Tersimpan');;
+
         // return redirect()->route('note.index');
     }
 
@@ -60,10 +69,6 @@ class NoteController extends Controller
     {
         $data = DB::table('note')->where('id_note', $id_note)->first();
         return view('partial.catatan.show', ['data' => $data]);
-        // return view('partial.catatan.show', compact(
-        //     'note'
-        // ));
-        // return view('note.show', compact('note'));
     }
 
     /**
@@ -76,10 +81,6 @@ class NoteController extends Controller
     {
         $data = DB::table('note')->where('id_note', $id_note)->first();
         return view('partial.catatan.edit', ['data' => $data]);
-        // return view('partial.catatan.edit', compact(
-        //     'note'
-        // ));
-        // return view('note.edit', compact('note'));
     }
 
     /**
@@ -91,12 +92,19 @@ class NoteController extends Controller
      */
     public function updateNote(Request $post)
     {
-        DB::table('note')->where('id_note', $post->id)->update([
+        $get = DB::table('note')->where('id_note', $post->id)->update([
             'status' => $post->status,
             'judul' => $post->judul,
             'deskripsi' => $post->deskripsi,
         ]);
-        return redirect('/note')->with('success', 'Data berhasil diupdate!');;
+
+        if ($get = true) {
+            Alert::success('Sukses', 'Data Berhasil Di Update');     //dapat digunakan
+            return redirect('/note');
+        } else {
+            Alert::error('Gagal', 'Data Gagal Di Update');     //dapat digunakan
+            return redirect('/note');
+        }
 
         // return redirect()->route('note.index')->with('succes', 'Catatan Berhasil di Update');
     }
@@ -111,6 +119,7 @@ class NoteController extends Controller
     {
         $note = DB::table('note')->where('id_note', $id_note)->delete();
 
-        return redirect('/note')->with('success', 'Data berhasil dihapus!');;
+        return redirect('/note');
+        // return redirect('/note')->with('success', 'Data berhasil dihapus!');;
     }
 }

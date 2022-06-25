@@ -12,9 +12,22 @@ class Perkesmas extends Model
     protected $table = 'perkesmas';
 
     protected $fillable = [
-        'id',
-        'status',
-        'judul',
-        'deskripsi',
+        'id_perkesmas',
+        'id_register',
+        'pasien_id',
+        'nama_pasien',
+        'nik',
+        'tanggal_lahir',
+        'jenis_kelamin',
+        'alamat',
+        'no_bpjs',
+        'kepala_keluarga',
+        'pendidikan',
+        'tanggal_kunjungan',
+        'kunjungan',
+        'intervensi_keperawatan',
+        'diagnosa_keperawatan',
+        'implementasi_keperawatan',
+        'keterangan',
     ];
 }

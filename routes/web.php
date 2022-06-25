@@ -39,6 +39,9 @@ Route::get('/ubahpw', function () {
     return view('ubahpw');
 });
 
+Route::get('/penyakit', function () {
+    return view('partial/penyakit/penyakit');
+});
 // Indentitas Pasien
 Route::get('/identitas-pasien', function () {
     return view('partial/identitas-pasien/identitas-pasien');
@@ -46,23 +49,6 @@ Route::get('/identitas-pasien', function () {
 
 Route::get('/tambahdata-identitas-pasien', function () {
     return view('partial/identitas-pasien/create');
-});
-
-// Perkesmas
-Route::get('/perkesmas', function () {
-    return view('partial/perkesmas/perkesmas');
-});
-
-Route::get('/tambahdata-perkesmas', function () {
-    return view('partial/perkesmas/create');
-});
-
-Route::get('/edit-perkesmas', function () {
-    return view('partial/perkesmas/edit');
-});
-
-Route::get('/show-perkesmas', function () {
-    return view('partial/perkesmas/show');
 });
 
 // Surveilans 1

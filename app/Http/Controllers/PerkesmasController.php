@@ -121,7 +121,9 @@ class PerkesmasController extends Controller
         return redirect('/note')->with('success', 'Data berhasil dihapus!');;
     }
 
-    public function get_pasien()
+    public function get_pasien($id)
     {
+        var_dump($id);
+        die;
     }
 }

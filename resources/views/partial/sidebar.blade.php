@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <script src="lib/jquery-3.5.1/jquery.js"></script>
+    <script src="{{ asset('lib/select2/js/select2.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             // 
@@ -57,6 +57,7 @@
             });
         });
     </script>
-    <script src="lib/js/scripts.js"></script>
+    <!-- <script src="{{asset('lib/js/scripts.js')}}"></script> -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> --}}
 </body>
