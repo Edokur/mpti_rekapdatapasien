@@ -91,48 +91,48 @@
                         <table class="table table-bordered rounded">
                             <thead class="color-neutral-500 bg-neutral-100">
                                 <tr>
-                                    <th class="th1" scope="col">ID</th>
-                                    <th class="th1" scope="col">Tanggal</th>
-                                    <th class="th1" scope="col">Nama</th>
-                                    <th class="th1" scope="col">Jenis Data</th>
-                                    <th class="th1" scope="col">Status</th>
+                                    <th class="th2" scope="col">ID</th>
+                                    <th class="th2" scope="col">Tanggal</th>
+                                    <th class="th2" scope="col">Nama</th>
+                                    <th class="th2" scope="col">Jenis Data</th>
+                                    <th class="th2" scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="color-neutral-400">
-                                    <td class="td1">#12345</td>
-                                    <td class="td1">01-01-2022</td>
-                                    <td class="td1">Andri Juliansyah</td>
-                                    <td class="td1">Surveilans 1</td>
-                                    <td class="td1">Telah Ditambah</td>
+                                    <td class="td2">#12345</td>
+                                    <td class="td2">01-01-2022</td>
+                                    <td class="td2">Andri Juliansyah</td>
+                                    <td class="td2">Surveilans 1</td>
+                                    <td class="td2">Telah Ditambah</td>
                                 </tr>
                                 <tr class="color-neutral-400">
-                                    <td class="td1">#12345</td>
-                                    <td class="td1">01-01-2022</td>
-                                    <td class="td1">Andri Juliansyah</td>
-                                    <td class="td1">Surveilans 1</td>
-                                    <td class="td1">Telah Ditambah</td>
+                                    <td class="td2">#12345</td>
+                                    <td class="td2">01-01-2022</td>
+                                    <td class="td2">Andri Juliansyah</td>
+                                    <td class="td2">Surveilans 1</td>
+                                    <td class="td2">Telah Ditambah</td>
                                 </tr>
                                 <tr class="color-neutral-400">
-                                    <td class="td1">#12345</td>
-                                    <td class="td1">01-01-2022</td>
-                                    <td class="td1">Andri Juliansyah</td>
-                                    <td class="td1">Surveilans 1</td>
-                                    <td class="td1">Telah Ditambah</td>
+                                    <td class="td2">#12345</td>
+                                    <td class="td2">01-01-2022</td>
+                                    <td class="td2">Andri Juliansyah</td>
+                                    <td class="td2">Surveilans 1</td>
+                                    <td class="td2">Telah Ditambah</td>
                                 </tr>
                                 <tr class="color-neutral-400">
-                                    <td class="td1">#12345</td>
-                                    <td class="td1">01-01-2022</td>
-                                    <td class="td1">Andri Juliansyah</td>
-                                    <td class="td1">Surveilans 1</td>
-                                    <td class="td1">Telah Ditambah</td>
+                                    <td class="td2">#12345</td>
+                                    <td class="td2">01-01-2022</td>
+                                    <td class="td2">Andri Juliansyah</td>
+                                    <td class="td2">Surveilans 1</td>
+                                    <td class="td2">Telah Ditambah</td>
                                 </tr>
                                 <tr class="color-neutral-400">
-                                    <td class="td1">#12345</td>
-                                    <td class="td1">01-01-2022</td>
-                                    <td class="td1">Andri Juliansyah</td>
-                                    <td class="td1">Surveilans 1</td>
-                                    <td class="td1">Telah Ditambah</td>
+                                    <td class="td2">#12345</td>
+                                    <td class="td2">01-01-2022</td>
+                                    <td class="td2">Andri Juliansyah</td>
+                                    <td class="td2">Surveilans 1</td>
+                                    <td class="td2">Telah Ditambah</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -149,24 +149,24 @@
                         <table class="table table-bordered">
                             <thead class="color-neutral-500 bg-neutral-100">
                                 <tr>
-                                    <th class="th1" scope="col">No.</th>
-                                    <th class="th1" scope="col">ID. Register</th>
-                                    <th class="th1" scope="col">Nama Pasien</th>
-                                    <th class="th1" scope="col">Diagnosa</th>
-                                    <th class="th1" scope="col">Terapi</th>
-                                    <th class="th1" scope="col">Dosis</th>
-                                    <th class="th1" scope="col">Keterangan</th>
+                                    <th class="th2" scope="col">No.</th>
+                                    <th class="th2" scope="col">ID. Register</th>
+                                    <th class="th2" scope="col">Nama Pasien</th>
+                                    <th class="th2" scope="col">Diagnosa</th>
+                                    <th class="th2" scope="col">Terapi</th>
+                                    <th class="th2" scope="col">Dosis</th>
+                                    <th class="th2" scope="col">Keterangan</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="color-neutral-400">
-                                    <td  class="td1" scope="col">1.</td>
-                                    <td  class="td1" scope="col">#12345</td>
-                                    <td  class="td1" scope="col">Putra Dino</td>
-                                    <td  class="td1" scope="col">Sakit Kepala</td>
-                                    <td  class="td1" scope="col">Psikoedukasi</td>
-                                    <td  class="td1" scope="col">F 32.3</td>
-                                    <td  class="td1" scope="col">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                    <td  class="td2" scope="col">1.</td>
+                                    <td  class="td2" scope="col">#12345</td>
+                                    <td  class="td2" scope="col">Putra Dino</td>
+                                    <td  class="td2" scope="col">Sakit Kepala</td>
+                                    <td  class="td2" scope="col">Psikoedukasi</td>
+                                    <td  class="td2" scope="col">F 32.3</td>
+                                    <td  class="td2" scope="col">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -183,24 +183,24 @@
                         <table class="table table-bordered">
                             <thead class="color-neutral-500 bg-neutral-100">
                                 <tr>
-                                    <th class="th1" scope="col">No.</th>
-                                    <th class="th1" scope="col">ID. Register</th>
-                                    <th class="th1" scope="col">Tanggal</th>
-                                    <th class="th1" scope="col">Minggu</th>
-                                    <th class="th1" scope="col">Nama Pasien</th>
-                                    <th class="th1" scope="col">Diagnosa</th>
-                                    <th class="th1" scope="col">Status</th>
+                                    <th class="th2" scope="col">No.</th>
+                                    <th class="th2" scope="col">ID. Register</th>
+                                    <th class="th2" scope="col">Tanggal</th>
+                                    <th class="th2" scope="col">Minggu</th>
+                                    <th class="th2" scope="col">Nama Pasien</th>
+                                    <th class="th2" scope="col">Diagnosa</th>
+                                    <th class="th2" scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="color-neutral-400">
-                                    <td class="td1">1.</td>
-                                    <td class="td1">#12345</td>
-                                    <td class="td1">01-01-2022</td>
-                                    <td class="td1">Andri Juliansyah</td>
-                                    <td class="td1">1</td>
-                                    <td class="td1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque augue facilisis morbi blandit quis aliquet pharetra sit.</td>
-                                    <td class="td1">Telah Ditambah</td>
+                                    <td class="td2">1.</td>
+                                    <td class="td2">#12345</td>
+                                    <td class="td2">01-01-2022</td>
+                                    <td class="td2">1</td>
+                                    <td class="td2">Andri Juliansyah</td>
+                                    <td class="td2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque augue facilisis morbi blandit quis aliquet pharetra sit.</td>
+                                    <td class="td2">Telah Ditambah</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -231,56 +231,56 @@
                             </td>
                         </tr>
                         <tr>
-                            <th class="th1">SEN</th>
-                            <th class="th1">SEL</th>
-                            <th class="th1">RAB</th>
-                            <th class="th1">KAM</th>
-                            <th class="th1">JUM</th>
-                            <th class="th1">SAB</th>
-                            <th class="th1">MIN</th>
+                            <th class="th2">SEN</th>
+                            <th class="th2">SEL</th>
+                            <th class="th2">RAB</th>
+                            <th class="th2">KAM</th>
+                            <th class="th2">JUM</th>
+                            <th class="th2">SAB</th>
+                            <th class="th2">MIN</th>
                         </tr>
                     </thead>
                     <tbody class="tanggal">
                         <tr>
-                            <td class="td1">01</td>
-                            <td class="td1">02</td>
-                            <td class="td1">03</td>
-                            <td class="td1">04</td>
-                            <td class="td1">05</td>
-                            <td class="td1">06</td>
-                            <td class="td1">07</td>
+                            <td class="td2">01</td>
+                            <td class="td2">02</td>
+                            <td class="td2">03</td>
+                            <td class="td2">04</td>
+                            <td class="td2">05</td>
+                            <td class="td2">06</td>
+                            <td class="td2">07</td>
                         </tr>
                         <tr>
-                            <td class="td1">08</td>
-                            <td class="td1">09</td>
-                            <td class="td1">10</td>
-                            <td class="td1">11</td>
-                            <td class="td1">12</td>
-                            <td class="td1">13</td>
-                            <td class="td1">14</td>
+                            <td class="td2">08</td>
+                            <td class="td2">09</td>
+                            <td class="td2">10</td>
+                            <td class="td2">11</td>
+                            <td class="td2">12</td>
+                            <td class="td2">13</td>
+                            <td class="td2">14</td>
                         </tr>
                         <tr>
-                            <td class="td1">15</td>
-                            <td class="td1">16</td>
-                            <td class="td1">17</td>
-                            <td class="td1">18</td>
-                            <td class="td1">19</td>
-                            <td class="td1">20</td>
-                            <td class="td1">21</td>
+                            <td class="td2">15</td>
+                            <td class="td2">16</td>
+                            <td class="td2">17</td>
+                            <td class="td2">18</td>
+                            <td class="td2">19</td>
+                            <td class="td2">20</td>
+                            <td class="td2">21</td>
                         </tr>
                         <tr>
-                            <td class="td1">22</td>
-                            <td class="td1">23</td>
-                            <td class="td1">24</td>
-                            <td class="td1">25</td>
-                            <td class="td1">26</td>
-                            <td class="td1">27</td>
-                            <td class="td1">28</td>
+                            <td class="td2">22</td>
+                            <td class="td2">23</td>
+                            <td class="td2">24</td>
+                            <td class="td2">25</td>
+                            <td class="td2">26</td>
+                            <td class="td2">27</td>
+                            <td class="td2">28</td>
                         </tr>
                         <tr>
-                            <td class="td1">29</td>
-                            <td class="td1">30</td>
-                            <td class="td1">31</td>
+                            <td class="td2">29</td>
+                            <td class="td2">30</td>
+                            <td class="td2">31</td>
                         </tr>
                     </tbody>
                 </table>

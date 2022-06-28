@@ -21,7 +21,7 @@ class IdentitasController extends Controller
         //     'data'
         // ));
         $data = DB::table('identitas_pasien')->paginate(10);
-        return view('partial.identitas-pasien.identitas-pasien', ['data' => $data]);
+        return view('partial.identitas_pasien.identitas_pasien', ['data' => $data]);
     }
 
     /**
@@ -31,7 +31,7 @@ class IdentitasController extends Controller
      */
     public function create()
     {
-        return view('partial.identitas-pasien.create');
+        return view('partial.identitas_pasien.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class IdentitasController extends Controller
 
         Identitas::create($valididatedData);
 
-        return redirect('/identitas-pasien')->with('success', 'Data baru berhasil ditambahkan!');
+        return redirect('/identitas_pasien')->with('success', 'Data baru berhasil ditambahkan!');
     }
 
     /**
@@ -69,7 +69,7 @@ class IdentitasController extends Controller
     public function detailIdentitas($id_identitas)
     {
         $data = DB::table('identitas_pasien')->where('id_pasien', $id_identitas)->first();
-        return view('partial.identitas-pasien.show', ['data' => $data]);
+        return view('partial.identitas_pasien.show', ['data' => $data]);
         // return view('partial.identitas.show', compact(
         //     'identitas'
         // ));
@@ -85,7 +85,7 @@ class IdentitasController extends Controller
     public function editIdentitas($id_identitas)
     {
         $data = DB::table('identitas_pasien')->where('id_pasien', $id_identitas)->first();
-        return view('partial.identitas-pasien.edit', ['data' => $data]);
+        return view('partial.identitas_pasien.edit', ['data' => $data]);
         // return view('partial.identitas-pasien.edit', compact(
         //     'identitas'
         // ));
@@ -114,7 +114,7 @@ class IdentitasController extends Controller
             'pekerjaan' => $post->pekerjaan,
         ]);
 
-        return redirect('/identitas-pasien')->with('success', 'Data berhasil diupdate!');;
+        return redirect('/identitas_pasien')->with('success', 'Data berhasil diupdate!');;
         // $identitas->update($request->all());
 
         // return redirect()->route('identitas-pasien.index');
@@ -130,6 +130,6 @@ class IdentitasController extends Controller
     {
         $identitas = DB::table('identitas_pasien')->where('id_pasien', $id_identitas)->delete();
 
-        return redirect('/identitas-pasien')->with('success', 'Data berhasil dihapus!');;
+        return redirect('/identitas_pasien')->with('success', 'Data berhasil dihapus!');;
     }
 }

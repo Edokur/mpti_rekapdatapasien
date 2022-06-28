@@ -279,10 +279,18 @@ div div #item a:hover{
 }
 
 .th1{
+    font-size: 16px;
+}
+
+.th2{
     font-size: 12px;
 }
 
 .td1{
+    font-size: 14px;;
+}
+
+.td2{
     font-size: 10px;;
 }
 

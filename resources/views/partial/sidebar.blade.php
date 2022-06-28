@@ -34,8 +34,8 @@
                 <a class="sub-btn"><i class="fa-solid fa-stethoscope"></i>Report Data<i class="fas fa-angle-right dropdown"></i></a>
                 <div class="sub-menu">
                     <a href="/kesehatan-jiwa" class="sub-item"><img src="../../vectors/icon_kesehatan-jiwa.svg" alt="">Kesehatan Jiwa</a>
-                    <a href="/surveilans-1" class="sub-item"><img src="../../vectors/icon_surveilans.svg" alt="">Surveilans 1</a>
-                    <a href="/surveilans-2" class="sub-item"><img src="../../vectors/icon_surveilans.svg" alt="">Surveilans 2</a>
+                    <a href="/surveilans_1" class="sub-item"><img src="../../vectors/icon_surveilans.svg" alt="">Surveilans 1</a>
+                    <a href="/surveilans_2" class="sub-item"><img src="../../vectors/icon_surveilans.svg" alt="">Surveilans 2</a>
                     <a href="/perkesmas" class="sub-item"><img src="../../vectors/icon_perkesmas.svg" alt="">Perkesmas</a>
                     <a href="/identitas-pasien" class="sub-item"><img src="../../vectors/icon_identitas-pasien.svg" alt="">Identitas Pasien</a>
                     <a href="/penyakit" class="sub-item"><img src="../../vectors/icon_penyakit.svg" alt="">Penyakit</a>

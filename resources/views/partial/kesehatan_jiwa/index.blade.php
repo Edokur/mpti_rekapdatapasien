@@ -19,30 +19,23 @@
 
             <div class="row mt-5">
                 <div class="col">
-                    <a href="{{ route('kesehatan-jiwa.create') }}">
-                        <button class="btn btn-purple text-white border-radius px-5 py-3">
+                    <a href="{{ route('kesehatan_jiwa.create') }}">
+                        <button class="btn btn-purple text-white px-5 py-3">
                             + Tambah Data
                         </button>
                     </a>
                 </div>
                 <div class="col text-right">
-                    <button class="btn btn-outline-success border-radius px-5 py-3">
+                    <button class="btn btn-outline-success px-5 py-3">
                     <i class="fa-solid fa-print"></i> Cetak Data
                     </button>
                 </div>
             </div>
 
-            <div class="ttable border-line bg-white border-radius mt-4">
+            <div class="ttable border-line bg-white mt-4">
                 <div class="p-4">
                     <div class="input-group">
-                        <input type="text" aria-label="First name" class="col-1 form-control" >
-                        <input type="text" aria-label="Last name" class="col-1 form-control">
-                        <input type="text" aria-label="Last name" class="col-1 form-control">
-                        <input type="text" aria-label="Last name" class="col-1 form-control">
-                        <input type="text" aria-label="Last name" class="col-1 form-control">
-                        <input type="text" aria-label="Last name" class="col-1 form-control">
-                        <input type="text" aria-label="Last name" class="col-1 form-control">
-                        <input type="text" aria-label="Last name" class="form-control">
+                        <input type="text" aria-label="Last name" class="form-control" placeholder="Search">
                         <button class="btn btn-purple"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FFFFFF" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                                 </svg>
@@ -56,37 +49,37 @@
                     <table class="table table-bordered rounded">
                         <thead class="bg-grey color-white">
                             <tr>
-                                <th class="col-1">No</th>
-                                <th class="col-1">ID. Register</th>
-                                <th class="col-1">Tanggal</th>
-                                <th class="col-1">Nama Pasien</th>
-                                <th class="col-1">Diagnosa</th>
-                                <th class="col-1">Terapi</th>
-                                <th class="col-1">Pendidikan</th>
-                                <th class="col-3">Keterangan</th>
-                                <th class="col-3">Action</th>
+                                <th class="col-1 th1">No</th>
+                                <th class="col-1 th1">ID. Register</th>
+                                <th class="col-1 th1">Tanggal</th>
+                                <th class="col-1 th1">Nama Pasien</th>
+                                <th class="col-1 th1">Diagnosa</th>
+                                <th class="col-1 th1">Terapi</th>
+                                <th class="col-1 th1">Pendidikan</th>
+                                <th class="col-3 th1">Keterangan</th>
+                                <th class="col-3 th1">Action</th>
                             </tr>
                         </thead>
                         <tbody class="color-white color-neutral-400">
                         @foreach($data as $key=>$value)
                             <tr>
-                                <td class="col-1">{{ $value->id }}</td>
-                                <td class="col-1">{{ $value->id_register }}</td>
-                                <td class="col-1">{{ $value->tanggal_lahir }}</td>
-                                <td class="col-1">{{ $value->nama }}</td>
-                                <td class="col-1">{{ $value->diagnosa }}</td>
-                                <td class="col-1">{{ $value->terapi }}</td>
-                                <td class="col-1">{{ $value->pendidikan }}</td>
-                                <td class="col-3">{{ $value->keterangan }}</td>
+                                <td class="col-1 td1">{{ $value->id }}</td>
+                                <td class="col-1 td1">{{ $value->id_register }}</td>
+                                <td class="col-1 td1">{{ $value->tanggal_lahir }}</td>
+                                <td class="col-1 td1">{{ $value->nama }}</td>
+                                <td class="col-1 td1">{{ $value->diagnosa }}</td>
+                                <td class="col-1 td1">{{ $value->terapi }}</td>
+                                <td class="col-1 td1">{{ $value->pendidikan }}</td>
+                                <td class="col-3 td1">{{ $value->keterangan }}</td>
                                 <td class="col-3">
-                                    <form action="{{ route('kesehatan-jiwa.destroy',$value->id) }}" method="POST">
-                                        <a href="{{ route('kesehatan-jiwa.edit', $value->id) }}" class="btn">
+                                    <form action="{{ route('kesehatan_jiwa.destroy',$value->id) }}" method="POST">
+                                        <a href="{{ route('kesehatan_jiwa.edit', $value->id) }}" class="btn">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffc107" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                             </svg>
                                         </a>
-                                        <a href="{{ route('kesehatan-jiwa.show', $value->id) }}" class="btn">
+                                        <a href="{{ route('kesehatan_jiwa.show', $value->id) }}" class="btn">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#3366FF" class="bi bi-info-circle" viewBox="0 0 16 16">
                                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />

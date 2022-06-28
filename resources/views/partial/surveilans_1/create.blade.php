@@ -26,7 +26,7 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" name="id_pasien">
+                                <input type="number" class="form-control" id="" name="id_pasien">
                             </div>
                         </div>
 
@@ -40,7 +40,7 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Minggu</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" name="minggu">
+                                <input type="number" class="form-control" id="" name="minggu">
                             </div>
                         </div>
 
@@ -54,28 +54,21 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Umur</label>
                             <div class="col-sm-8">
-                                <input type="input" class="form-control" id="" name="umur">
-                            </div>
-                        </div>
-
-                        <div class="form-group py-2 row">
-                            <label for="" class="col-sm-3 col-form-label">Alamat</label>
-                            <div class="col-sm-8">
-                                <input type="textarea" class="form-control" id="" name="alamat">
+                                <input type="number" class="form-control" id="" name="umur">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Diagnosa</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" name="diagnosa" rows="3"></textarea>
+                                <textarea class="form-control" name="diagnosa" rows="3"></textarea>
                             </div>
                         </div>
 
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
-                            <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</button>
-                            <button type="submit" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
+                            <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger">Batal</button>
+                            <button type="submit" class="col-4 py-3 btn btn-purple text-white">Simpan</button>
                         </div>
                     </form>
                 </div>

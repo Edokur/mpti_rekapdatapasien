@@ -17,7 +17,7 @@ class KJiwaController extends Controller
     public function index()
     {
         $data = KJiwa::all();
-        return view('partial.kesehatan-jiwa.kesehatan-jiwa', compact(
+        return view('partial.kesehatan_jiwa.index', compact(
             'data'
         ));
     }
@@ -29,7 +29,7 @@ class KJiwaController extends Controller
      */
     public function create()
     {
-        return view('partial.kesehatan-jiwa.create');
+        return view('partial.kesehatan_jiwa.create');
     }
 
     /**
@@ -60,7 +60,7 @@ class KJiwaController extends Controller
         ]);
 
         Note::create($request->all());
-        return redirect()->route('kesehatan-jiwa.index');
+        return redirect()->route('kesehatan_jiwa.index');
     }
 
     /**

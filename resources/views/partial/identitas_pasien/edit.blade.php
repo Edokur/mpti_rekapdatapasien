@@ -17,12 +17,12 @@
                 <h1 class="color-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor adipiscing in consectetur sem ut netus scelerisque. Viverra urna vitae viverra habitant a magna vitae, fermentum morbi. Magna magna non ridiculus vitae viverra feugiat morbi sed.</h1>
             </div>
 
-            <div class="ttable border-line bg-white border-radius my-4">
+            <div class="ttable border-line bg-white my-4">
                 <div class="p-2 bg-light rounded-bottom-0">
                     <p class="m-3 text-dark">Edit Data</p>
                 </div>
                 <div class="p-2 text-dark border-top">
-                    <form class="ml-3 p-5" method="POST" action="/identitas-pasien/updateIdentitas">
+                    <form class="ml-3 p-5" method="POST" action="/identitas_pasien/updateIdentitas">
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                         <input type="hidden" id="id" name="id_pasien" value="{{ $data->id_pasien }}" class="form-control select2bs4">
                         <div class="form-group row py-2">

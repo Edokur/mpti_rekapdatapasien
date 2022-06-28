@@ -17,7 +17,7 @@ class Surveilans1Controller extends Controller
     public function index()
     {
         $data = DB::table('surveilans_1')->paginate(10);
-        return view('partial.surveilans-1.surveilans-1', ['data' => $data]);
+        return view('partial.surveilans_1.index', ['data' => $data]);
     }
 
     /**
@@ -27,7 +27,7 @@ class Surveilans1Controller extends Controller
      */
     public function create()
     {
-        return view('partial.surveilans-1.create');
+        return view('partial.surveilans_1.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class Surveilans1Controller extends Controller
 
         Surveilans1::create($valididatedData);
 
-        return redirect('/surveilans-1')->with('success', 'Data baru berhasil ditambahkan!');
+        return redirect('/surveilans_1')->with('success', 'Data baru berhasil ditambahkan!');
     }
 
     /**
@@ -62,7 +62,7 @@ class Surveilans1Controller extends Controller
     public function detailSurveilans1($id_surveilans1)
     {
         $data = DB::table('surveilans_1')->where('id', $id_surveilans1)->first();
-        return view('partial.surveilans-1.show', ['data' => $data]);
+        return view('partial.surveilans_1.show', ['data' => $data]);
     }
 
     /**
@@ -95,7 +95,7 @@ class Surveilans1Controller extends Controller
             'diagnosa' => $post->diagnosa,
         ]);
 
-        return redirect('/identitas-pasien')->with('success', 'Data berhasil diupdate!');;
+        return redirect('/identitas_pasien')->with('success', 'Data berhasil diupdate!');;
     }
 
     /**
@@ -108,6 +108,6 @@ class Surveilans1Controller extends Controller
     {
         $surveilans1 = DB::table('surveilans_1')->where('id', $id_surveilans1)->delete();
 
-        return redirect('/surveilans-1')->with('success', 'Data berhasil dihapus!');;
+        return redirect('/surveilans_1')->with('success', 'Data berhasil dihapus!');;
     }
 }

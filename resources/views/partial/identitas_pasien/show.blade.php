@@ -17,101 +17,86 @@
                 <h1 class="color-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor adipiscing in consectetur sem ut netus scelerisque. Viverra urna vitae viverra habitant a magna vitae, fermentum morbi. Magna magna non ridiculus vitae viverra feugiat morbi sed.</h1>
             </div>
 
-            <div class="ttable border-line bg-white border-radius my-4">
+            <div class="ttable border-line bg-white my-4">
                 <div class="p-2 bg-light rounded-bottom-0">
-                    <p class="m-3 text-dark">Tambah Data</p>
+                    <p class="m-3 text-dark">Detail Data</p>
                 </div>
                 <div class="p-2 text-dark border-top">
-                    <form class="ml-3 p-5" method="POST" action="insertIdentitas">
+                    <form class="ml-3 p-5" method="POST" action="/identitas-pasien">
                         @csrf
-                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" name="id_pasien" id="" placeholder="Ex : PSN01">
+                                <input type="number" class="form-control color-neutral-400" id="" value="{{$data->id_pasien}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" name="nama_pasien" id="" placeholder="Ex : Julian">
+                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->nama_pasien}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control color-neutral-400" name="tanggal_lahir" id="">
+                                <input type="date" class="form-control color-neutral-400" id="" value="{{$data->tanggal_lahir}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
-                                <div class="dropdown">
-                                    <select name="jenis_kelamin" id="status" class="btn border color-neutral-400 btn-block text-left form-control">
-                                        <option selected>-- Pilih Jenis Kelamin --</option>
-                                        <option>Laki-laki</option>
-                                        <option>Perempuan</option>
-                                    </select>
-                                </div>
+                                <input type="date" class="form-control color-neutral-400" id="" value="{{$data->jenis_kelamin}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control color-neutral-400" name="alamat" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control color-neutral-400" id="exampleFormControlTextarea1" rows="3" value="{{$data->alamat}}" disabled>{{$data->alamat}}</textarea>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Kepala Keluarga</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" name="kepala_keluarga" id="" placeholder="">
+                                <input type="text" class="form-control color-neutral-400" id="" placeholder="" value="{{$data->kepala_keluarga}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">NIK</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control color-neutral-400" name="nik" id="" placeholder="Ex : 340000000000">
+                                <input type="number" class="form-control color-neutral-400" id="" value="{{$data->nik}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control color-neutral-400" name="no_bpjs" id="">
+                                <input type="number" class="form-control color-neutral-400" id="" value="{{$data->no_bpjs}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
-                                <div class="dropdown">
-                                    <select name="pendidikan" id="pendidikan" class="btn border color-neutral-400 btn-block text-left form-control">
-                                        <option selected>-- Pilih Pendidikan --</option>
-                                        <option>SD</option>
-                                        <option>SMP</option>
-                                        <option>SMA</option>
-                                    </select>
-                                </div>
+                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->pendidikan}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Pekerjaan</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" name="pekerjaan" id="" placeholder="Ex : Petani">
+                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->pekerjaan}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
-                            <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</button>
-                            <button type="submit" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
+                            <a href="/identitas-pasien" type="button" class="col-8 py-3 btn btn-purple text-white ">Kembali</a>
                         </div>
                     </form>
                 </div>
