@@ -44,24 +44,24 @@
                     <table class="table border-line bg-white">
                         <thead class=" table-borderless bg-grey">
                             <tr>
-                                <th class="col-1">No</th>
-                                <th class="col-1">ID Register</th>
-                                <th class="col-1">Jenis Penyakit</th>
-                                <th class="col-1">Laki - Laki</th>
-                                <th class="col-1">Perempuan</th>
-                                <th class="col-1">Total Kunjungan</th>
-                                <th class="col-1">Action</th>
+                                <th class="col-1 th1">No</th>
+                                <th class="col-1 th1">ID Register</th>
+                                <th class="col-1 th1">Jenis Penyakit</th>
+                                <th class="col-1 th1">Laki - Laki</th>
+                                <th class="col-1 th1">Perempuan</th>
+                                <th class="col-1 th1">Total Kunjungan</th>
+                                <th class="col-1 th1">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="color-neutral-400">
-                                <td class="col-1">1.</td>
-                                <td class="col-1">#12345</td>
-                                <td class="col-1">Kolera</td>
-                                <td class="col-1">120</td>
-                                <td class="col-1">40</td>
-                                <td class="col-1">180</td>
-                                <td class="col-1"><a href="/detaildata-surveilans-2">Lihat Detail</a></td>
+                                <td class="col-1 td1">1.</td>
+                                <td class="col-1 td1">#12345</td>
+                                <td class="col-1 td1">Kolera</td>
+                                <td class="col-1 td1">120</td>
+                                <td class="col-1 td1">40</td>
+                                <td class="col-1 td1">180</td>
+                                <td class="col-1 td1"><a href="/detaildata-surveilans-2">Lihat Detail</a></td>
                             </tr>
                         </tbody>
                     </table>
