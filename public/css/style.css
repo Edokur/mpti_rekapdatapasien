@@ -159,10 +159,6 @@ div div #item a:hover{
     height: 100px;
 }
 
-.bg-menu div h3{
-
-}
-
 .icon{
     position: absolute;
     width: 80px;
@@ -241,7 +237,7 @@ div div #item a:hover{
     width: 352px;
     /* height: 490px; */
     padding: 20px;
-    top: 564px;
+    top: 554px;
 }
 
 .note a{

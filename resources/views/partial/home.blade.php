@@ -231,56 +231,56 @@
                             </td>
                         </tr>
                         <tr>
-                            <th class="th1 border">SEN</th>
-                            <th class="th1 border">SEL</th>
-                            <th class="th1 border">RAB</th>
-                            <th class="th1 border">KAM</th>
-                            <th class="th1 border">JUM</th>
-                            <th class="th1 border">SAB</th>
-                            <th class="th1 border">MIN</th>
+                            <th class="th1">SEN</th>
+                            <th class="th1">SEL</th>
+                            <th class="th1">RAB</th>
+                            <th class="th1">KAM</th>
+                            <th class="th1">JUM</th>
+                            <th class="th1">SAB</th>
+                            <th class="th1">MIN</th>
                         </tr>
                     </thead>
                     <tbody class="tanggal">
                         <tr>
-                            <td class="td1 border">01</td>
-                            <td class="td1 border">02</td>
-                            <td class="td1 border">03</td>
-                            <td class="td1 border">04</td>
-                            <td class="td1 border">05</td>
-                            <td class="td1 border">06</td>
-                            <td class="td1 border">07</td>
+                            <td class="td1">01</td>
+                            <td class="td1">02</td>
+                            <td class="td1">03</td>
+                            <td class="td1">04</td>
+                            <td class="td1">05</td>
+                            <td class="td1">06</td>
+                            <td class="td1">07</td>
                         </tr>
                         <tr>
-                            <td class="td1 border">08</td>
-                            <td class="td1 border">09</td>
-                            <td class="td1 border">10</td>
-                            <td class="td1 border">11</td>
-                            <td class="td1 border">12</td>
-                            <td class="td1 border">13</td>
-                            <td class="td1 border">14</td>
+                            <td class="td1">08</td>
+                            <td class="td1">09</td>
+                            <td class="td1">10</td>
+                            <td class="td1">11</td>
+                            <td class="td1">12</td>
+                            <td class="td1">13</td>
+                            <td class="td1">14</td>
                         </tr>
                         <tr>
-                            <td class="td1 border">15</td>
-                            <td class="td1 border">16</td>
-                            <td class="td1 border">17</td>
-                            <td class="td1 border">18</td>
-                            <td class="td1 border">19</td>
-                            <td class="td1 border">20</td>
-                            <td class="td1 border">21</td>
+                            <td class="td1">15</td>
+                            <td class="td1">16</td>
+                            <td class="td1">17</td>
+                            <td class="td1">18</td>
+                            <td class="td1">19</td>
+                            <td class="td1">20</td>
+                            <td class="td1">21</td>
                         </tr>
                         <tr>
-                            <td class="td1 border">22</td>
-                            <td class="td1 border">23</td>
-                            <td class="td1 border">24</td>
-                            <td class="td1 border">25</td>
-                            <td class="td1 border">26</td>
-                            <td class="td1 border">27</td>
-                            <td class="td1 border">28</td>
+                            <td class="td1">22</td>
+                            <td class="td1">23</td>
+                            <td class="td1">24</td>
+                            <td class="td1">25</td>
+                            <td class="td1">26</td>
+                            <td class="td1">27</td>
+                            <td class="td1">28</td>
                         </tr>
                         <tr>
-                            <td class="td1 border">29</td>
-                            <td class="td1 border">30</td>
-                            <td class="td1 border">31</td>
+                            <td class="td1">29</td>
+                            <td class="td1">30</td>
+                            <td class="td1">31</td>
                         </tr>
                     </tbody>
                 </table>
