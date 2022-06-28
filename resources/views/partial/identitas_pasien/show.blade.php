@@ -41,14 +41,14 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control color-neutral-400" id="" value="{{$data->tanggal_lahir}}" disabled>
+                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->tanggal_lahir}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control color-neutral-400" id="" value="{{$data->jenis_kelamin}}" disabled>
+                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->jenis_kelamin}}" disabled>
                             </div>
                         </div>
 
@@ -69,14 +69,14 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">NIK</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control color-neutral-400" id="" value="{{$data->nik}}" disabled>
+                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->nik}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control color-neutral-400" id="" value="{{$data->no_bpjs}}" disabled>
+                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->no_bpjs}}" disabled>
                             </div>
                         </div>
 
@@ -96,7 +96,7 @@
 
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
-                            <a href="/identitas-pasien" type="button" class="col-8 py-3 btn btn-purple text-white ">Kembali</a>
+                            <a href="/identitas_pasien" type="button" class="col-8 py-3 btn btn-purple text-white ">Kembali</a>
                         </div>
                     </form>
                 </div>
