@@ -159,6 +159,10 @@ div div #item a:hover{
     height: 100px;
 }
 
+.bg-menu div h3{
+
+}
+
 .icon{
     position: absolute;
     width: 80px;
@@ -170,12 +174,6 @@ div div #item a:hover{
 .icon img{
     margin: auto;
     padding: 25px;
-}
-
-.h3{
-    position: relative;
-    top: 20px;
-    left: 108px;
 }
 
 .angka .kesehatan-jiwa{
@@ -217,29 +215,13 @@ div div #item a:hover{
     top: 22px;
 }
 
-th{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 15px;
-    align-items: center;
-}
-
-td{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-}
-
 /* Kalender */
 
 .kalender{
     position: absolute;
-    padding: 10px;
+    padding: 12px;
     width: 352px;
-    height: 250px;
+    /* height: 250px; */
     top: 240px;
 }
 
@@ -257,9 +239,9 @@ td{
 .note{
     position: absolute;
     width: 352px;
-    height: 490px;
+    /* height: 490px; */
     padding: 20px;
-    top: 514px;
+    top: 564px;
 }
 
 .note a{
@@ -298,6 +280,14 @@ td{
     position: absolute;
     left: 270px;
     top: 8px;
+}
+
+.th1{
+    font-size: 12px;
+}
+
+.td1{
+    font-size: 10px;;
 }
 
 h1{
@@ -428,14 +418,11 @@ h8{
 .btn-purple{
     background-color: #6145E3 !important;
 }
+
 .btn-purple:hover{
     background-color: #4e2de0 !important;
 }
 
-.btn-insertdata{
-    width: 200px;
-    height: 48px;
-}
 
 /* Neutral / 500 */
 .color-neutral-500{
