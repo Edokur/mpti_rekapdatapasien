@@ -12,10 +12,9 @@ class Surveilans1 extends Model
     protected $table = 'surveilans_1';
 
     protected $fillable = [
-        'id',
-        'id_pasien',
+        'id_surveilens1',
+        'pasien_id',
         'nama_pasien',
-        'minggu',
         'umur',
         'tanggal',
         'diagnosa',

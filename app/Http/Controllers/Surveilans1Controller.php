@@ -27,7 +27,11 @@ class Surveilans1Controller extends Controller
      */
     public function create()
     {
-        return view('partial.surveilans_1.create');
+        $identitas_pasien = DB::table('identitas_pasien')->get();
+        $data = array(
+            'identitas_pasien' => $identitas_pasien,
+        );
+        return view('partial.surveilans_1.create',$data);
     }
 
     /**
@@ -36,13 +40,12 @@ class Surveilans1Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function insertSur(Request $post)
+    public function insertSurveilans1(Request $post)
     {
         $valididatedData = $post->validate([
-            'id' => 'required',
-            'id_pasien' => 'required',
+            'id_surveilens1' => 'required',
+            'pasien_id' => 'required',
             'nama_pasien' => 'required',
-            'minggu' => 'required',
             'umur' => 'required',
             'tanggal' => 'required',
             'diagnosa' => 'required',

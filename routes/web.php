@@ -43,26 +43,26 @@ Route::get('/penyakit', function () {
     return view('partial/penyakit/penyakit');
 });
 // Indentitas Pasien
-Route::get('/identitas-pasien', function () {
-    return view('partial/identitas-pasien/identitas-pasien');
+Route::get('/identitas_pasien', function () {
+    return view('partial/identitas_pasien/identitas_pasien');
 });
 
-Route::get('/tambahdata-identitas-pasien', function () {
-    return view('partial/identitas-pasien/create');
+Route::get('/tambahdata_identitas_pasien', function () {
+    return view('partial/identitas_pasien/create');
 });
 
-// Surveilans 1
-Route::get('/surveilans-1', function () {
-    return view('partial/surveilans-1/surveilans-1');
-});
+// // Surveilans 1
+// Route::get('/surveilans_1', function () {
+//     return view('partial/surveilans_1/surveilans_1');
+// });
 
-Route::get('/detaildata-surveilans-1', function () {
-    return view('partial/surveilans-1/show');
-});
+// Route::get('/detaildata_surveilans_1', function () {
+//     return view('partial/surveilans_1/show');
+// });
 
-Route::get('/edit-surveilans-1', function () {
-    return view('partial/surveilans-1/edit');
-});
+// Route::get('/edit_surveilans_1', function () {
+//     return view('partial/surveilans_1/edit');
+// });
 
 // Surveilans 2
 Route::get('/surveilans_2', function () {
@@ -110,7 +110,7 @@ Route::get('/identitas_pasien/detailIdentitas/{id}', [IdentitasController::class
 // Surveilans 1
 Route::get('/surveilans_1', [Surveilans1Controller::class, 'index']);
 Route::get('/surveilans_1/create', [Surveilans1Controller::class, 'create']);
-Route::post('/surveilans_1/insertSur', [Surveilans1Controller::class, 'insertSur']);
+Route::post('/surveilans_1/insertSurveilans1', [Surveilans1Controller::class, 'insertSurveilans1']);
 Route::get('/surveilans_1/editSurveilans1/{id}', [Surveilans1Controller::class, 'editSurveilans1']);
 Route::post('/surveilans_1/updateSurveilans1', [Surveilans1Controller::class, 'updateSurveilans1']);
 Route::get('/surveilans_1/hapusSurveilans1/{id}', [Surveilans1Controller::class, 'hapusSurveilans1']);
