@@ -17,63 +17,62 @@
             </div>
             <div class="ttable border-line bg-white border-radius mt-4">
                 <div class="p-2 bg-light rounded-bottom-0">
-                    <p class="m-3 text-dark">Tambah Data</p>
+                    <p class="m-3 text-dark">Detail Data</p>
                 </div>
                 <div class="text-dark border-top">
-                    <form class="ml-5 p-5">
+                    <form class="ml-5 p-5" method="POST" action="/surveilans_1">
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="" disabled>
+                                <input type="number" class="form-control" id="" disabled value="{{$data->pasien_id}}">
                             </div>
                         </div>
                         
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" disabled>
+                                <input type="text" class="form-control" id="" disabled value="{{$data->tanggal}}">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" disabled>
+                                <input type="text" class="form-control" id="" disabled value="{{$data->nama_pasien}}">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Umur</label>
                             <div class="col-sm-8">
-                                <input type="input" class="form-control" id="" disabled>
+                                <input type="input" class="form-control" id="" disabled value="{{$data->nama_pasien}}">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
-                                <input type="input" class="form-control" id="" disabled>
+                                <input type="input" class="form-control" id="" disabled value="{{$data1->jenis_kelamin}}">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
-                                <input type="textarea" class="form-control" id="" disabled>
+                                <input type="textarea" class="form-control" id="" disabled value="{{$data1->alamat}}">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Diagnosa</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled>{{$data->diagnosa}}</textarea>
                             </div>
                         </div>
                         
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
-                            <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger">Batal</button>
-                            <button type="button" class="col-4 py-3 btn btn-purple text-white">Simpan</button>
+                            <a href="/surveilans_1" type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Kembali</a>
                         </div>
                     </form>
                 </div>

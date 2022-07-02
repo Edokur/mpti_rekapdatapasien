@@ -62,10 +62,11 @@ class Surveilans1Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function detailSurveilans1($id_surveilans1)
+    public function detailSurveilans1($id_surveilans1) //done
     {
-        $data = DB::table('surveilans_1')->where('id', $id_surveilans1)->first();
-        return view('partial.surveilans_1.show', ['data' => $data]);
+        $data1 = DB::table('identitas_pasien')->where('id_pasien', $id_surveilans1)->first();
+        $data = DB::table('surveilans_1')->where('pasien_id', $id_surveilans1)->first();
+        return view('partial.surveilans_1.show', ['data' => $data],['data1' => $data1]);
     }
 
     /**
@@ -76,8 +77,9 @@ class Surveilans1Controller extends Controller
      */
     public function editSurveilans1($id_surveilans1)
     {
-        $data = DB::table('surveilans_1')->where('id', $id_surveilans1)->first();
-        return view('partial.surveilans-1.edit', ['data' => $data]);
+        $data1 = DB::table('identitas_pasien')->where('id_pasien', $id_surveilans1)->first();        
+        $data = DB::table('surveilans_1')->where('pasien_id', $id_surveilans1)->first();
+        return view('partial.surveilans_1.edit', ['data' => $data], ['data1' => $data1]);
     }
 
     /**
@@ -87,18 +89,15 @@ class Surveilans1Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateSurveilans1(Request $post)
+    public function updateSurveilans1(Request $post) // done
     {
-        DB::table('surveilans_1')->where('id', $post->id)->update([
-            'id' => $post->id,
-            'id_pasien' => $post->id_pasien,
-            'nama_pasien' => $post->nama_pasien,
+        DB::table('surveilans_1')->where('pasien_id', $post->pasien_id)->update([
+            'pasien_id' => $post->pasien_id,
             'umur' => $post->umur,
             'tanggal' => $post->tanggal,
             'diagnosa' => $post->diagnosa,
         ]);
-
-        return redirect('/identitas_pasien')->with('success', 'Data berhasil diupdate!');;
+        return redirect('/surveilans_1')->with('success', 'Data berhasil diupdate!');;
     }
 
     /**
@@ -107,9 +106,9 @@ class Surveilans1Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function hapusSurveilans1($id_surveilans1)
+    public function hapusSurveilans1($id_surveilans1) // done
     {
-        $surveilans1 = DB::table('surveilans_1')->where('id', $id_surveilans1)->delete();
+        $surveilans1 = DB::table('surveilans_1')->where('pasien_id', $id_surveilans1)->delete();
 
         return redirect('/surveilans_1')->with('success', 'Data berhasil dihapus!');;
     }

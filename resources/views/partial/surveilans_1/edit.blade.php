@@ -20,60 +20,61 @@
                     <p class="m-3 text-dark">Edit Data</p>
                 </div>
                 <div class="text-dark border-top">
-                    <form class="ml-5 p-5">
+                    <form class="ml-5 p-5" method="POST" action="/surveilans_1/updateSurveilans1">
+                    <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="" disabled>
+                                <input type="number" class="form-control" id="" value="{{ $data->pasien_id }}" name="pasien_id">
                             </div>
                         </div>
                         
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control" id="" disabled>
+                                <input type="date" class="form-control" id="" value="{{ $data->tanggal }}" name="tanggal">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control" id="" disabled value="{{ $data1->nama_pasien }}" name="nama_pasien">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Umur</label>
                             <div class="col-sm-8">
-                                <input type="input" class="form-control" id="" disabled>
+                                <input type="input" class="form-control" id="" value="{{ $data->umur }}" name="umur">
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
-                                <input type="input" class="form-control" id="" disabled>
+                                <input type="input" class="form-control" id="" disabled value="{{ $data1->jenis_kelamin }}" name="jenis_kelamin">
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
-                                <input type="textarea" class="form-control" id="" disabled>
+                                <input type="textarea" class="form-control" id="" disabled value="{{ $data1->alamat }}">
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Diagnosa</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea name="diagnosa" class="form-control" id="exampleFormControlTextarea1" rows="3" value="{{ $data1->alamat }}">{{ $data->diagnosa }}</textarea>
                             </div>
                         </div>
                         
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
-                            <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</button>
-                            <button type="button" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
+                            <a href="/surveilans_1" type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</a>
+                            <button type="submit" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
                         </div>
                     </form>
                 </div>

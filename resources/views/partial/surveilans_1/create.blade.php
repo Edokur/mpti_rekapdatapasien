@@ -20,7 +20,7 @@
                     <p class="m-3 text-dark">Tambah Data</p>
                 </div>
                 <div class="text-dark border-top">
-                    <form class="ml-5 p-5" method="POST" action="insertSurveilans1">
+                    <form class="ml-5 p-5" method="POST" action="/surveilans_1/insertSurveilans1">
                         @csrf
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                         <div class="form-group py-2 row">
