@@ -16,10 +16,8 @@ class KJiwaController extends Controller
      */
     public function index()
     {
-        $data = KJiwa::all();
-        return view('partial.kesehatan_jiwa.index', compact(
-            'data'
-        ));
+        $data = DB::table('kesehatan_jiwa')->paginate(10);
+        return view('partial.kesehatan_jiwa.index', ['data' => $data]);
     }
 
     /**
@@ -29,7 +27,14 @@ class KJiwaController extends Controller
      */
     public function create()
     {
-        return view('partial.kesehatan_jiwa.create');
+        $identitas_pasien = DB::table('identitas_pasien')->get();
+        // $produk = DB::table('produk')->get();
+        $data = array(
+            'identitas_pasien' => $identitas_pasien,
+            // 'produk' => $produk,
+        );
+        // return view('produk.create', $data);
+        return view('partial.kesehatan_jiwa.create', $data);
     }
 
     /**
@@ -38,9 +43,10 @@ class KJiwaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function insertKJiwa(Request $post)
     {
-        $request->validate([
+        $valididatedData = $post->validate([
+            'id_kesehatan_jiwa'=> 'required',
             'id_register'=>'required',
             'id_pasien'=>'required',
             'nama'=>'required',
@@ -59,8 +65,9 @@ class KJiwaController extends Controller
             'keterangan'=>'required',
         ]);
 
-        Note::create($request->all());
-        return redirect()->route('kesehatan_jiwa.index');
+        KJiwa::create($valididatedData);
+
+        return redirect('/kesehatan_jiwa')->with('success', 'Data baru berhasil ditambahkan!');
     }
 
     /**
@@ -69,11 +76,10 @@ class KJiwaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(KJiwa $kjiwa)
+    public function detailKJiwa($id_kjiwa)
     {
-        return view('partial.kesehatan-jiwa.show', compact(
-            'kjiwa'
-        ));
+        $data = DB::table('kesehatan_jiwa')->where('id_kesehatan_jiwa', $id_kjiwa)->first();
+        return view('partial.kesehatan_jiwa.show', ['data' => $data]);
     }
 
     /**
@@ -84,9 +90,9 @@ class KJiwaController extends Controller
      */
     public function edit(KJiwa $kjiwa)
     {
-        return view('partial.kesehatan-jiwa.edit', compact(
-            'kjiwa'
-        ));
+        // return view('partial.kesehatan_jiwa.edit', compact(
+        //     'kjiwa'
+        // ));
     }
 
     /**
@@ -98,28 +104,28 @@ class KJiwaController extends Controller
      */
     public function update(Request $request, KJiwa $kjiwa)
     {
-        $request->validate([
-            'id_register'=>'required',
-            'id_pasien'=>'required',
-            'nama'=>'required',
-            'nik'=>'required',
-            'tanggal_lahir'=>'required',
-            'alamat'=>'required',
-            'jenis_kelamin'=>'required',
-            'no_bpjs'=>'required',
-            'kepala_keluarga'=>'required',
-            'pendidikan'=>'required',
-            'pekerjaan'=>'required',
-            'diagnosa'=>'required',
-            'terapi'=>'required',
-            'tanggal_kunjungan'=>'required',
-            'kunjungan'=>'required',
-            'keterangan'=>'required',
-        ]);
+        // $request->validate([
+        //     'id_register'=>'required',
+        //     'id_pasien'=>'required',
+        //     'nama'=>'required',
+        //     'nik'=>'required',
+        //     'tanggal_lahir'=>'required',
+        //     'alamat'=>'required',
+        //     'jenis_kelamin'=>'required',
+        //     'no_bpjs'=>'required',
+        //     'kepala_keluarga'=>'required',
+        //     'pendidikan'=>'required',
+        //     'pekerjaan'=>'required',
+        //     'diagnosa'=>'required',
+        //     'terapi'=>'required',
+        //     'tanggal_kunjungan'=>'required',
+        //     'kunjungan'=>'required',
+        //     'keterangan'=>'required',
+        // ]);
 
-        $note->update($request->all());
+        // $note->update($request->all());
 
-        return redirect()->route('kesehatan-jiwa.index');
+        // return redirect()->route('kesehatan-jiwa.index');
     }
 
     /**
@@ -128,10 +134,10 @@ class KJiwaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(KJiwa $kjiwa)
+    public function hapusKJiwa($id_kjiwa)
     {
-        $kjiwa->delete();
+        $idkjiwa = DB::table('kesehatan_jiwa')->where('id_kesehatan_jiwa', $id_kjiwa)->delete();
 
-        return redirect()->route('kesehatan-jiwa.index')->with('succes', 'Data Berhasil di Hapus');
+        return redirect('/kesehatan_jiwa')->with('success', 'Data berhasil dihapus!');
     }
 }

@@ -115,3 +115,12 @@ Route::get('/surveilans_1/editSurveilans1/{id}', [Surveilans1Controller::class, 
 Route::post('/surveilans_1/updateSurveilans1', [Surveilans1Controller::class, 'updateSurveilans1']);
 Route::get('/surveilans_1/hapusSurveilans1/{id}', [Surveilans1Controller::class, 'hapusSurveilans1']);
 Route::get('/surveilans_1/detailSurveilans1/{id}', [Surveilans1Controller::class, 'detailSurveilans1']);
+
+// ocha
+// Route Kesehatan Jiwa
+Route::get('/kesehatan_jiwa', [KJiwaController::class, 'index']);
+Route::get('/kesehatan_jiwa/create', [KJiwaController::class, 'create']);
+Route::post('/kesehatan_jiwa/insertKJiwa', [KJiwaController::class, 'insertKJiwa']);
+Route::get('/kesehatan_jiwa/hapusKJiwa/{id_kesehatan_jiwa}', [KJiwaController::class, 'hapusKJiwa']);
+Route::get('/kesehatan_jiwa/detailKJiwa/{id_kesehatan_jiwa}', [KJiwaController::class, 'detailKJiwa']);
+

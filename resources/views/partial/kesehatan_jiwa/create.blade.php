@@ -22,32 +22,46 @@
                     <p class="m-3 text-dark">Tambah Data</p>
                 </div>
                 <div class="text-dark border-top">
-                    <form class="ml-5 p-5">
+                    <form class="ml-5 p-5" method="POST" action="insertKJiwa">
+                        @csrf
+                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Kunjungan</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control" id="" placeholder="" disabled>
+                                <input type="date" class="form-control" name="tanggal_kunjungan" id="" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-group py-2 row">
+                            <label for="" class="col-sm-3 col-form-label">ID Kunjungan</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" name="id_kesehatan_jiwa" id="">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="" disabled>
+                                <input type="number" class="form-control" name="id_register" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="">
-                            </div>
-                        </div>
+                                <div class="dropdown">
+                                    <select name="nama_pasien" id="nama_pasien" class="btn border btn-block text-left form-control">
+                                        <option value="" selected>-- Pilih Pasien --</option>
+                                        @foreach($identitas_pasien as $key)
+                                        <option value="{{ $key->id_pasien }}">{{ $key->nama_pasien }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control" id="" disabled>
+                                <input type="date" class="form-control" name="tanggal_lahir" id="" disabled>
                             </div>
                         </div>
 
@@ -55,7 +69,7 @@
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
                                 <div class="dropdown"> 
-                                    <select name="status" id="status" class="btn border btn-block text-left form-control" disabled>
+                                    <select name="status" id="status" class="btn border btn-block text-left form-control" name="jenis_kelamin" id="" disabled>
                                         <option> </option>
                                         <option>Laki-laki</option>
                                         <option>Perempuan</option>
@@ -67,28 +81,28 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
-                                <input type="textarea" class="form-control" id="" disabled>
+                                <input type="textarea" class="form-control" name="alamat" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Kepala Keluarga</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" disabled>
+                                <input type="text" class="form-control" nama="kepala_keluarga" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">NIK</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="" disabled>
+                                <input type="number" class="form-control" name="nik" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="" disabled>
+                                <input type="number" class="form-control" name="no_bpjs" id="" disabled>
                             </div>
                         </div>
 
@@ -96,8 +110,8 @@
                             <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
                                 <div class="dropdown"> 
-                                    <select name="status" id="status" class="btn border btn-block text-left form-control" disabled>
-                                        <option> </option>
+                                    <select name="status" id="status" class="btn border btn-block text-left form-control" name="pendidikan" disabled>
+                                    <option></option>
                                         <option>SD</option>
                                         <option>SMP</option>
                                         <option>SMA</option>
@@ -109,35 +123,35 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Diagnosa</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" name="diagnosa" rows="3"></textarea>
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Terapi</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="">
+                                <input type="number" class="form-control" name="terapi" id="">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Dosis</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control" name="dosis" id="">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Keterangan</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" name="keterangan" rows="3"></textarea>
                             </div>
                         </div>
 
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
                             <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</button>
-                            <button type="button" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
+                            <button type="submit" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
                         </div>
                     </form>
                 </div>

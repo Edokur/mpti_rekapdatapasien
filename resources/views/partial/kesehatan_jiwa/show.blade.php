@@ -22,32 +22,32 @@
                     <p class="m-3 text-dark">Detail Data</p>
                 </div>
                 <div class="text-dark border-top">
-                    <form class="ml-5 p-5">
+                    <form class="ml-5 p-5" method="POST" action="/kesehatan_jiwa">
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Kunjungan</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control" id="" placeholder="" disabled>
+                                <input type="date" class="form-control" value="{{$data->tanggal_kunjungan}}" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="" disabled>
+                                <input type="number" class="form-control" value="{{$data->id_register}}" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control" value="{{$data->nama_pasien}}" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control" id="" disabled>
+                                <input type="date" class="form-control" value="{{$data->tanggal_lahir}}" id="" disabled>
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
                                 <div class="dropdown"> 
-                                    <select name="status" id="status" class="btn border btn-block text-left form-control" disabled>
+                                    <select name="status" id="status" class="btn border btn-block text-left form-control" name="jenis_kelamin" disabled>
                                         <option> </option>
                                         <option>Laki-laki</option>
                                         <option>Perempuan</option>
