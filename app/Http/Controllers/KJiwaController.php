@@ -88,8 +88,10 @@ class KJiwaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(KJiwa $kjiwa)
+    public function editKJiwa ($id_kjiwa)
     {
+        $data = DB::table('kesehatan_jiwa')->where('id_kesehatan_jiwa', $id_kjiwa)->first();
+        return view('partial.kesehatan_jiwa.edit', ['data' => $data]);
         // return view('partial.kesehatan_jiwa.edit', compact(
         //     'kjiwa'
         // ));
@@ -102,30 +104,29 @@ class KJiwaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, KJiwa $kjiwa)
+    public function updateKJiwa(Request $post)
     {
-        // $request->validate([
-        //     'id_register'=>'required',
-        //     'id_pasien'=>'required',
-        //     'nama'=>'required',
-        //     'nik'=>'required',
-        //     'tanggal_lahir'=>'required',
-        //     'alamat'=>'required',
-        //     'jenis_kelamin'=>'required',
-        //     'no_bpjs'=>'required',
-        //     'kepala_keluarga'=>'required',
-        //     'pendidikan'=>'required',
-        //     'pekerjaan'=>'required',
-        //     'diagnosa'=>'required',
-        //     'terapi'=>'required',
-        //     'tanggal_kunjungan'=>'required',
-        //     'kunjungan'=>'required',
-        //     'keterangan'=>'required',
-        // ]);
+        DB::table('kesehatan_jiwa')->where('id_kesehatan_jiwa', $post->id_kesehatan_jiwa)->update([
+            'id_kesehatan_jiwa'=>$post->id_kesehatan_jiwa,
+            'id_register'=>$post->id_register,
+            'id_pasien'=>$post->id_pasien,
+            'nama'=>$post->nama,
+            'nik'=>$post->nik,
+            'tanggal_lahir'=>$post->tanggal_lahir,
+            'alamat'=>$post->alamat,
+            'jenis_kelamin'=>$post->jenis_kelamin,
+            'no_bpjs'=>$post->no_bpjs,
+            'kepala_keluarga'=>$post->kepala_keluarga,
+            'pendidikan'=>$post->pendidikan,
+            'pekerjaan'=>$post->pekerjaan,
+            'diagnosa'=>$post->diagnosa,
+            'terapi'=>$post->terapi,
+            'tanggal_kunjungan'=>$post->tanggal_kunjungan,
+            'kunjungan'=>$post->kunjungan,
+            'keterangan'=>$post->keterangan,
+        ]);
 
-        // $note->update($request->all());
-
-        // return redirect()->route('kesehatan-jiwa.index');
+        return redirect('/kesehatan_jiwa')->with('success', 'Data berhasil diupdate!');;
     }
 
     /**

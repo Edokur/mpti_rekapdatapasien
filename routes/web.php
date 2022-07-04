@@ -123,4 +123,6 @@ Route::get('/kesehatan_jiwa/create', [KJiwaController::class, 'create']);
 Route::post('/kesehatan_jiwa/insertKJiwa', [KJiwaController::class, 'insertKJiwa']);
 Route::get('/kesehatan_jiwa/hapusKJiwa/{id_kesehatan_jiwa}', [KJiwaController::class, 'hapusKJiwa']);
 Route::get('/kesehatan_jiwa/detailKJiwa/{id_kesehatan_jiwa}', [KJiwaController::class, 'detailKJiwa']);
+Route::get('/kesehatan_jiwa/editKJiwa/{id_kesehatan_jiwa}', [KJiwaController::class, 'editKJiwa']);
+Route::post('/kesehatan_jiwa/updateKJiwa', [KJiwaController::class, 'updateKJiwa']);
 

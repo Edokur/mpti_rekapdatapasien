@@ -23,6 +23,7 @@
                 </div>
                 <div class="text-dark border-top">
                     <form class="ml-5 p-5" method="POST" action="/kesehatan_jiwa">
+                        @csrf
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Kunjungan</label>
                             <div class="col-sm-8">
@@ -109,35 +110,34 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Diagnosa</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Terapi</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="">
+                                <input type="number" class="form-control" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Dosis</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Keterangan</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
                             </div>
                         </div>
 
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
-                            <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</button>
-                            <button type="button" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
+                            <a href="/kesehatan_jiwa" type="button" class="col-8 py-3 btn btn-purple text-white ">Kembali</a>
                         </div>
                     </form>
                 </div>
