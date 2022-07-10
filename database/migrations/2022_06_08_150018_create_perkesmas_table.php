@@ -26,10 +26,10 @@ class CreatePerkesmasTable extends Migration
             $table->string('kepala_keluarga');
             $table->string('pendidikan');
             $table->date('tanggal_kunjungan');
-            $table->integer('kunjungan');
             $table->text('intervensi_keperawatan');
             $table->text('diagnosa_keperawatan');
             $table->text('implementasi_keperawatan');
+            $table->string('kunjungan');
             $table->text('keterangan');
             $table->timestamps();
 

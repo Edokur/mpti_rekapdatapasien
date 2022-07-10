@@ -29,10 +29,11 @@ class CreateKesehatanJiwaTable extends Migration
             $table->string('pendidikan');
             $table->string('pekerjaan');
             $table->date('tanggal_kunjungan');
-            $table->integer('kunjungan');
+            $table->string('kunjungan');
+            $table->text('diagnosa');
+            $table->text('terapi');
+            $table->text('dosis');
             $table->text('keterangan');
-            // $table->text('diagnosa');
-            // $table->text('terapi');
             $table->timestamps();
 
             $table->foreign('pasien_id')->references('id_pasien')->on('identitas_pasien');
