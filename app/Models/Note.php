@@ -12,7 +12,7 @@ class Note extends Model
     protected $table = 'note';
 
     protected $fillable = [
-        'id',
+        'id_note',
         'status',
         'judul',
         'deskripsi',

@@ -92,7 +92,8 @@ class NoteController extends Controller
      */
     public function updateNote(Request $post)
     {
-        $get = DB::table('note')->where('id_note', $post->id)->update([
+        // dd($post);
+        $get = DB::table('note')->where('id_note', $post->id_note)->update([
             'status' => $post->status,
             'judul' => $post->judul,
             'deskripsi' => $post->deskripsi,
@@ -105,8 +106,6 @@ class NoteController extends Controller
             Alert::error('Gagal', 'Data Gagal Di Update');     //dapat digunakan
             return redirect('/note');
         }
-
-        // return redirect()->route('note.index')->with('succes', 'Catatan Berhasil di Update');
     }
 
     /**
