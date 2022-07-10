@@ -57,6 +57,8 @@
                                         @endforeach
                                     </select>
                                 </div>
+                            </div>
+                        </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
