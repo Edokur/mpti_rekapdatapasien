@@ -31,7 +31,7 @@ class Surveilans1Controller extends Controller
         $data = array(
             'identitas_pasien' => $identitas_pasien,
         );
-        return view('partial.surveilans_1.create',$data);
+        return view('partial.surveilans_1.create', $data);
     }
 
     /**
@@ -43,13 +43,20 @@ class Surveilans1Controller extends Controller
     public function insertSurveilans1(Request $post)
     {
         $valididatedData = $post->validate([
-            'id_surveilens1' => 'required',
             'pasien_id' => 'required',
             'nama_pasien' => 'required',
             'umur' => 'required',
             'tanggal' => 'required',
             'diagnosa' => 'required',
         ]);
+
+        // $data = DB::table('surveilans_1')->insert([
+        //     'pasien_id' => $post->pasien_id,
+        //     'nama_pasien' => $post->nama_pasien,
+        //     'umur' => $post->umur,
+        //     'tanggal' => $post->tanggal,
+        //     'diagnosa' => $post->diagnosa,
+        // ]);
 
         Surveilans1::create($valididatedData);
 
@@ -66,7 +73,7 @@ class Surveilans1Controller extends Controller
     {
         $data1 = DB::table('identitas_pasien')->where('id_pasien', $id_surveilans1)->first();
         $data = DB::table('surveilans_1')->where('pasien_id', $id_surveilans1)->first();
-        return view('partial.surveilans_1.show', ['data' => $data],['data1' => $data1]);
+        return view('partial.surveilans_1.show', ['data' => $data], ['data1' => $data1]);
     }
 
     /**
@@ -77,7 +84,7 @@ class Surveilans1Controller extends Controller
      */
     public function editSurveilans1($id_surveilans1)
     {
-        $data1 = DB::table('identitas_pasien')->where('id_pasien', $id_surveilans1)->first();        
+        $data1 = DB::table('identitas_pasien')->where('id_pasien', $id_surveilans1)->first();
         $data = DB::table('surveilans_1')->where('pasien_id', $id_surveilans1)->first();
         return view('partial.surveilans_1.edit', ['data' => $data], ['data1' => $data1]);
     }
