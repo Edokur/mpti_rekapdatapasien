@@ -13,13 +13,14 @@ class CreateLogIdentitasPasienTable extends Migration
      */
     public function up()
     {
-        Schema::create('log_identitas_pasien', function (Blueprint $table) {
+        Schema::create('log_activity', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('identitas_pasien_id')->unsigned();
+            $table->string('activity_id')->index();
+            $table->text('jenis_data');
             $table->text('deskripsi');
             $table->timestamps();
 
-            $table->foreign('identitas_pasien_id')->references('id_pasien')->on('identitas_pasien');
+            $table->foreign('activity_id')->references('id_register')->on('identitas_pasien');
         });
     }
 
@@ -30,6 +31,6 @@ class CreateLogIdentitasPasienTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('log_identitas_pasien');
+        Schema::dropIfExists('log_activity');
     }
 }

@@ -13,7 +13,7 @@ class Surveilans1 extends Model
 
     protected $fillable = [
         'id_surveilens1',
-        'pasien_id',
+        'id_register',
         'nama_pasien',
         'umur',
         'tanggal',

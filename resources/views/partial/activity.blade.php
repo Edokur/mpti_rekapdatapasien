@@ -44,10 +44,11 @@
                         </tr>
                     </thead>
                     <tbody class="color-white bg-white color-neutral-400">
+                        @foreach($data as $key=>$value)
                         <tr>
-                            <td class="col-1 td1">#12345</td>
-                            <td class="col-1 td1">01-01-2022</td>
-                            <td class="col-1 td1">Putra Dino</td>
+                            <td class="col-1 td1">{{$value->identitas_pasien_id}}</td>
+                            <td class="col-1 td1">{{$data1->nama_pasien}}</td>
+                            <td class="col-1 td1">{{$data1->nama_pasien}}</td>
                             <td class="col-1 td1">Kesehatan Jiwa</td>
                             <td class="col-1">
                                 <p class="text-warning"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffc107" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -56,7 +57,8 @@
                                 </svg> Telah Diubah</p>
                             </td>
                         </tr>
-                        <tr>
+                        @endforeach
+                        <!-- <tr>
                             <td class="col-1 td1">#12345</td>
                             <td class="col-1 td1">01-01-2022</td>
                             <td class="col-1 td1">Putra Dino</td>
@@ -89,7 +91,7 @@
                                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                 </svg> Telah Diubah</p>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

@@ -22,11 +22,27 @@
                 <div class="text-dark border-top">
                     <form class="ml-5 p-5" method="POST" action="insertSurveilans1">
                         @csrf
+                       
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                        <!-- <div class="form-group py-2 row">
+                            <label for="" class="col-sm-3 col-form-label">ID Register</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control color-neutral-400" name="id_register" id="" >
+                            </div>
+                        </div> -->
+
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="" name="pasien_id">
+                                <div class="dropdown">
+                                    <select name="id_register" id="id_register" class="btn border btn-block text-left form-control">
+                                        <!-- <option value="" selected>-- Pilih Pasien --</option> -->
+                                        @foreach($identitas_pasien as $key)
+                                        <option name="id_register" value="{{ $key->id_register}}"> {{ $key->id_register }} - {{ $key->nama_pasien }} </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <!-- <input type="text" class="form-control" id="" name="nama_pasien"> -->
                             </div>
                         </div>
 
@@ -44,7 +60,7 @@
                                     <select name="nama_pasien" id="nama_pasien" class="btn border btn-block text-left form-control">
                                         <!-- <option value="" selected>-- Pilih Pasien --</option> -->
                                         @foreach($identitas_pasien as $key)
-                                        <option value="{{ $key->id_pasien }}">{{ $key->nama_pasien }}</option>
+                                        <option name="id_register" value="{{ $key->nama_pasien}}">{{ $key->nama_pasien }} </option>
                                         @endforeach
                                     </select>
                                 </div>

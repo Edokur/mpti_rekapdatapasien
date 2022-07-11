@@ -13,6 +13,7 @@ class Identitas extends Model
 
     protected $fillable = [
         'id_pasien',
+        'id_register',
         'nama_pasien',
         'tanggal_lahir',
         'jenis_kelamin',

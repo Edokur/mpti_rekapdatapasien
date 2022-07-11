@@ -43,7 +43,7 @@ class Surveilans1Controller extends Controller
     public function insertSurveilans1(Request $post)
     {
         $valididatedData = $post->validate([
-            'pasien_id' => 'required',
+            'id_register' => 'required',
             'nama_pasien' => 'required',
             'umur' => 'required',
             'tanggal' => 'required',
@@ -58,7 +58,7 @@ class Surveilans1Controller extends Controller
         //     'diagnosa' => $post->diagnosa,
         // ]);
 
-        Surveilans1::create($valididatedData);
+        Surveilans1::create($valididatedData); 
 
         return redirect('/surveilans_1')->with('success', 'Data baru berhasil ditambahkan!');
     }
@@ -71,8 +71,8 @@ class Surveilans1Controller extends Controller
      */
     public function detailSurveilans1($id_surveilans1) //done
     {
-        $data1 = DB::table('identitas_pasien')->where('id_pasien', $id_surveilans1)->first();
-        $data = DB::table('surveilans_1')->where('pasien_id', $id_surveilans1)->first();
+        $data1 = DB::table('identitas_pasien')->where('id_register', $id_surveilans1)->first();
+        $data = DB::table('surveilans_1')->where('id_register', $id_surveilans1)->first();
         return view('partial.surveilans_1.show', ['data' => $data], ['data1' => $data1]);
     }
 
@@ -84,8 +84,8 @@ class Surveilans1Controller extends Controller
      */
     public function editSurveilans1($id_surveilans1)
     {
-        $data1 = DB::table('identitas_pasien')->where('id_pasien', $id_surveilans1)->first();
-        $data = DB::table('surveilans_1')->where('pasien_id', $id_surveilans1)->first();
+        $data1 = DB::table('identitas_pasien')->where('id_register', $id_surveilans1)->first();
+        $data = DB::table('surveilans_1')->where('id_register', $id_surveilans1)->first();
         return view('partial.surveilans_1.edit', ['data' => $data], ['data1' => $data1]);
     }
 
@@ -98,8 +98,8 @@ class Surveilans1Controller extends Controller
      */
     public function updateSurveilans1(Request $post) // done
     {
-        DB::table('surveilans_1')->where('pasien_id', $post->pasien_id)->update([
-            'pasien_id' => $post->pasien_id,
+        DB::table('surveilans_1')->where('id_register', $post->id_register)->update([
+            'id_register' => $post->id_register,
             'umur' => $post->umur,
             'tanggal' => $post->tanggal,
             'diagnosa' => $post->diagnosa,
@@ -115,7 +115,7 @@ class Surveilans1Controller extends Controller
      */
     public function hapusSurveilans1($id_surveilans1) // done
     {
-        $surveilans1 = DB::table('surveilans_1')->where('pasien_id', $id_surveilans1)->delete();
+        $surveilans1 = DB::table('surveilans_1')->where('id_register', $id_surveilans1)->delete();
 
         return redirect('/surveilans_1')->with('success', 'Data berhasil dihapus!');;
     }

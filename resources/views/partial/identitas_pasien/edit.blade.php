@@ -28,7 +28,7 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" name="id_pasien" id="" value="{{$data->id_pasien}}">
+                                <input type="text" class="form-control color-neutral-400" name="id_register" id="" value="{{$data->id_register}}">
                             </div>
                         </div>
                         <div class="form-group row py-2">

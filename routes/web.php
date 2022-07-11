@@ -6,6 +6,7 @@ use App\Http\Controllers\Surveilans1Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KJiwaController;
 use App\Http\Controllers\PerkesmasController;
+use App\Http\Controllers\ActivityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -106,6 +107,15 @@ Route::get('/identitas_pasien/editIdentitas/{id}', [IdentitasController::class, 
 Route::post('/identitas_pasien/updateIdentitas', [IdentitasController::class, 'updateIdentitas']);
 Route::get('/identitas_pasien/hapusIdentitas/{id}', [IdentitasController::class, 'hapusIdentitas']);
 Route::get('/identitas_pasien/detailIdentitas/{id}', [IdentitasController::class, 'detailIdentitas']);
+
+// Identitas Pasien
+Route::get('activity', [ActivityController::class, 'index']);
+// Route::get('/identitas_pasien/create', [IdentitasController::class, 'create']);
+// Route::post('/identitas_pasien/insertIdentitas', [IdentitasController::class, 'insertIdentitas']);
+// Route::get('/identitas_pasien/editIdentitas/{id}', [IdentitasController::class, 'editIdentitas']);
+// Route::post('/identitas_pasien/updateIdentitas', [IdentitasController::class, 'updateIdentitas']);
+// Route::get('/identitas_pasien/hapusIdentitas/{id}', [IdentitasController::class, 'hapusIdentitas']);
+// Route::get('/identitas_pasien/detailIdentitas/{id}', [IdentitasController::class, 'detailIdentitas']);
 
 // Surveilans 1
 Route::get('/surveilans_1', [Surveilans1Controller::class, 'index']);

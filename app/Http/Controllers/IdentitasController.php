@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Identitas;
+use App\Models\Activity;
 
 class IdentitasController extends Controller
 {
@@ -43,7 +44,7 @@ class IdentitasController extends Controller
     public function insertIdentitas(Request $post)
     {
         $valididatedData = $post->validate([
-            'id_pasien' => 'required',
+            'id_register' => 'required',
             'nama_pasien' => 'required',
             'tanggal_lahir' => 'required',
             'jenis_kelamin' => 'required',
@@ -57,6 +58,13 @@ class IdentitasController extends Controller
 
         Identitas::create($valididatedData);
 
+        // tambah ke db log
+        DB::table('log_activity')->insert([
+            'activity_id' => $post->id_register,
+            'jenis_data' => 'Identitas Pasien',
+            'deskripsi' => 'Tambah Data',
+        ]);
+
         return redirect('/identitas_pasien')->with('success', 'Data baru berhasil ditambahkan!');
     }
 
@@ -68,12 +76,8 @@ class IdentitasController extends Controller
      */
     public function detailIdentitas($id_identitas)
     {
-        $data = DB::table('identitas_pasien')->where('id_pasien', $id_identitas)->first();
+        $data = DB::table('identitas_pasien')->where('id_register', $id_identitas)->first();
         return view('partial.identitas_pasien.show', ['data' => $data]);
-        // return view('partial.identitas.show', compact(
-        //     'identitas'
-        // ));
-        // return view('note.show', compact('note'));
     }
 
     /**
@@ -84,12 +88,8 @@ class IdentitasController extends Controller
      */
     public function editIdentitas($id_identitas)
     {
-        $data = DB::table('identitas_pasien')->where('id_pasien', $id_identitas)->first();
+        $data = DB::table('identitas_pasien')->where('id_register', $id_identitas)->first();
         return view('partial.identitas_pasien.edit', ['data' => $data]);
-        // return view('partial.identitas-pasien.edit', compact(
-        //     'identitas'
-        // ));
-        // return view('note.edit', compact('note'));
     }
 
     /**
@@ -101,8 +101,8 @@ class IdentitasController extends Controller
      */
     public function updateIdentitas(Request $post)
     {
-        DB::table('identitas_pasien')->where('id_pasien', $post->id_pasien)->update([
-            'id_pasien' => $post->id_pasien,
+        DB::table('identitas_pasien')->where('id_register', $post->id_register)->update([
+            'id_register' => $post->id_register,
             'nama_pasien' => $post->nama_pasien,
             'tanggal_lahir' => $post->tanggal_lahir,
             'jenis_kelamin' => $post->jenis_kelamin,
@@ -115,9 +115,6 @@ class IdentitasController extends Controller
         ]);
 
         return redirect('/identitas_pasien')->with('success', 'Data berhasil diupdate!');;
-        // $identitas->update($request->all());
-
-        // return redirect()->route('identitas-pasien.index');
     }
 
     /**
@@ -128,7 +125,7 @@ class IdentitasController extends Controller
      */
     public function hapusIdentitas($id_identitas)
     {
-        $identitas = DB::table('identitas_pasien')->where('id_pasien', $id_identitas)->delete();
+        $identitas = DB::table('identitas_pasien')->where('id_register', $id_identitas)->delete();
 
         return redirect('/identitas_pasien')->with('success', 'Data berhasil dihapus!');;
     }

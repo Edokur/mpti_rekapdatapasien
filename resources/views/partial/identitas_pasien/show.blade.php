@@ -27,7 +27,7 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control color-neutral-400" id="" value="{{$data->id_pasien}}" disabled>
+                                <input type="text" class="form-control color-neutral-400" id="" value="{{$data->id_register}}" disabled>
                             </div>
                         </div>
 

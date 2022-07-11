@@ -24,7 +24,7 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="" disabled value="{{$data->pasien_id}}">
+                                <input type="text" class="form-control" id="" disabled value="{{$data->id_register}}">
                             </div>
                         </div>
                         
@@ -38,14 +38,14 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" disabled value="{{$data->nama_pasien}}">
+                                <input type="text" class="form-control" id="" disabled value="{{$data1->nama_pasien}}">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Umur</label>
                             <div class="col-sm-8">
-                                <input type="input" class="form-control" id="" disabled value="{{$data->nama_pasien}}">
+                                <input type="input" class="form-control" id="" disabled value="{{$data->umur}}">
                             </div>
                         </div>
 
