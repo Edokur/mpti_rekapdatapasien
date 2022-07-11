@@ -48,8 +48,8 @@ class KJiwaController extends Controller
         $valididatedData = $post->validate([
             'id_kesehatan_jiwa'=> 'required',
             'id_register'=>'required',
-            'id_pasien'=>'required',
-            'nama'=>'required',
+            'pasien_id'=>'required',
+            'nama_pasien'=>'required',
             'nik'=>'required',
             'tanggal_lahir'=>'required',
             'alamat'=>'required',
@@ -109,8 +109,8 @@ class KJiwaController extends Controller
         DB::table('kesehatan_jiwa')->where('id_kesehatan_jiwa', $post->id_kesehatan_jiwa)->update([
             'id_kesehatan_jiwa'=>$post->id_kesehatan_jiwa,
             'id_register'=>$post->id_register,
-            'id_pasien'=>$post->id_pasien,
-            'nama'=>$post->nama,
+            'pasien_id'=>$post->pasien_id,
+            'nama_pasien'=>$post->nama_pasien,
             'nik'=>$post->nik,
             'tanggal_lahir'=>$post->tanggal_lahir,
             'alamat'=>$post->alamat,
