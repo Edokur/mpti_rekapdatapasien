@@ -17,9 +17,8 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        $data1 = DB::table('identitas_pasien')->first();
         $data = DB::table('log_activity')->paginate(10);
-        return view('partial.activity', ['data' => $data],['data1' => $data1]);
+        return view('partial.activity', ['data' => $data]);
     }
 
     // /**

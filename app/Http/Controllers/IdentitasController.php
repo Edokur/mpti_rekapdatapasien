@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Identitas;
 use App\Models\Activity;
+use Carbon\Carbon;
 
 class IdentitasController extends Controller
 {
@@ -60,9 +61,10 @@ class IdentitasController extends Controller
 
         // tambah ke db log
         DB::table('log_activity')->insert([
-            'activity_id' => $post->id_register,
+            'nama_pasien' => $post->nama_pasien,
             'jenis_data' => 'Identitas Pasien',
             'deskripsi' => 'Tambah Data',
+            'tanggal' => Carbon::now(),
         ]);
 
         return redirect('/identitas_pasien')->with('success', 'Data baru berhasil ditambahkan!');
@@ -113,6 +115,12 @@ class IdentitasController extends Controller
             'pendidikan' => $post->pendidikan,
             'pekerjaan' => $post->pekerjaan,
         ]);
+        DB::table('log_activity')->insert([
+            'nama_pasien' => $post->nama_pasien,
+            'jenis_data' => 'Identitas Pasien',
+            'deskripsi' => 'Ubah Data',
+            'tanggal' => Carbon::now(),
+        ]);
 
         return redirect('/identitas_pasien')->with('success', 'Data berhasil diupdate!');;
     }
@@ -126,6 +134,15 @@ class IdentitasController extends Controller
     public function hapusIdentitas($id_identitas)
     {
         $identitas = DB::table('identitas_pasien')->where('id_register', $id_identitas)->delete();
+        // $nama = DB::table('identitas_pasien')->where('id_register', $id_identitas)->get('nama_pasien');
+        // var_dump($nama);
+        // die;
+        DB::table('log_activity')->insert([
+            'nama_pasien' => 'Masih Bug',
+            'jenis_data' => 'Identitas Pasien',
+            'deskripsi' => 'Hapus Data',
+            'tanggal' => Carbon::now(),
+        ]);
 
         return redirect('/identitas_pasien')->with('success', 'Data berhasil dihapus!');;
     }

@@ -15,12 +15,12 @@ class CreateLogIdentitasPasienTable extends Migration
     {
         Schema::create('log_activity', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('activity_id')->index();
+            $table->string('nama_pasien');
             $table->text('jenis_data');
             $table->text('deskripsi');
+            $table->date('tanggal');
             $table->timestamps();
 
-            $table->foreign('activity_id')->references('id_register')->on('identitas_pasien');
         });
     }
 

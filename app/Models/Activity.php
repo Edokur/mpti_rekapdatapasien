@@ -12,7 +12,8 @@ class Activity extends Model
     protected $table = 'log_identitas_pasien';
 
     protected $fillable = [
-        'identitas_pasien_id',
+        'jenis_data',
         'deskripsi',
+        'tanggal',
     ];
 }
