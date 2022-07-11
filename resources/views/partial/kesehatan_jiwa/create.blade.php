@@ -53,7 +53,7 @@
                                     <select name="nama_pasien" id="nama_pasien" class="btn border btn-block text-left form-control">
                                         <option value="" selected>-- Pilih Pasien --</option>
                                         @foreach($identitas_pasien as $key)
-                                        <option value="{{ $key->id_pasien }}">{{ $key->nama_pasien }}</option>
+                                        <option value="{{ $key->nama_pasien }}">{{ $key->nama_pasien }}</option>
                                         @endforeach
                                     </select>
                                 </div>

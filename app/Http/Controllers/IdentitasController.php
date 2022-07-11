@@ -133,17 +133,23 @@ class IdentitasController extends Controller
      */
     public function hapusIdentitas($id_identitas)
     {
-        $identitas = DB::table('identitas_pasien')->where('id_register', $id_identitas)->delete();
-        // $nama = DB::table('identitas_pasien')->where('id_register', $id_identitas)->get('nama_pasien');
-        // var_dump($nama);
+       
+        $items = DB::table('identitas_pasien')
+             ->select('*')
+             ->where('id_register','=', $id_identitas)
+             ->first();
+        // $nama = DB::select('SELECT nama_pasien FROM identitas_pasien WHERE id_register = ?', [$id_identitas]);
+        // var_dump($items->nama_pasien);
         // die;
+
         DB::table('log_activity')->insert([
-            'nama_pasien' => 'Masih Bug',
+            'nama_pasien' => $items->nama_pasien,
             'jenis_data' => 'Identitas Pasien',
             'deskripsi' => 'Hapus Data',
             'tanggal' => Carbon::now(),
         ]);
 
+        $identitas = DB::table('identitas_pasien')->where('id_register', $id_identitas)->delete();
         return redirect('/identitas_pasien')->with('success', 'Data berhasil dihapus!');;
     }
 }
