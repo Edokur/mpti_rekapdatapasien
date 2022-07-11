@@ -14,8 +14,8 @@ class KJiwa extends Model
     protected $fillable = [
         'id_kesehatan_jiwa',
         'id_register',
-        'id_pasien',
-        'nama',
+        'pasien_id',
+        'nama_pasien',
         'nik',
         'tanggal_lahir',
         'alamat',
