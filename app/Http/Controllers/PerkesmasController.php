@@ -167,11 +167,22 @@ class PerkesmasController extends Controller
 
     public function get_pasien($id)
     {
-        // dd($id);
-        // $request = Request::all()
         $data_pasien = DB::table('identitas_pasien')->where('id_pasien', $id)->first();
 
-        // $html = view('partial.perkesmas.create')->with(compact('data_pasien'))->render();
         return response()->json(['success' => true, 'data' => $data_pasien]);
+    }
+
+    public function SearchPerkesmas(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+
+        // mengambil data dari table pegawai sesuai pencarian data
+        $pegawai = DB::table('perkesmas')
+            ->where('nama_pasien', 'like', "%" . $cari . "%")
+            ->paginate();
+
+        // mengirim data pegawai ke view index
+        return view('partial.perkesmas.index', ['data' => $pegawai]);
     }
 }

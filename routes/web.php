@@ -96,6 +96,7 @@ Route::get('/perkesmas/hapusPerkesmas/{id_perkesmas}', [PerkesmasController::cla
 Route::get('/get_pasien/{id}', [PerkesmasController::class, 'get_pasien']);
 Route::get('/perkesmas/edit_perkesmas/{id_perkesmas}', [PerkesmasController::class, 'editPerkesmas']);
 Route::post('/perkesmas/updatePerkesmas', [PerkesmasController::class, 'updatePerkesmas']);
+Route::get('/perkesmas/cari', [PerkesmasController::class, 'SearchPerkesmas']);
 
 
 
