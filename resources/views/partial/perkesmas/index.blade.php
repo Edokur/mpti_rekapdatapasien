@@ -41,9 +41,7 @@
                     </a>
                 </div>
                 <div class="col text-right">
-                    <button class="btn btn-outline-success px-5 py-3">
-                        <i class="fa-solid fa-print"></i> Cetak Data
-                    </button>
+                    <a href="/perkesmas/export_excel" class="btn btn-outline-success px-5 py-3" target="_blank"><i class="fa-solid fa-print"></i> Cetak Data</a>
                 </div>
             </div>
 
