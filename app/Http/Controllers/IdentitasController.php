@@ -152,4 +152,17 @@ class IdentitasController extends Controller
         $identitas = DB::table('identitas_pasien')->where('id_register', $id_identitas)->delete();
         return redirect('/identitas_pasien')->with('success', 'Data berhasil dihapus!');;
     }
+    public function searchIdentitas(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+
+        // mengambil data dari table pegawai sesuai pencarian data
+        $pasien = DB::table('identitas_pasien')
+            ->where('nama_pasien', 'like', "%" . $cari . "%")
+            ->paginate();
+
+        // mengirim data pasien ke view index
+        return view('partial.identitas_pasien.identitas_pasien', ['data' => $pasien]);
+    }
 }

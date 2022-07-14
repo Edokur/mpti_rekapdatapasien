@@ -119,4 +119,17 @@ class Surveilans1Controller extends Controller
 
         return redirect('/surveilans_1')->with('success', 'Data berhasil dihapus!');;
     }
+    public function searchSurveilans1(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+
+        // mengambil data dari table pegawai sesuai pencarian data
+        $pasien = DB::table('surveilans_1')
+            ->where('nama_pasien', 'like', "%" . $cari . "%")
+            ->paginate();
+
+        // mengirim data pasien ke view index
+        return view('partial.surveilans_1.index', ['data' => $pasien]);
+    }
 }

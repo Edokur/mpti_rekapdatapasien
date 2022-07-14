@@ -114,8 +114,9 @@ Route::get('/identitas_pasien/editIdentitas/{id}', [IdentitasController::class, 
 Route::post('/identitas_pasien/updateIdentitas', [IdentitasController::class, 'updateIdentitas']);
 Route::get('/identitas_pasien/hapusIdentitas/{id}', [IdentitasController::class, 'hapusIdentitas']);
 Route::get('/identitas_pasien/detailIdentitas/{id}', [IdentitasController::class, 'detailIdentitas']);
+Route::get('/identitas_pasien/cari', [IdentitasController::class, 'searchIdentitas']);
 
-// Identitas Pasien
+// Activity
 Route::get('activity', [ActivityController::class, 'index']);
 // Route::get('/identitas_pasien/create', [IdentitasController::class, 'create']);
 // Route::post('/identitas_pasien/insertIdentitas', [IdentitasController::class, 'insertIdentitas']);
@@ -132,6 +133,7 @@ Route::get('/surveilans_1/editSurveilans1/{id}', [Surveilans1Controller::class, 
 Route::post('/surveilans_1/updateSurveilans1', [Surveilans1Controller::class, 'updateSurveilans1']);
 Route::get('/surveilans_1/hapusSurveilans1/{id}', [Surveilans1Controller::class, 'hapusSurveilans1']);
 Route::get('/surveilans_1/detailSurveilans1/{id}', [Surveilans1Controller::class, 'detailSurveilans1']);
+Route::get('/surveilans_1/cari', [Surveilans1Controller::class, 'searchSurveilans1']);
 
 // Route Kesehatan Jiwa
 Route::get('/kesehatan_jiwa', [KJiwaController::class, 'index']);
