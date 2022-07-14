@@ -91,6 +91,12 @@ Route::get('/note/detailNote/{id_note}', [NoteController::class, 'detailNote']);
 Route::get('/perkesmas', [PerkesmasController::class, 'index']);
 Route::get('/perkesmas/create', [PerkesmasController::class, 'create']);
 Route::post('/perkesmas/insertPerkesmas', [PerkesmasController::class, 'insertPerkesmas']);
+Route::get('/perkesmas/show_perkesmas/{id_perkesmas}', [PerkesmasController::class, 'detailPerkesmas']);
+Route::get('/perkesmas/hapusPerkesmas/{id_perkesmas}', [PerkesmasController::class, 'hapusPerkesmas']);
+Route::get('/get_pasien/{id}', [PerkesmasController::class, 'get_pasien']);
+Route::get('/perkesmas/edit_perkesmas/{id_perkesmas}', [PerkesmasController::class, 'editPerkesmas']);
+Route::post('/perkesmas/updatePerkesmas', [PerkesmasController::class, 'updatePerkesmas']);
+
 
 
 Route::resource('kesehatan_jiwa', KJiwaController::class);
@@ -134,4 +140,3 @@ Route::get('/kesehatan_jiwa/hapusKJiwa/{id_kesehatan_jiwa}', [KJiwaController::c
 Route::get('/kesehatan_jiwa/detailKJiwa/{id_kesehatan_jiwa}', [KJiwaController::class, 'detailKJiwa']);
 Route::get('/kesehatan_jiwa/editKJiwa/{id_kesehatan_jiwa}', [KJiwaController::class, 'editKJiwa']);
 Route::post('/kesehatan_jiwa/updateKJiwa', [KJiwaController::class, 'updateKJiwa']);
-

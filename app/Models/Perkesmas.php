@@ -25,6 +25,7 @@ class Perkesmas extends Model
         'pendidikan',
         'tanggal_kunjungan',
         'kunjungan',
+        'pekerjaan',
         'intervensi_keperawatan',
         'diagnosa_keperawatan',
         'implementasi_keperawatan',

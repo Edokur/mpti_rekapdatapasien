@@ -25,6 +25,7 @@ class CreatePerkesmasTable extends Migration
             $table->string('no_bpjs', 15);
             $table->string('kepala_keluarga');
             $table->string('pendidikan');
+            $table->string('pekerjaan');
             $table->date('tanggal_kunjungan');
             $table->text('intervensi_keperawatan');
             $table->text('diagnosa_keperawatan');

@@ -17,100 +17,117 @@
                 <h1 class="color-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor adipiscing in consectetur sem ut netus scelerisque. Viverra urna vitae viverra habitant a magna vitae, fermentum morbi. Magna magna non ridiculus vitae viverra feugiat morbi sed.</h1>
             </div>
 
+            <div class="row mt-5">
+                <div class="col">
+                    <a href="/perkesmas" class="btn btn-purple text-white border-radius px-5 py-3">Kembali</a>
+                </div>
+            </div>
+
             <div class="ttable border-line bg-white border-radius my-4">
                 <div class="p-2 bg-light rounded-bottom-0">
                     <p class="m-3 text-dark">Detail Data</p>
                 </div>
                 <div class="p-2 text-dark border-top">
-                    <form class="ml-5 p-5">
+                    <form class="ml-5 p-5" method="POST" action="/perkesmas">
+                        @csrf
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Tanggal</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control" id="" disabled>
+                                <input type="date" class="form-control" value="{{$data->tanggal_kunjungan}}" id="" disabled>
                             </div>
                         </div>
                         
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control" value="{{$data->nama_pasien}}" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control" id="" disabled>
+                                <input type="date" class="form-control" value="{{$data->tanggal_lahir}}" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
-                                <div class="dropdown"> 
-                                    <select name="status" id="status" class="btn border btn-block text-left form-control" disabled>
-                                        <option> </option>
-                                        <option>Laki-laki</option>
-                                        <option>Perempuan</option>
-                                    </select>
-                                </div>
+                                <input type="text" class="form-control" value="{{$data->jenis_kelamin}}" id="" disabled>
                             </div>
                         </div>
                         
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled>{{$data->alamat}}</textarea>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Kepala Keluarga</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" disabled>
+                                <input type="text" class="form-control" value="{{$data->kepala_keluarga}}" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">NIK</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="" disabled>
+                                <input type="number" class="form-control" value="{{$data->nik}}" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="" disabled>
+                                <input type="number" class="form-control" value="{{$data->no_bpjs}}" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
-                                <div class="dropdown"> 
-                                    <select name="status" id="status" class="btn border btn-block text-left form-control" disabled>
-                                        <option> </option>
-                                        <option>SD</option>
-                                        <option>SMP</option>
-                                        <option>SMA</option>
-                                    </select>
-                                </div>
+                                <input type="text" class="form-control" value="{{$data->pendidikan}}" id="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
-                            <label for="" class="col-sm-3 col-form-label">Pekerjaan</label>
+                            <label for="" class="col-sm-3 col-form-label">Kunjungan</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" disabled>
+                                <input type="text" class="form-control" value="{{$data->kunjungan}}" id="" disabled>
                             </div>
                         </div>
 
-                        <div class="form-group row mx-1 py-2">
-                            <label for="" class="col-3"></label>
-                            <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</button>
-                            <button type="button" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
+                        <div class="form-group row py-2">
+                            <label for="" class="col-sm-3 col-form-label">Intervensi Keperawatan</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled>{{$data->intervensi_keperawatan}}</textarea>
+                            </div>
                         </div>
+
+                        <div class="form-group row py-2">
+                            <label for="" class="col-sm-3 col-form-label">Diagnosa Keperawatan</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled>{{$data->diagnosa_keperawatan}}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row py-2">
+                            <label for="" class="col-sm-3 col-form-label">Implementasi Keperawatan</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled>{{$data->implementasi_keperawatan}}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row py-2">
+                            <label for="" class="col-sm-3 col-form-label">Keterangan</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled>{{$data->keterangan}}</textarea>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>

@@ -43,63 +43,62 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <!-- <input type="text" class="form-control" id="nama_pasien"> -->
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control" name="tanggal_lahir" id="" disabled>
+                                <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="jenis_kelamin" id="" disabled>
+                                <input type="text" class="form-control" name="jenis_kelamin" id="jenis_kelamin" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" name="alamat" rows="3" disabled></textarea>
+                                <textarea class="form-control" id="alamat" name="alamat" rows="3" readonly></textarea>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Kepala Keluarga</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="kepala_keluarga" id="" disabled>
+                                <input type="text" class="form-control" name="kepala_keluarga" id="kepala_keluarga" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">NIK</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="nik" id="" disabled>
+                                <input type="text" class="form-control" name="nik" id="nik" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="no_bpjs" id="" disabled>
+                                <input type="text" class="form-control" name="no_bpjs" id="no_bpjs" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="pendidikan" id="" disabled>
+                                <input type="text" class="form-control" name="pendidikan" id="pendidikan" readonly>
                             </div>
                         </div>
 
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Pekerjaan</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="pekerjaan" id="" disabled>
+                                <input type="text" class="form-control" name="pekerjaan" id="pekerjaan" readonly>
                             </div>
                         </div>
 
@@ -111,9 +110,20 @@
                         </div>
 
                         <div class="form-group row py-2">
+                            <label for="" class="col-sm-3 col-form-label">Kunjungan</label>
+                            <div class="col-sm-8">
+                                <select name="kunjungan" id="kunjungan" class="btn border btn-block text-left color-neutral-400 px-4">
+                                    <option disabled selected>Pilih Kunjungan</option>
+                                    <option value="LAMA">Lama</option>
+                                    <option value="BARU">Baru</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Intervensi Keperawatan</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" name="interensi_keperawatan" rows="3"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" name="intervensi_keperawatan" rows="3"></textarea>
                             </div>
                         </div>
 
@@ -140,8 +150,8 @@
 
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
-                            <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</button>
-                            <button type="button" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
+                            <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger">Batal</button>
+                            <button type="submit" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -151,25 +161,35 @@
 </body>
 
 <script>
-    $(document).ready(function() {
-        $("#nama_pasien").select2({
-            ajax: {
-                url: 'PuskesmasController/get_pasien',
-                type: "post",
-                dataType: 'json',
-                data: function(params) {
-                    return {
-                        searchTerm: params.term
-                    };
-                },
-                processResults: function(response) {
-                    return {
-                        results: response
-                    };
-                },
+    $(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        $('#nama_pasien').change(function(){
+            var id = $(this).val();
+            console.log(id)
+            $.ajax({
+                type: 'get',
+                url: '/get_pasien' + '/' + id,
+                dataType: 'json',
+                success: function(response){
+                    console.log(response['data']);
+                    $('#tanggal_lahir').val(response['data'].tanggal_lahir);
+                    $('#jenis_kelamin').val(response['data'].jenis_kelamin);
+                    $('#alamat').val(response['data'].alamat);
+                    $('#kepala_keluarga').val(response['data'].kepala_keluarga);
+                    $('#nik').val(response['data'].nik);
+                    $('#no_bpjs').val(response['data'].no_bpjs);
+                    $('#pendidikan').val(response['data'].pendidikan);
+                    $('#pekerjaan').val(response['data'].pekerjaan);
+                }
+            });
+        });
     });
+
 </script>
 
 </html>

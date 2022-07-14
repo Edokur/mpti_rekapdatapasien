@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\Perkesmas;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PerkesmasController extends Controller
 {
@@ -45,16 +48,50 @@ class PerkesmasController extends Controller
      */
     public function insertPerkesmas(Request $post)
     {
-        $validatedData = $post->validate([
-            'status' => 'required',
-            'judul' => 'required',
-            'deskripsi' => 'required',
+
+        $data = $post->input('nama_pasien');
+
+        $nama_pasien = $this->get_namapasien($data);
+
+        $post->validate([
+            'id_register' => 'required',
+            'nama_pasien' => 'required',
+            'intervensi_keperawatan' => 'required',
+            'diagnosa_keperawatan' => 'required',
+            'implementasi_keperawatan' => 'required',
+            'keterangan' => 'required',
         ]);
 
-        Perkesmas::create($validatedData);
+        Perkesmas::create([
+            'id_register' => $post->input('id_register'),
+            'nama_pasien' => $nama_pasien->nama_pasien,
+            'pasien_id' => $post->input('nama_pasien'),
+            'tanggal_lahir' => $post->input('tanggal_lahir'),
+            'jenis_kelamin' => $post->input('jenis_kelamin'),
+            'alamat' => $post->input('alamat'),
+            'kepala_keluarga' => $post->input('kepala_keluarga'),
+            'nik' => $post->input('nik'),
+            'no_bpjs' => $post->input('no_bpjs'),
+            'pendidikan' => $post->input('pendidikan'),
+            'pekerjaan' => $post->input('pekerjaan'),
+            'tanggal_kunjungan' => $post->input('tanggal_kunjungan'),
+            'kunjungan' => $post->input('kunjungan'),
+            'intervensi_keperawatan' => $post->input('intervensi_keperawatan'),
+            'diagnosa_keperawatan' => $post->input('diagnosa_keperawatan'),
+            'implementasi_keperawatan' => $post->input('implementasi_keperawatan'),
+            'keterangan' => $post->input('keterangan'),
+        ]);
 
-        return redirect('/note')->with('success', 'Data baru berhasil ditambahkan!');;
-        // return redirect()->route('note.index');
+
+        Alert::success('Sukses', 'Data Berhasil Tersimpan');
+        return redirect('/perkesmas');
+    }
+
+    public function get_namapasien($id_pasien)
+    {
+        $data_pasien = DB::table('identitas_pasien')->select('nama_pasien')->where('id_pasien', $id_pasien)->first();
+
+        return $data_pasien;
     }
 
     /**
@@ -63,14 +100,10 @@ class PerkesmasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function detailNote($id_note)
+    public function detailPerkesmas($id_perkesmas)
     {
-        $data = DB::table('note')->where('id', $id_note)->first();
-        return view('partial.catatan.show', ['data' => $data]);
-        // return view('partial.catatan.show', compact(
-        //     'note'
-        // ));
-        // return view('note.show', compact('note'));
+        $data = DB::table('perkesmas')->where('id_perkesmas', $id_perkesmas)->first();
+        return view('partial.perkesmas.show', ['data' => $data]);
     }
 
     /**
@@ -79,14 +112,10 @@ class PerkesmasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editNote($id_note)
+    public function editPerkesmas($id_perkesmas)
     {
-        $data = DB::table('note')->where('id', $id_note)->first();
-        return view('partial.catatan.edit', ['data' => $data]);
-        // return view('partial.catatan.edit', compact(
-        //     'note'
-        // ));
-        // return view('note.edit', compact('note'));
+        $data = DB::table('perkesmas')->where('id_perkesmas', $id_perkesmas)->first();
+        return view('partial.perkesmas.edit', ['data' => $data]);
     }
 
     /**
@@ -96,16 +125,31 @@ class PerkesmasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateNote(Request $post)
+    public function updatePerkesmas(Request $post)
     {
-        DB::table('note')->where('id', $post->id)->update([
-            'status' => $post->status,
-            'judul' => $post->judul,
-            'deskripsi' => $post->deskripsi,
-        ]);
-        return redirect('/note')->with('success', 'Data berhasil diupdate!');;
+        $data = $post->input('nama_pasien');
 
-        // return redirect()->route('note.index')->with('succes', 'Catatan Berhasil di Update');
+        $nama_pasien = $this->get_namapasien($data);
+
+        DB::table('perkesmas')->where('id_perkesmas', $post->id_perkesmas)->update([
+            'nama_pasien' => $post->input('nama_pasien'),
+            // 'pasien_id' => $post->input('nama_pasien'),
+            'tanggal_lahir' => $post->input('tanggal_lahir'),
+            'jenis_kelamin' => $post->input('jenis_kelamin'),
+            'alamat' => $post->input('alamat'),
+            'kepala_keluarga' => $post->input('kepala_keluarga'),
+            'nik' => $post->input('nik'),
+            'no_bpjs' => $post->input('no_bpjs'),
+            'pendidikan' => $post->input('pendidikan'),
+            'pekerjaan' => $post->input('pekerjaan'),
+            'tanggal_kunjungan' => $post->input('tanggal_kunjungan'),
+            'kunjungan' => $post->input('kunjungan'),
+            'intervensi_keperawatan' => $post->input('intervensi_keperawatan'),
+            'diagnosa_keperawatan' => $post->input('diagnosa_keperawatan'),
+            'implementasi_keperawatan' => $post->input('implementasi_keperawatan'),
+            'keterangan' => $post->input('keterangan'),
+        ]);
+        return redirect('/perkesmas')->with('success', 'Data berhasil diupdate!');;
     }
 
     /**
@@ -114,16 +158,20 @@ class PerkesmasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function hapusNote($id_note)
+    public function hapusPerkesmas($id_perkesmas)
     {
-        $note = DB::table('note')->where('id', $id_note)->delete();
+        $perkesmas = DB::table('perkesmas')->where('id_perkesmas', $id_perkesmas)->delete();
 
-        return redirect('/note')->with('success', 'Data berhasil dihapus!');;
+        return redirect('/perkesmas')->with('success', 'Data berhasil dihapus!');;
     }
 
     public function get_pasien($id)
     {
-        var_dump($id);
-        die;
+        // dd($id);
+        // $request = Request::all()
+        $data_pasien = DB::table('identitas_pasien')->where('id_pasien', $id)->first();
+
+        // $html = view('partial.perkesmas.create')->with(compact('data_pasien'))->render();
+        return response()->json(['success' => true, 'data' => $data_pasien]);
     }
 }

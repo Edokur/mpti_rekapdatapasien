@@ -64,30 +64,6 @@
         </div>
     </div>
 
-    <script>
-        // $('#btn-submit').click(function() {
-        //     var judul = $('[name=judul]').val();
-        //     swal({
-        //             title: "Apakah Anda Yakin?",
-        //             text: "Kamu akan Menambah data dengan Judul " + judul + " ",
-        //             icon: "warning",
-        //             method: "POST",
-        //             buttons: true,
-        //             dangerMode: true,
-        //         })
-        //         .then((willDelete) => {
-        //             if (willDelete) {
-        //                 window.location = "/note/insertNote";
-        //                 swal("Data Berhasil di Tambahkan", {
-        //                     title: "Sukses",
-        //                     icon: "success",
-        //                 });
-        //             } else {
-        //                 swal("Data Tidak jadi Di Tambahkan");
-        //             }
-        //         });
-        // })
-    </script>
 </body>
 
 </html>
