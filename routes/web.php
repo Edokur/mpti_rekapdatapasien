@@ -5,6 +5,7 @@ use App\Http\Controllers\IdentitasController;
 use App\Http\Controllers\Surveilans1Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KJiwaController;
+use App\Http\Controllers\PenyakitController;
 use App\Http\Controllers\PerkesmasController;
 use App\Http\Controllers\ActivityController;
 use Illuminate\Support\Facades\Route;
