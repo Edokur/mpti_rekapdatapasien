@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Penyakit;
 
-class IdentitasController extends Controller
+class PenyakitController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function penyakit()
     {
         // $data = Identitas::all();
         // return view('partial.identitas-pasien.identitas-pasien', compact(
@@ -40,7 +40,7 @@ class IdentitasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function insertIpenyakit(Request $post)
+    public function insertPenyakit(Request $post)
     {
         $valididatedData = $post->validate([
             'id_identitas_penyakit' => 'required',
@@ -86,29 +86,17 @@ class IdentitasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function updateIdentitas(Request $post)
-    // {
-    //     DB::table('identitas_pasien')->where('id_register', $post->id_register)->update([
-    //         'id_register' => $post->id_register,
-    //         'nama_pasien' => $post->nama_pasien,
-    //         'tanggal_lahir' => $post->tanggal_lahir,
-    //         'jenis_kelamin' => $post->jenis_kelamin,
-    //         'alamat' => $post->alamat,
-    //         'kepala_keluarga' => $post->kepala_keluarga,
-    //         'nik' => $post->nik,
-    //         'no_bpjs' => $post->no_bpjs,
-    //         'pendidikan' => $post->pendidikan,
-    //         'pekerjaan' => $post->pekerjaan,
-    //     ]);
-    //     DB::table('log_activity')->insert([
-    //         'nama_pasien' => $post->nama_pasien,
-    //         'jenis_data' => 'Identitas Pasien',
-    //         'deskripsi' => 'Ubah Data',
-    //         'tanggal' => Carbon::now(),
-    //     ]);
+    public function updatePenyakit(Request $post)
+    {
+        DB::table('identitas_pasien')->where('id_identitas_penyakit', $post->id_penyakit)->update([
+            'id_identitas_penyakit' => $post->id_identitas_penyakit,
+            'nama_penyakit' => $post->nama_penyakit,
+            'tangggal' => $post->tangggal,
+            'deskripsi' => $post->deskripsi,
+        ]);
 
-    //     return redirect('/identitas_pasien')->with('success', 'Data berhasil diupdate!');;
-    // }
+        return redirect('/penyakit')->with('success', 'Data berhasil diupdate!');;
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -116,27 +104,12 @@ class IdentitasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function hapusIdentitas($id_identitas)
-    // {
-       
-    //     $items = DB::table('identitas_pasien')
-    //          ->select('*')
-    //          ->where('id_register','=', $id_identitas)
-    //          ->first();
-    //     // $nama = DB::select('SELECT nama_pasien FROM identitas_pasien WHERE id_register = ?', [$id_identitas]);
-    //     // var_dump($items->nama_pasien);
-    //     // die;
+    public function hapusPenyakit($id_penyakit)
+    {
+        $idpenyakit = DB::table('identitas_penyakit')->where('id_identitas_penyakit', $id_penyakit)->delete();
 
-    //     DB::table('log_activity')->insert([
-    //         'nama_pasien' => $items->nama_pasien,
-    //         'jenis_data' => 'Identitas Pasien',
-    //         'deskripsi' => 'Hapus Data',
-    //         'tanggal' => Carbon::now(),
-    //     ]);
-
-    //     $identitas = DB::table('identitas_pasien')->where('id_register', $id_identitas)->delete();
-    //     return redirect('/identitas_pasien')->with('success', 'Data berhasil dihapus!');;
-    // }
+        return redirect('/penyakit')->with('success', 'Data berhasil dihapus!');
+    }
     // public function searchIdentitas(Request $request)
     // {
     //     // menangkap data pencarian

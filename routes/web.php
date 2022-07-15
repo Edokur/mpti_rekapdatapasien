@@ -41,9 +41,9 @@ Route::get('/ubahpw', function () {
     return view('ubahpw');
 });
 
-Route::get('/penyakit', function () {
-    return view('partial/penyakit/penyakit');
-});
+// Route::get('/penyakit', function () {
+//     return view('partial/penyakit/penyakit');
+// });
 // Indentitas Pasien
 Route::get('/identitas_pasien', function () {
     return view('partial/identitas_pasien/identitas_pasien');
@@ -144,3 +144,11 @@ Route::get('/kesehatan_jiwa/hapusKJiwa/{id_kesehatan_jiwa}', [KJiwaController::c
 Route::get('/kesehatan_jiwa/detailKJiwa/{id_kesehatan_jiwa}', [KJiwaController::class, 'detailKJiwa']);
 Route::get('/kesehatan_jiwa/editKJiwa/{id_kesehatan_jiwa}', [KJiwaController::class, 'editKJiwa']);
 Route::post('/kesehatan_jiwa/updateKJiwa', [KJiwaController::class, 'updateKJiwa']);
+
+//Penyakit
+Route::get('/penyakit', [PenyakitController::class, 'penyakit']);
+Route::get('/penyakit/create', [PenyakitController::class, 'create']);
+Route::post('/penyakit/insertPenyakit', [PenyakitController::class, 'insertPenyakit']);
+Route::post('/penyakit/editPenyakit/{id_identitas_penyakit}', [PenyakitController::class, 'editPenyakit']);
+Route::post('/penyakit/updatePenyakit', [PenyakitController::class, 'updatePenyakit']);
+Route::get('/penyakit/hapusPenyakit/{id_identitas_penyakit}', [PenyakitController::class, 'hapusPenyakit']);
