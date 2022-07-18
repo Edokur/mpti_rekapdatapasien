@@ -165,4 +165,10 @@ class IdentitasController extends Controller
         // mengirim data pasien ke view index
         return view('partial.identitas_pasien.identitas_pasien', ['data' => $pasien]);
     }
+    public function get_pasien($id)
+    {
+        $data_pasien = DB::table('identitas_pasien')->where('id_pasien', $id)->first();
+
+        return response()->json(['success' => true, 'data' => $data_pasien]);
+    }
 }

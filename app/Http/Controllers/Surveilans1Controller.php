@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Surveilans1;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Surveilans1Controller extends Controller
 {
@@ -42,7 +43,11 @@ class Surveilans1Controller extends Controller
      */
     public function insertSurveilans1(Request $post)
     {
-        $valididatedData = $post->validate([
+        $data = $post->input('nama_pasien');
+
+        $nama_pasien = $this->get_namapasien($data);
+
+        $post->validate([
             'id_register' => 'required',
             'nama_pasien' => 'required',
             'umur' => 'required',
@@ -50,16 +55,16 @@ class Surveilans1Controller extends Controller
             'diagnosa' => 'required',
         ]);
 
-        // $data = DB::table('surveilans_1')->insert([
-        //     'pasien_id' => $post->pasien_id,
-        //     'nama_pasien' => $post->nama_pasien,
-        //     'umur' => $post->umur,
-        //     'tanggal' => $post->tanggal,
-        //     'diagnosa' => $post->diagnosa,
-        // ]);
+        // Surveilans1::create($valididatedData); 
+        Surveilans1::create([
+            'id_register' => $post->input('id_register'),
+            'nama_pasien' => $nama_pasien->nama_pasien,
+            'umur' => $post->input('umur'),
+            'tanggal' => $post->input('tanggal'),
+            'diagnosa' => $post->input('diagnosa'),
+        ]);
 
-        Surveilans1::create($valididatedData); 
-
+        Alert::success('Sukses', 'Data Berhasil Tersimpan');
         return redirect('/surveilans_1')->with('success', 'Data baru berhasil ditambahkan!');
     }
 
@@ -115,9 +120,9 @@ class Surveilans1Controller extends Controller
      */
     public function hapusSurveilans1($id_surveilans1) // done
     {
-        $surveilans1 = DB::table('surveilans_1')->where('id_register', $id_surveilans1)->delete();
+        $surveilans1 = DB::table('surveilans_1')->where('id_surveilens1', $id_surveilans1)->delete();
 
-        return redirect('/surveilans_1')->with('success', 'Data berhasil dihapus!');;
+        return redirect('/surveilans_1');
     }
     public function searchSurveilans1(Request $request)
     {
@@ -131,5 +136,17 @@ class Surveilans1Controller extends Controller
 
         // mengirim data pasien ke view index
         return view('partial.surveilans_1.index', ['data' => $pasien]);
+    }
+    public function get_pasien($id)
+    {
+        $data_pasien = DB::table('identitas_pasien')->where('id_pasien', $id)->first();
+
+        return response()->json(['success' => true, 'data' => $data_pasien]);
+    }
+    public function get_namapasien($id_pasien)
+    {
+        $data_pasien = DB::table('identitas_pasien')->select('nama_pasien')->where('id_pasien', $id_pasien)->first();
+
+        return $data_pasien;
     }
 }

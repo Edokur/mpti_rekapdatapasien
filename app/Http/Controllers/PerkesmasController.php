@@ -162,7 +162,7 @@ class PerkesmasController extends Controller
     {
         $perkesmas = DB::table('perkesmas')->where('id_perkesmas', $id_perkesmas)->delete();
 
-        return redirect('/perkesmas')->with('success', 'Data berhasil dihapus!');;
+        return redirect('/perkesmas');
     }
 
     public function get_pasien($id)

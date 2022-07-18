@@ -30,7 +30,7 @@
                             <div class="col-sm-8">
                                 <div class="dropdown">
                                     <select name="status" id="status" class="btn border btn-block text-left">
-                                        <option disabled selected >{{$data->status}}</option>
+                                        <option selected >{{$data->status}}</option>
                                         <option value="BIASA">Biasa</option>
                                         <option value="MENENGAH">Menengah</option>
                                         <option value="PENTING">Penting</option>

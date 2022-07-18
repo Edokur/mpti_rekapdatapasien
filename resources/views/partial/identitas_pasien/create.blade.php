@@ -28,7 +28,7 @@
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" name="id_register" id="" placeholder="Ex : 001">
+                                <input type="text" class="form-control color-neutral-400" name="id_register" id="" placeholder="Ex : P01">
                             </div>
                         </div>
 

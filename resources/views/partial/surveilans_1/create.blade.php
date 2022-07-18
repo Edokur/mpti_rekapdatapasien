@@ -34,15 +34,7 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <div class="dropdown">
-                                    <select name="id_register" id="id_register" class="btn border btn-block text-left form-control">
-                                        <!-- <option value="" selected>-- Pilih Pasien --</option> -->
-                                        @foreach($identitas_pasien as $key)
-                                        <option name="id_register" value="{{ $key->id_register}}"> {{ $key->id_register }} - {{ $key->nama_pasien }} </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <!-- <input type="text" class="form-control" id="" name="nama_pasien"> -->
+                                <input type="text" class="form-control" id="id_register" name="id_register" readonly>
                             </div>
                         </div>
 
@@ -59,8 +51,9 @@
                                 <div class="dropdown">
                                     <select name="nama_pasien" id="nama_pasien" class="btn border btn-block text-left form-control">
                                         <!-- <option value="" selected>-- Pilih Pasien --</option> -->
+                                        <option value="" selected>-- Pilih Pasien --</option>
                                         @foreach($identitas_pasien as $key)
-                                        <option name="id_register" value="{{ $key->nama_pasien}}">{{ $key->nama_pasien }} </option>
+                                        <option value="{{ $key->id_pasien}}">{{ $key->nama_pasien }} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -71,14 +64,14 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Umur</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="" name="umur">
+                                <input type="number" class="form-control" id="" name="umur" placeholder="EX : 17">
                             </div>
                         </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Diagnosa</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" name="diagnosa" rows="3"></textarea>
+                                <textarea class="form-control" name="diagnosa" rows="3" placeholder="EX : Sakit Gigi"></textarea>
                             </div>
                         </div>
 
@@ -93,5 +86,28 @@
         </div>
     </div>
 </body>
+<script>
+    $(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
+        $('#nama_pasien').change(function(){
+            var id = $(this).val();
+            console.log(id)
+            $.ajax({
+                type: 'get',
+                url: '/get_pasien' + '/' + id,
+                dataType: 'json',
+                success: function(response){
+                    console.log(response['data']);
+                    $('#id_register').val(response['data'].id_register);
+                }
+            });
+        });
+    });
+
+</script>
 </html>

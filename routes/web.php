@@ -135,6 +135,7 @@ Route::post('/surveilans_1/updateSurveilans1', [Surveilans1Controller::class, 'u
 Route::get('/surveilans_1/hapusSurveilans1/{id}', [Surveilans1Controller::class, 'hapusSurveilans1']);
 Route::get('/surveilans_1/detailSurveilans1/{id}', [Surveilans1Controller::class, 'detailSurveilans1']);
 Route::get('/surveilans_1/cari', [Surveilans1Controller::class, 'searchSurveilans1']);
+Route::get('/surveilans_1/get_pasien/{id}', [Surveilens1Controller::class, 'get_pasien']);
 
 // Route Kesehatan Jiwa
 Route::get('/kesehatan_jiwa', [KJiwaController::class, 'index']);
