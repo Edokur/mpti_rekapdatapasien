@@ -24,14 +24,10 @@ class LoginController extends Controller
             'password' => 'required'
         ]));
 
-        if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect('/dashboard');
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard');
         }
-
-        // if (Auth::attempt($credentials)) {
-        //     $request->session()->regenerate();
-        //     return redirect()->intended('/dashboard');
-        // }
         return back()->with('loginError', 'Login gagal!');
     }
 
