@@ -30,14 +30,27 @@
 					<p>Created by Problem Solver</p>
 				</div>
 			</div>
+
+			@if(session()->has('loginError'))
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					{{ session('loginError') }}
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			@endif
+
 			<div class="col">
 				<div class="border m-5 py-5 bg-white login text-center">
-					<form action="{{ route('postlogin') }}" method="post" class="py-5">
+					<form action="/login" method="post" class="py-5">
 						{{ csrf_field() }}
 						<h1 class="pt-5">Selamat Datang...</h1>
 						<h2 class="text-secondary">Mohon masukkan email dan kata sandi anda</h2>
 						<div class="mx-5 mt-5 form-group">
-							<input type="email" class="form-control p-4" id="email" name="email" aria-describedby="emailHelp" placeholder="Masukkan email anda">
+							<input type="email" class="form-control p-4 @error('email') is-invalid @enderror" id="email" name="email" aria-describedby="emailHelp" placeholder="Masukkan email anda" value="{{ old('email') }}">
+							@error('email')
+							<div class="invalid-feedback">
+								{{ $message }}
+							</div>
+							@enderror
 						</div>
 						<div class="mx-5 form-group">
 							<input type="password" class="form-control p-4" id="password" name="password" placeholder="Masukkan password anda">
@@ -47,7 +60,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text captcha" id="basic-addon3">B12RE3</span>
 								</div>
-								<input type="text" class="form-control p-4" id="basic-url" aria-describedby="basic-addon3"  placeholder="Input captcha">
+								<input type="text" class="form-control p-4" id="basic-url" aria-describedby="basic-addon3"  placeholder="Input captcha" disabled>
 							</div>
 							<div class="text-right">
 								<a href="resetpw" class=" text-secondary">Forgot password ?</a>
@@ -61,25 +74,6 @@
 	</div>
 
 	<script>
-		function Login(){
-			Swal.fire({
-			title: 'Do you want to save the changes?',
-			showDenyButton: true,
-			showCancelButton: true,
-			confirmButtonText: 'Save',
-			denyButtonText: `Don't save`,
-			}).then((result) => {
-			/* Read more about isConfirmed, isDenied below */
-			if (result.isConfirmed) {
-				Swal.fire('Saved!', '', 'success')
-				if(result.){
-					window.location = "/"
-				}
-			} else if (result.isDenied) {
-				Swal.fire('Changes are not saved', '', 'info')
-			}
-			})
-	}	
     </script>
 </body>
 

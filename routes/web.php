@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\NoteController;
-use App\Http\Controllers\IdentitasController;
-use App\Http\Controllers\Surveilans1Controller;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\KJiwaController;
-use App\Http\Controllers\PenyakitController;
-use App\Http\Controllers\PerkesmasController;
-use App\Http\Controllers\ActivityController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NoteController;
+use App\Http\Controllers\KJiwaController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\PenyakitController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IdentitasController;
+use App\Http\Controllers\PerkesmasController;
+use App\Http\Controllers\Surveilans1Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,30 +81,40 @@ Route::get('/edit-surveilans-2', function () {
 });
 
 // Route Catatan
-Route::get('/note', [NoteController::class, 'index']);
-Route::get('/note/create', [NoteController::class, 'create']);
-Route::post('/note/insertNote', [NoteController::class, 'insertNote']);
-Route::get('/note/editNote/{id_note}', [NoteController::class, 'editNote']);
-Route::post('/note/updateNote', [NoteController::class, 'updateNote']);
-Route::get('/note/hapusNote/{id_note}', [NoteController::class, 'hapusNote']);
-Route::get('/note/detailNote/{id_note}', [NoteController::class, 'detailNote']);
+Route::middleware('auth')->group(function () {
+    Route::get('/note', [NoteController::class, 'index']);
+    Route::get('/note/create', [NoteController::class, 'create']);
+    Route::post('/note/insertNote', [NoteController::class, 'insertNote']);
+    Route::get('/note/editNote/{id_note}', [NoteController::class, 'editNote']);
+    Route::post('/note/updateNote', [NoteController::class, 'updateNote']);
+    Route::get('/note/hapusNote/{id_note}', [NoteController::class, 'hapusNote']);
+    Route::get('/note/detailNote/{id_note}', [NoteController::class, 'detailNote']);
+});
 
 // Route Perkesmas
-Route::get('/perkesmas', [PerkesmasController::class, 'index']);
-Route::get('/perkesmas/create', [PerkesmasController::class, 'create']);
-Route::post('/perkesmas/insertPerkesmas', [PerkesmasController::class, 'insertPerkesmas']);
-Route::get('/perkesmas/show_perkesmas/{id_perkesmas}', [PerkesmasController::class, 'detailPerkesmas']);
-Route::get('/perkesmas/hapusPerkesmas/{id_perkesmas}', [PerkesmasController::class, 'hapusPerkesmas']);
-Route::get('/get_pasien/{id}', [PerkesmasController::class, 'get_pasien']);
-Route::get('/perkesmas/edit_perkesmas/{id_perkesmas}', [PerkesmasController::class, 'editPerkesmas']);
-Route::post('/perkesmas/updatePerkesmas', [PerkesmasController::class, 'updatePerkesmas']);
-Route::get('/perkesmas/cari', [PerkesmasController::class, 'SearchPerkesmas']);
+Route::middleware('auth')->group(function () {
+    Route::get('/perkesmas', [PerkesmasController::class, 'index']);
+    Route::get('/perkesmas/create', [PerkesmasController::class, 'create']);
+    Route::post('/perkesmas/insertPerkesmas', [PerkesmasController::class, 'insertPerkesmas']);
+    Route::get('/perkesmas/show_perkesmas/{id_perkesmas}', [PerkesmasController::class, 'detailPerkesmas']);
+    Route::get('/perkesmas/hapusPerkesmas/{id_perkesmas}', [PerkesmasController::class, 'hapusPerkesmas']);
+    Route::get('/get_pasien/{id}', [PerkesmasController::class, 'get_pasien']);
+    Route::get('/perkesmas/edit_perkesmas/{id_perkesmas}', [PerkesmasController::class, 'editPerkesmas']);
+    Route::post('/perkesmas/updatePerkesmas', [PerkesmasController::class, 'updatePerkesmas']);
+    Route::get('/perkesmas/cari', [PerkesmasController::class, 'SearchPerkesmas']);
+});
 
 
 
 Route::resource('kesehatan_jiwa', KJiwaController::class);
-Route::get('login', [LoginController::class, 'halamanlogin'])->name('login');
-Route::POST('postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
+
+//dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
+//Login
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
+Route::post('/logout', [LoginController::class, 'logout']);
 
 //  Sendy
 // Route::resource('identitas-pasien', IdentitasController::class);
