@@ -19,7 +19,7 @@
     <div class="side-bar my-3">
         <div class="menu mt-5">
             <div class="item mx-4"><img src="../../image/icon_problemsolver.png" alt=""></div>
-            <div class="item mt-5 ml-4"><a href="/"><img src="../../vectors/icon_dashboard.svg" alt=""></i>Dashboard</a></div>
+            <div class="item mt-5 ml-4"><a href="/dashboard"><img src="../../vectors/icon_dashboard.svg" alt=""></i>Dashboard</a></div>
             <hr class="mx-4 border-bottom">
             </hr>
 

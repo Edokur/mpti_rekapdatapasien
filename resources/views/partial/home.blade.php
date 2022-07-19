@@ -48,7 +48,7 @@
                     </div>
                     <div class="pl-5 my-3 ml-5">
                         <h3 class="ml-2">Kesehatan Jiwa</h3>
-                        <h4 class="ml-2">120</h4>
+                        <h4 class="ml-2"><?= $jumlah_kesehatan_jiwa ?></h4>
                     </div>
                 </div>
                 <div class="bg-menu surveilans-1">
@@ -57,7 +57,7 @@
                     </div>
                     <div class="pl-5 my-3 ml-5">
                         <h3 class="ml-2">Surveilans 1</h3>
-                        <h4 class="ml-2">10</h4>
+                        <h4 class="ml-2"><?= $jumlah_surveilans_1 ?></h4>
                     </div>
                 </div>
                 <div class="bg-menu surveilans-2">
@@ -66,7 +66,7 @@
                     </div>
                     <div class="pl-5 my-3 ml-5">
                         <h3 class="ml-2">Surveilans 2</h3>
-                        <h4 class="ml-2">20</h4>
+                        <h4 class="ml-2"><?= $jumlah_surveilans_2 ?></h4>
                     </div>
                 </div>
                 <div class="bg-menu perkesmas">
@@ -75,7 +75,7 @@
                     </div>
                     <div class="pl-5 my-3 ml-5">
                         <h3 class="ml-2">Perkesmas</h3>
-                        <h4 class="ml-2">100</h4>
+                        <h4 class="ml-2"><?= $jumlah_perkesmas ?></h4>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
             <div class="content">
                 <div class="content-body bg-white border-line border-radius">
                     <h2 class="color-neutral-500">Aktivitas</h2>
-                    <a href="">
+                    <a href="/activity">
                         <h3 class="color-grey">Lihat Semua</h3>
                     </a>
 
@@ -91,7 +91,7 @@
                         <table class="table table-bordered rounded">
                             <thead class="color-neutral-500 bg-neutral-100">
                                 <tr>
-                                    <th class="th2" scope="col">ID</th>
+                                    <th class="th2" scope="col">No</th>
                                     <th class="th2" scope="col">Tanggal</th>
                                     <th class="th2" scope="col">Nama</th>
                                     <th class="th2" scope="col">Jenis Data</th>
@@ -99,41 +99,17 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($log_activity->slice(0, 5)  as $key)
+    
                                 <tr class="color-neutral-400">
-                                    <td class="td2">#12345</td>
-                                    <td class="td2">01-01-2022</td>
-                                    <td class="td2">Andri Juliansyah</td>
+                                    <td class="td2">{{ $loop->iteration }}</td>
+                                    <td class="td2">{{ $key->tanggal }}</td>
+                                    <td class="td2">{{ $key->nama_pasien }}</td>
                                     <td class="td2">Surveilans 1</td>
-                                    <td class="td2">Telah Ditambah</td>
+                                    <td class="td2">{{ $key->deskripsi }}</td>
                                 </tr>
-                                <tr class="color-neutral-400">
-                                    <td class="td2">#12345</td>
-                                    <td class="td2">01-01-2022</td>
-                                    <td class="td2">Andri Juliansyah</td>
-                                    <td class="td2">Surveilans 1</td>
-                                    <td class="td2">Telah Ditambah</td>
-                                </tr>
-                                <tr class="color-neutral-400">
-                                    <td class="td2">#12345</td>
-                                    <td class="td2">01-01-2022</td>
-                                    <td class="td2">Andri Juliansyah</td>
-                                    <td class="td2">Surveilans 1</td>
-                                    <td class="td2">Telah Ditambah</td>
-                                </tr>
-                                <tr class="color-neutral-400">
-                                    <td class="td2">#12345</td>
-                                    <td class="td2">01-01-2022</td>
-                                    <td class="td2">Andri Juliansyah</td>
-                                    <td class="td2">Surveilans 1</td>
-                                    <td class="td2">Telah Ditambah</td>
-                                </tr>
-                                <tr class="color-neutral-400">
-                                    <td class="td2">#12345</td>
-                                    <td class="td2">01-01-2022</td>
-                                    <td class="td2">Andri Juliansyah</td>
-                                    <td class="td2">Surveilans 1</td>
-                                    <td class="td2">Telah Ditambah</td>
-                                </tr>
+
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -141,7 +117,7 @@
 
                 <div class="content-body bg-white border-line border-radius">
                     <h2 class="color-black">Kesehatan Jiwa</h2>
-                    <a href="">
+                    <a href="/kesehatan_jiwa">
                         <h3 class="color-grey">Lihat Semua</h3>
                     </a>
 
@@ -159,15 +135,19 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($kesehatan_jiwa->slice(0, 5)  as $key)
+
                                 <tr class="color-neutral-400">
-                                    <td  class="td2" scope="col">1.</td>
-                                    <td  class="td2" scope="col">#12345</td>
-                                    <td  class="td2" scope="col">Putra Dino</td>
-                                    <td  class="td2" scope="col">Sakit Kepala</td>
-                                    <td  class="td2" scope="col">Psikoedukasi</td>
-                                    <td  class="td2" scope="col">F 32.3</td>
-                                    <td  class="td2" scope="col">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</td>
+                                    <td  class="td2" scope="col">{{ $loop->iteration }}</td>
+                                    <td  class="td2" scope="col">{{ $key->id_register }}</td>
+                                    <td  class="td2" scope="col">{{ $key->nama_pasien }}</td>
+                                    <td  class="td2" scope="col">{{ $key->diagnosa }}</td>
+                                    <td  class="td2" scope="col">{{ $key->terapi }}</td>
+                                    <td  class="td2" scope="col">{{ $key->dosis }}</td>
+                                    <td  class="td2" scope="col">{{ $key->keterangan }}</td>
                                 </tr>
+
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -189,19 +169,20 @@
                                     <th class="th2" scope="col">Minggu</th>
                                     <th class="th2" scope="col">Nama Pasien</th>
                                     <th class="th2" scope="col">Diagnosa</th>
-                                    <th class="th2" scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($surveilans_1->slice(0, 5)  as $key)
+
                                 <tr class="color-neutral-400">
-                                    <td class="td2">1.</td>
-                                    <td class="td2">#12345</td>
-                                    <td class="td2">01-01-2022</td>
+                                    <td class="td2">{{ $loop->iteration }}</td>
+                                    <td class="td2">{{ $key->id_register }}</td>
+                                    <td class="td2">{{ $key->tanggal }}</td>
                                     <td class="td2">1</td>
-                                    <td class="td2">Andri Juliansyah</td>
-                                    <td class="td2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque augue facilisis morbi blandit quis aliquet pharetra sit.</td>
-                                    <td class="td2">Telah Ditambah</td>
+                                    <td class="td2">{{ $key->nama_pasien }}</td>
+                                    <td class="td2">{{ $key->diagnosa }}</td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -288,14 +269,15 @@
 
             <div class="note border-radius border-line bg-white">
                 <h2 class="color-black">Catatan</h2>
-                <a href="">
+                <a href="/note">
                     <h3 class="color-grey">Lihat Semua</h3>
                 </a>
                 <div class="color-grey border-radius mb-3" style="max-width: 20rem;">
+                    @foreach($note->slice(0, 5)  as $key)
                     <div class="card-body border-radius bg-neutral-100">
                         
                         <button type="button" class="btn btn-primary color-primary priority inline">
-                            <h6>Biasa</h6>
+                            <h6>{{ $key->status }}</h6>
                         </button>
                         <div class="dropright  inline" id="menu">
                             <button class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
@@ -309,8 +291,8 @@
                             </div>
                         </div>
                         <div class="card-text">
-                            <h7>Lorem ipsum dolor sit amet, consectetur.</h7>
-                            <h8>Some quick example text to build on the card title and make up the bulk of the card's content.</h8>
+                            <h7>{{ $key->judul }}</h7>
+                            <h8>{{ $key->deskripsi }}</h8>
                         </div>
                     </div>
 
@@ -355,6 +337,7 @@
                             <h8>Some quick example text to build on the card title and make up the bulk of the card's content.</h8>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
