@@ -105,7 +105,7 @@
                                     <td class="td2">{{ $loop->iteration }}</td>
                                     <td class="td2">{{ $key->tanggal }}</td>
                                     <td class="td2">{{ $key->nama_pasien }}</td>
-                                    <td class="td2">Surveilans 1</td>
+                                    <td class="td2">{{ $key->jenis_data }}</td>
                                     <td class="td2">{{ $key->deskripsi }}</td>
                                 </tr>
 
