@@ -87,11 +87,11 @@ class Surveilans1Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editSurveilans1($id_surveilans1)
+    public function editSurveilans1($id_surveilens1)
     {
-        $data1 = DB::table('identitas_pasien')->where('id_register', $id_surveilans1)->first();
-        $data = DB::table('surveilans_1')->where('id_register', $id_surveilans1)->first();
-        return view('partial.surveilans_1.edit', ['data' => $data], ['data1' => $data1]);
+        // $data1 = DB::table('identitas_pasien')->where('id_register', $id_surveilans1)->first();
+        $data = DB::table('surveilans_1')->where('id_surveilens1', $id_surveilens1)->first();
+        return view('partial.surveilans_1.edit', ['data' => $data]);
     }
 
     /**
@@ -103,8 +103,8 @@ class Surveilans1Controller extends Controller
      */
     public function updateSurveilans1(Request $post) // done
     {
-        DB::table('surveilans_1')->where('id_register', $post->id_register)->update([
-            'id_register' => $post->id_register,
+        DB::table('surveilans_1')->where('id_surveilens1', $post->id_surveilens1)->update([
+            // 'id_register' => $post->id_register,
             'umur' => $post->umur,
             'tanggal' => $post->tanggal,
             'diagnosa' => $post->diagnosa,

@@ -90,9 +90,9 @@ class IdentitasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editIdentitas($id_identitas)
+    public function editIdentitas($id_pasien)
     {
-        $data = DB::table('identitas_pasien')->where('id_register', $id_identitas)->first();
+        $data = DB::table('identitas_pasien')->where('id_pasien', $id_pasien)->first();
         return view('partial.identitas_pasien.edit', ['data' => $data]);
     }
 
@@ -105,7 +105,7 @@ class IdentitasController extends Controller
      */
     public function updateIdentitas(Request $post)
     {
-        DB::table('identitas_pasien')->where('id_register', $post->id_register)->update([
+        DB::table('identitas_pasien')->where('id_pasien', $post->id_pasien)->update([
             'id_register' => $post->id_register,
             'nama_pasien' => $post->nama_pasien,
             'tanggal_lahir' => $post->tanggal_lahir,

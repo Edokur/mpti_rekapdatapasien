@@ -24,7 +24,7 @@
                 <div class="p-2 text-dark border-top">
                     <form class="ml-3 p-5" method="POST" action="/identitas_pasien/updateIdentitas">
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
-                        <input type="hidden" id="id" name="id_pasien" value="{{ $data->id_pasien }}" class="form-control select2bs4">
+                        <input type="hidden" id="id_pasien" name="id_pasien" value="{{ $data->id_pasien }}" class="form-control select2">
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">

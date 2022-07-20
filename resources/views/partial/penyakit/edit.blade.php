@@ -21,7 +21,9 @@
                 </div>
                 <div class="text-dark border-top">
                     <form class="ml-5 p-5" method="POST" action="/penyakit/updatePenyakit">
-                    <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                        <input type="hidden" id="id_identitas_penyakit" name="id_identitas_penyakit" value="{{ $data->id_identitas_penyakit }}" class="form-control select2">
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">

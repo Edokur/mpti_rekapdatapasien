@@ -22,10 +22,12 @@
                 <div class="text-dark border-top">
                     <form class="ml-5 p-5" method="POST" action="/surveilans_1/updateSurveilans1">
                     <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                    <input type="hidden" id="id_surveilens1" name="id_surveilens1" value="{{ $data->id_surveilens1 }}" class="form-control select2">
+
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" value="{{ $data->id_register }}" name="id_register">
+                                <input type="text" class="form-control" id="" value="{{ $data->id_register }}" name="id_register" disabled>
                             </div>
                         </div>
                         
@@ -39,7 +41,7 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" disabled value="{{ $data1->nama_pasien }}" name="nama_pasien">
+                                <input type="text" class="form-control" id="" disabled value="{{ $data->nama_pasien }}" name="nama_pasien">
                             </div>
                         </div>
 
@@ -47,20 +49,6 @@
                             <label for="" class="col-sm-3 col-form-label">Umur</label>
                             <div class="col-sm-8">
                                 <input type="input" class="form-control" id="" value="{{ $data->umur }}" name="umur">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group py-2 row">
-                            <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
-                            <div class="col-sm-8">
-                                <input type="input" class="form-control" id="" disabled value="{{ $data1->jenis_kelamin }}" name="jenis_kelamin">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group py-2 row">
-                            <label for="" class="col-sm-3 col-form-label">Alamat</label>
-                            <div class="col-sm-8">
-                                <input type="textarea" class="form-control" id="" disabled value="{{ $data1->alamat }}">
                             </div>
                         </div>
                         

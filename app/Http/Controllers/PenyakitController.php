@@ -69,15 +69,15 @@ class PenyakitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editPenyakit($id_penyakit)
+    public function editPenyakit($id_identitas_penyakit)
     {
-        $data = DB::table('identitas_penyakit')->where('id_register', $id_penyakit)->first();
+        $data = DB::table('identitas_penyakit')->where('id_identitas_penyakit', $id_identitas_penyakit)->first();
         return view('partial.penyakit.edit', ['data' => $data]);
     }
 
-    public function detailPenyakit($id_penyakit)
+    public function detailPenyakit($id_identitas_penyakit)
     {
-        $data = DB::table('identitas_penyakit')->where('id_register', $id_penyakit)->first();
+        $data = DB::table('identitas_penyakit')->where('id_register', $id_identitas_penyakit)->first();
         return view('partial.penyakit.show', ['data' => $data]);
     }
 
@@ -90,12 +90,13 @@ class PenyakitController extends Controller
      */
     public function updatePenyakit(Request $post)
     {
-        DB::table('identitas_penyakit')->where('id_register', $post->id_register)->update([
+        DB::table('identitas_penyakit')->where('id_identitas_penyakit', $post->id_identitas_penyakit)->update([     
             'id_register' => $post->id_register,
             'nama_penyakit' => $post->nama_penyakit,
-            'tanggal' => $post->tanggal,
+            'tanggal' => $post->tanggal, 
             'deskripsi' => $post->deskripsi,
         ]);
+        // dd($data);
 
         return redirect('/penyakit')->with('success', 'Data berhasil diupdate!');;
     }
