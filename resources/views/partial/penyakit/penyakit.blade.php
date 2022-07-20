@@ -33,7 +33,7 @@
 
             <div class="row mt-5">
                 <div class="col">
-                <a href="/tambahdata-penyakit">
+                <a href="/penyakit/create">
                     <button class="btn btn-purple text-white px-5 py-3">
                         + Tambah Data
                     </button>

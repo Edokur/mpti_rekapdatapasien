@@ -12,9 +12,9 @@ class Penyakit extends Model
     protected $table = 'identitas_penyakit';
 
     protected $fillable = [
-        'id_identitas_penyakit',
+        'id_register',
         'nama_penyakit',
-        'tangggal',
+        'tanggal',
         'deskripsi',
     ];
 }

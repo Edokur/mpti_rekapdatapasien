@@ -14,7 +14,7 @@ class PenyakitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function penyakit()
+    public function index()
     {
         // $data = Identitas::all();
         // return view('partial.identitas-pasien.identitas-pasien', compact(
@@ -43,9 +43,9 @@ class PenyakitController extends Controller
     public function insertPenyakit(Request $post)
     {
         $valididatedData = $post->validate([
-            'id_identitas_penyakit' => 'required',
+            'id_register' => 'required',
             'nama_penyakit' => 'required',
-            'tangggal' => 'required',
+            'tanggal' => 'required',
             'deskripsi' => 'required',
         ]);
 

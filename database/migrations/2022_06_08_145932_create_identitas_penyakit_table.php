@@ -15,8 +15,9 @@ class CreateIdentitasPenyakitTable extends Migration
     {
         Schema::create('identitas_penyakit', function (Blueprint $table) {
             $table->increments('id_identitas_penyakit');
+            $table->string('id_register');
             $table->string('nama_penyakit');
-            $table->date('tangggal');
+            $table->date('tanggal');
             $table->text('deskripsi');
             $table->timestamps();
         });

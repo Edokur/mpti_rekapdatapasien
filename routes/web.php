@@ -116,37 +116,52 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [LoginController::class, 'logout']);
 
-//  Sendy
-// Route::resource('identitas-pasien', IdentitasController::class);
+//  START SENDY
+
 // Identitas Pasien
-Route::get('/identitas_pasien', [IdentitasController::class, 'index']);
-Route::get('/identitas_pasien/create', [IdentitasController::class, 'create']);
-Route::post('/identitas_pasien/insertIdentitas', [IdentitasController::class, 'insertIdentitas']);
-Route::get('/identitas_pasien/editIdentitas/{id}', [IdentitasController::class, 'editIdentitas']);
-Route::post('/identitas_pasien/updateIdentitas', [IdentitasController::class, 'updateIdentitas']);
-Route::get('/identitas_pasien/hapusIdentitas/{id}', [IdentitasController::class, 'hapusIdentitas']);
-Route::get('/identitas_pasien/detailIdentitas/{id}', [IdentitasController::class, 'detailIdentitas']);
-Route::get('/identitas_pasien/cari', [IdentitasController::class, 'searchIdentitas']);
+Route::middleware('auth')->group(function () {
+    Route::get('/identitas_pasien', [IdentitasController::class, 'index']);
+    Route::get('/identitas_pasien/create', [IdentitasController::class, 'create']);
+    Route::post('/identitas_pasien/insertIdentitas', [IdentitasController::class, 'insertIdentitas']);
+    Route::get('/identitas_pasien/editIdentitas/{id}', [IdentitasController::class, 'editIdentitas']);
+    Route::post('/identitas_pasien/updateIdentitas', [IdentitasController::class, 'updateIdentitas']);
+    Route::get('/identitas_pasien/hapusIdentitas/{id}', [IdentitasController::class, 'hapusIdentitas']);
+    Route::get('/identitas_pasien/detailIdentitas/{id}', [IdentitasController::class, 'detailIdentitas']);
+    Route::get('/identitas_pasien/cari', [IdentitasController::class, 'searchIdentitas']);
+});
 
 // Activity
-Route::get('activity', [ActivityController::class, 'index']);
-// Route::get('/identitas_pasien/create', [IdentitasController::class, 'create']);
-// Route::post('/identitas_pasien/insertIdentitas', [IdentitasController::class, 'insertIdentitas']);
-// Route::get('/identitas_pasien/editIdentitas/{id}', [IdentitasController::class, 'editIdentitas']);
-// Route::post('/identitas_pasien/updateIdentitas', [IdentitasController::class, 'updateIdentitas']);
-// Route::get('/identitas_pasien/hapusIdentitas/{id}', [IdentitasController::class, 'hapusIdentitas']);
-// Route::get('/identitas_pasien/detailIdentitas/{id}', [IdentitasController::class, 'detailIdentitas']);
+Route::middleware('auth')->group(function () {
+    Route::get('activity', [ActivityController::class, 'index']);
+});
 
 // Surveilans 1
-Route::get('/surveilans_1', [Surveilans1Controller::class, 'index']);
-Route::get('/surveilans_1/create', [Surveilans1Controller::class, 'create']);
-Route::post('/surveilans_1/insertSurveilans1', [Surveilans1Controller::class, 'insertSurveilans1']);
-Route::get('/surveilans_1/editSurveilans1/{id}', [Surveilans1Controller::class, 'editSurveilans1']);
-Route::post('/surveilans_1/updateSurveilans1', [Surveilans1Controller::class, 'updateSurveilans1']);
-Route::get('/surveilans_1/hapusSurveilans1/{id}', [Surveilans1Controller::class, 'hapusSurveilans1']);
-Route::get('/surveilans_1/detailSurveilans1/{id}', [Surveilans1Controller::class, 'detailSurveilans1']);
-Route::get('/surveilans_1/cari', [Surveilans1Controller::class, 'searchSurveilans1']);
-Route::get('/surveilans_1/get_pasien/{id}', [Surveilens1Controller::class, 'get_pasien']);
+Route::middleware('auth')->group(function () {
+    Route::get('/surveilans_1', [Surveilans1Controller::class, 'index']);
+    Route::get('/surveilans_1/create', [Surveilans1Controller::class, 'create']);
+    Route::post('/surveilans_1/insertSurveilans1', [Surveilans1Controller::class, 'insertSurveilans1']);
+    Route::get('/surveilans_1/editSurveilans1/{id}', [Surveilans1Controller::class, 'editSurveilans1']);
+    Route::post('/surveilans_1/updateSurveilans1', [Surveilans1Controller::class, 'updateSurveilans1']);
+    Route::get('/surveilans_1/hapusSurveilans1/{id}', [Surveilans1Controller::class, 'hapusSurveilans1']);
+    Route::get('/surveilans_1/detailSurveilans1/{id}', [Surveilans1Controller::class, 'detailSurveilans1']);
+    Route::get('/surveilans_1/cari', [Surveilans1Controller::class, 'searchSurveilans1']);
+    Route::get('/surveilans_1/get_pasien/{id}', [Surveilans1Controller::class, 'get_pasien']);
+});
+
+// Penyakit
+Route::middleware('auth')->group(function () {
+    Route::get('/penyakit', [PenyakitController::class, 'index']);
+    Route::get('/penyakit/create', [PenyakitController::class, 'create']);
+    Route::post('/penyakit/insertPenyakit', [PenyakitController::class, 'insertPenyakit']);
+    Route::get('/penyakit/editPenyakit/{id}', [PenyakitController::class, 'editPenyakit']);
+    Route::post('/penyakit/updatePenyakit', [PenyakitController::class, 'updatePenyakit']);
+    Route::get('/penyakit/hapusPenyakit/{id}', [PenyakitController::class, 'hapusPenyakit']);
+    Route::get('/penyakit/detailPenyakit/{id}', [PenyakitController::class, 'detailPenyakit']);
+    Route::get('/penyakit/cari', [PenyakitController::class, 'searchPenyakit']);
+    Route::get('/penyakit/get_pasien/{id}', [PenyakitController::class, 'get_pasien']);
+});
+
+// END SENDY
 
 // Route Kesehatan Jiwa
 Route::get('/kesehatan_jiwa', [KJiwaController::class, 'index']);
@@ -157,10 +172,10 @@ Route::get('/kesehatan_jiwa/detailKJiwa/{id_kesehatan_jiwa}', [KJiwaController::
 Route::get('/kesehatan_jiwa/editKJiwa/{id_kesehatan_jiwa}', [KJiwaController::class, 'editKJiwa']);
 Route::post('/kesehatan_jiwa/updateKJiwa', [KJiwaController::class, 'updateKJiwa']);
 
-//Penyakit
-Route::get('/penyakit', [PenyakitController::class, 'penyakit']);
-Route::get('/penyakit/create', [PenyakitController::class, 'create']);
-Route::post('/penyakit/insertPenyakit', [PenyakitController::class, 'insertPenyakit']);
-Route::post('/penyakit/editPenyakit/{id_identitas_penyakit}', [PenyakitController::class, 'editPenyakit']);
-Route::post('/penyakit/updatePenyakit', [PenyakitController::class, 'updatePenyakit']);
-Route::get('/penyakit/hapusPenyakit/{id_identitas_penyakit}', [PenyakitController::class, 'hapusPenyakit']);
+// //Penyakit
+// Route::get('/penyakit', [PenyakitController::class, 'penyakit']);
+// Route::get('/penyakit/create', [PenyakitController::class, 'create']);
+// Route::post('/penyakit/insertPenyakit', [PenyakitController::class, 'insertPenyakit']);
+// Route::post('/penyakit/editPenyakit/{id_identitas_penyakit}', [PenyakitController::class, 'editPenyakit']);
+// Route::post('/penyakit/updatePenyakit', [PenyakitController::class, 'updatePenyakit']);
+// Route::get('/penyakit/hapusPenyakit/{id_identitas_penyakit}', [PenyakitController::class, 'hapusPenyakit']);
