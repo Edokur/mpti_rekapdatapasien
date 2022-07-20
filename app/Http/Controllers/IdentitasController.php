@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Identitas;
 use App\Models\Activity;
 use Carbon\Carbon;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class IdentitasController extends Controller
 {
@@ -67,6 +68,7 @@ class IdentitasController extends Controller
             'tanggal' => Carbon::now(),
         ]);
 
+        Alert::success('Sukses', 'Data Berhasil Tersimpan');
         return redirect('/identitas_pasien')->with('success', 'Data baru berhasil ditambahkan!');
     }
 

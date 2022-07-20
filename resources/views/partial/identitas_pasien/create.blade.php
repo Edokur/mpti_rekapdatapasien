@@ -110,7 +110,7 @@
 
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
-                            <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger">Batal</button>
+                            <a href="/identitas_pasien" type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</a>
                             <button type="submit" class="col-4 py-3 btn btn-purple text-white">Simpan</button>
                         </div>
                     </form>

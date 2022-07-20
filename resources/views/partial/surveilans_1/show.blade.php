@@ -38,7 +38,7 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="" disabled value="{{$data1y->nama_pasien}}">
+                                <input type="text" class="form-control" id="" disabled value="{{$data1->nama_pasien}}">
                             </div>
                         </div>
 

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Penyakit;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PenyakitController extends Controller
 {
@@ -51,6 +52,7 @@ class PenyakitController extends Controller
 
         Penyakit::create($valididatedData);
 
+        Alert::success('Sukses', 'Data Berhasil Tersimpan');
         return redirect('/penyakit')->with('success', 'Data baru berhasil ditambahkan!');
     }
 
@@ -69,15 +71,15 @@ class PenyakitController extends Controller
      */
     public function editPenyakit($id_penyakit)
     {
-        $data = DB::table('identitas_penyakit')->where('id_identitas_penyakit', $id_penyakit)->first();
+        $data = DB::table('identitas_penyakit')->where('id_register', $id_penyakit)->first();
         return view('partial.penyakit.edit', ['data' => $data]);
     }
 
-    // public function detailPenyakit($id_penyakit)
-    // {
-    //     $data = DB::table('penyakit')->where('id_register', $penyakit)->first();
-    //     return view('partial.ipenyakit.show', ['data' => $data]);
-    // }
+    public function detailPenyakit($id_penyakit)
+    {
+        $data = DB::table('identitas_penyakit')->where('id_register', $id_penyakit)->first();
+        return view('partial.penyakit.show', ['data' => $data]);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -88,10 +90,10 @@ class PenyakitController extends Controller
      */
     public function updatePenyakit(Request $post)
     {
-        DB::table('identitas_pasien')->where('id_identitas_penyakit', $post->id_penyakit)->update([
-            'id_identitas_penyakit' => $post->id_identitas_penyakit,
+        DB::table('identitas_penyakit')->where('id_register', $post->id_register)->update([
+            'id_register' => $post->id_register,
             'nama_penyakit' => $post->nama_penyakit,
-            'tangggal' => $post->tangggal,
+            'tanggal' => $post->tanggal,
             'deskripsi' => $post->deskripsi,
         ]);
 
@@ -110,17 +112,17 @@ class PenyakitController extends Controller
 
         return redirect('/penyakit')->with('success', 'Data berhasil dihapus!');
     }
-    // public function searchIdentitas(Request $request)
-    // {
-    //     // menangkap data pencarian
-    //     $cari = $request->cari;
+    public function searchPenyakit(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
 
-    //     // mengambil data dari table pegawai sesuai pencarian data
-    //     $pasien = DB::table('identitas_pasien')
-    //         ->where('nama_pasien', 'like', "%" . $cari . "%")
-    //         ->paginate();
+        // mengambil data dari table pegawai sesuai pencarian data
+        $pasien = DB::table('identitas_penyakit')
+            ->where('nama_penyakit', 'like', "%" . $cari . "%")
+            ->paginate();
 
-    //     // mengirim data pasien ke view index
-    //     return view('partial.identitas_pasien.identitas_pasien', ['data' => $pasien]);
-    // }
+        // mengirim data pasien ke view index
+        return view('partial.penyakit.penyakit', ['data' => $pasien]);
+    }
 }
