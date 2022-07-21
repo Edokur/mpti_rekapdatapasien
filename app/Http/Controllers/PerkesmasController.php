@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Validator;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Perkesmas;
 use Illuminate\Http\Request;
@@ -31,12 +32,11 @@ class PerkesmasController extends Controller
     public function create()
     {
         $identitas_pasien = DB::table('identitas_pasien')->get();
-        // $produk = DB::table('produk')->get();
+
         $data = array(
             'identitas_pasien' => $identitas_pasien,
-            // 'produk' => $produk,
         );
-        // return view('produk.create', $data);
+
         return view('partial.perkesmas.create', $data);
     }
 
@@ -48,7 +48,6 @@ class PerkesmasController extends Controller
      */
     public function insertPerkesmas(Request $post)
     {
-
         $data = $post->input('nama_pasien');
 
         $nama_pasien = $this->get_namapasien($data);
@@ -80,6 +79,13 @@ class PerkesmasController extends Controller
             'diagnosa_keperawatan' => $post->input('diagnosa_keperawatan'),
             'implementasi_keperawatan' => $post->input('implementasi_keperawatan'),
             'keterangan' => $post->input('keterangan'),
+        ]);
+
+        DB::table('log_activity')->insert([
+            'nama_pasien' => $post->input('nama_pasien'),
+            'jenis_data' => 'Perkesmas',
+            'deskripsi' => 'Tambah Data',
+            'tanggal' => Carbon::now(),
         ]);
 
 
@@ -149,6 +155,13 @@ class PerkesmasController extends Controller
             'implementasi_keperawatan' => $post->input('implementasi_keperawatan'),
             'keterangan' => $post->input('keterangan'),
         ]);
+
+        DB::table('log_activity')->insert([
+            'nama_pasien' => $post->input('nama_pasien'),
+            'jenis_data' => 'Perkesmas',
+            'deskripsi' => 'Ubah Data',
+            'tanggal' => Carbon::now(),
+        ]);
         return redirect('/perkesmas')->with('success', 'Data berhasil diupdate!');;
     }
 
@@ -160,8 +173,20 @@ class PerkesmasController extends Controller
      */
     public function hapusPerkesmas($id_perkesmas)
     {
-        $perkesmas = DB::table('perkesmas')->where('id_perkesmas', $id_perkesmas)->delete();
 
+        $items = DB::table('perkesmas')
+            ->select('*')
+            ->where('id_perkesmas', '=', $id_perkesmas)
+            ->first();
+
+        DB::table('log_activity')->insert([
+            'nama_pasien' => $items->nama_pasien,
+            'jenis_data' => 'Perkesmas',
+            'deskripsi' => 'Tambah Data',
+            'tanggal' => Carbon::now(),
+        ]);
+
+        $perkesmas = DB::table('perkesmas')->where('id_perkesmas', $id_perkesmas)->delete();
         return redirect('/perkesmas');
     }
 
@@ -174,15 +199,12 @@ class PerkesmasController extends Controller
 
     public function SearchPerkesmas(Request $request)
     {
-        // menangkap data pencarian
         $cari = $request->cari;
 
-        // mengambil data dari table pegawai sesuai pencarian data
         $pegawai = DB::table('perkesmas')
             ->where('nama_pasien', 'like', "%" . $cari . "%")
             ->paginate();
 
-        // mengirim data pegawai ke view index
         return view('partial.perkesmas.index', ['data' => $pegawai]);
     }
 }

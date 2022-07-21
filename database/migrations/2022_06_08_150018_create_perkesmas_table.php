@@ -15,7 +15,7 @@ class CreatePerkesmasTable extends Migration
     {
         Schema::create('perkesmas', function (Blueprint $table) {
             $table->increments('id_perkesmas');
-            $table->string('id_register');
+            $table->string('id_register')->unique();
             $table->integer('pasien_id')->unsigned();
             $table->string('nama_pasien');
             $table->string('nik', 16);
