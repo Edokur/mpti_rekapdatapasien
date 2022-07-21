@@ -63,14 +63,13 @@
                         </div>
                     </form>
                 </div>
-
                 <div class="p-4">
                     <table class="table table-bordered">
                         <thead class="bg-grey color-white">
                             <tr>
                                 <th class="col-1 th1">No</th>
                                 <th class="col-1 th1">ID Register</th>
-                                <th class="col-1 th1">Tanggal</th>
+                                <th class="col-1 th1">Tanggal </th>
                                 <th class="col-1 th1">Nama Pasien</th>
                                 <th class="col-2 th1">Diagnosa Keperawatan</th>
                                 <th class="col-2 th1">Keterangan</th>
