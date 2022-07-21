@@ -34,19 +34,19 @@
             <div class="row mt-5">
                 <div class="col">
                     <a href="/surveilans_1/create">
-                        <button class="btn btn-purple text-white border-radius px-4 py-3">
+                        <button class="btn btn-purple text-white px-4 py-3">
                             + Tambah Data
                         </button>
                     </a>
                 </div>
                 <div class="col text-right">
-                    <button class="btn btn-outline-success border-radius px-5 py-3">
+                    <button class="btn btn-outline-success px-5 py-3">
                         <i class="fa-solid fa-print"></i> Cetak Data
                     </button>
                 </div>
             </div>
 
-            <div class="ttable border-line bg-white border-radius mt-4">
+            <div class="ttable border-line bg-white mt-4">
                 <div class="p-4">
                     <form class="input-group mb-3" action="/surveilans_1/cari" method="GET">
                         <input type="text" class="form-control" placeholder="Search" name="cari" value="{{ old('cari') }}">
