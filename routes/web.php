@@ -115,9 +115,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
-
-Route::resource('kesehatan_jiwa', KJiwaController::class);
-
 //dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
