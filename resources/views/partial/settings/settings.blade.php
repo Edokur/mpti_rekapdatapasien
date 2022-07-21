@@ -30,7 +30,7 @@
                 <h4 class="text-title color-black lead font-bold">Setting</h4>
             </div>
             
-            <div class="ttable border-line bg-white border-radius mt-3">
+            <div class="ttable border-line bg-white mt-3">
                 <div class="p-2 bg-light border-bottom rounded-bottom-0">
                     <div class="m-3 row">
                         <p class="col-6 text-dark">General Account Settings</p>
@@ -71,14 +71,17 @@
                 </div>
             </div> 
             
-            <div class="ttable border-line bg-white border-radius mt-4" id="item">
+            <div class="ttable border-line bg-white mt-4" id="item">
                 <div class="p-2 bg-light border-bottom rounded-bottom-0">
                     <p class="m-3 text-dark">Security</p>
                 </div>
                 <a class="p-2 row" id="toggle-dropdown">
                     <p for="" class="col-sm-3 col-form-label ml-3 my-3 text-dark">Ubah Kata Kandi</p>
                     <div class="col-sm-8 mt-2">
-                        <p class="my-3 text-dark">Sebaiknya gunakan kata sandi yang kuat yang tidak Anda gunakan di tempat lain</p>
+                        <div class="row my-3">
+                            <p class="col text-dark">Sebaiknya gunakan kata sandi yang kuat yang tidak Anda gunakan di tempat lain</p>
+                            <i class="col-1 mt-1 fas fa-angle-down"></i>
+                        </div>
                     </div>
                 </a>
                 <div class="text-dark border-top p-5" id="form-password">
@@ -99,9 +102,6 @@
                         <div class="col-sm-8">
                             <input type="textarea" class="form-control">
                         </div>
-                    </div>
-                    <div class="text-right mr-4 pb-3">
-                        <a href="" class="mr-5 pr-3 form-label text-dark"><small> Lupa kata sandi?</small></a>
                     </div>
                     <div class="ml-2 form-group row py-3">
                         <label for="" class="col-sm-3"></label>

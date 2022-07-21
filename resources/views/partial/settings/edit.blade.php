@@ -26,89 +26,52 @@
         </div>
 
         <div class="l-right mt-3 border">
-            <div class="border-line bg-white border-radius">
+            <div class="border-line bg-white">
                 <div class="p-2 bg-light border-bottom rounded-bottom-0">
                     <div class="m-3 row">
                         <p class="col-6 text-dark">General Account Settings</p>
                     </div>
                 </div>
                 <div class="text-dark p-5">
-                    <div class="ml-2 form-group row">
-                        <label for="" class="col-sm-3 col-form-label">Nama</label>
-                        <div class="col-sm-8 mt-2">
-                            <input type="text" class="form-control color-neutral-400">
+                    <form action="/settings" class="ml-5">
+                        <div class="form-group row py-2">
+                            <label for="" class="col-sm-3 col-form-label">Nama</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control color-neutral-400" placeholder="Edo Kurniawan">
+                            </div>
                         </div>
-                    </div>
-                    <div class="ml-2 form-group row">
-                        <label for="" class="col-sm-3 col-form-label">Username</label>
-                        <div class="col-sm-8 mt-2">
-                            <p>Admin123</p>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Username</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control color-neutral-400" placeholder="AwanKinton">
+                            </div>
                         </div>
-                    </div>
-                    <div class="ml-2 form-group row">
-                        <label for="" class="col-sm-3 col-form-label">Email</label>
-                        <div class="col-sm-8 mt-2">
-                            <p>Admin123@gmail.com</p>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control color-neutral-400" placeholder="admin@admin.com">
+                            </div>
                         </div>
-                    </div>
-                    <div class="ml-2 form-group row">
-                        <label for="" class="col-sm-3 col-form-label">Alamat</label>
-                        <div class="col-sm-8 mt-2">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At placerat pellentesque fusce felis at ultricies.</p>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Alamat</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control color-neutral-400" placeholder="admin@admin.com">
+                            </div>
                         </div>
-                    </div>
-                    <div class="ml-2 form-group row">
-                        <label for="" class="col-sm-3 col-form-label">Kontak</label>
-                        <div class="col-sm-8 mt-2">
-                            <p>081234567890</p>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Kontak</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control color-neutral-400" placeholder="081234567890">
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group row mx-1 py-2">
+                            <label for="" class="col-3"></label>
+                            <a href="/settings" type="button" class="col-4 py-3 mr-1 btn btn-outline-danger ">Batal</a>
+                            <button type="submit" class="col-4 py-3 btn btn-purple text-white">Simpan</button>
+                        </div>
+                    </form>
                 </div>
             </div> 
-            <!-- <div class="content">
-                <div class="content-body border">
-                    <table class="table table-borderless">
-                        <thead class="color-neutral-500 bg-neutral-100">
-                            <tr class="border-#f6f6f6 border-bottom">
-                                <th  scope="col" >General Account Setting</th>
-                                <th  scope="col" ></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="color-neutral-500">
-                                <td class="p-4">Nama</td>
-                                <td><input type="text" class="td-groupe p-3" placeholder="Karoni Marliani"></td>
-                            </tr>
-                            <tr class="color-neutral-500">
-                                <td class="p-4">Username</td>
-                                <td><input type="text" class="td-groupe p-3" placeholder="Admin123"></td>
-                            </tr>
-                            <tr class="color-neutral-500">
-                                <td class="p-4">Email</td>
-                                <td><input type="text" class="td-groupe p-3" placeholder="Admin123@gmail.com" ></td>
-                            </tr>
-                            <tr class="color-neutral-500" >
-                                <td class="p-4">Alamat</td>
-                                <td><input type="text" class="td-groupe pb-5 p-3" placeholder="Karoni Marliani"></td>
-                            </tr>
-                            <tr class="color-neutral-500">
-                                <td class="p-4">Kontak</td>
-                                <td><input type="text" class="td-groupe p-3" placeholder="081234567890"></td>
-                            </tr>
-                        </tbody>
-                    </table>   
-                    <div class="row mb-4">
-                        <div class="col mr-5">
-                        </div>
-                        <div class="col mr-5">
-                            <button class="btn btn-outline-danger" type="button">Reset</button>
-                        </div>
-                        <div class="col mr-5">
-                            <button class="btn-simpan" type="button">Simpan</button>
-                        </div>
-                    </div>   
-                </div>
-            </div>  -->
         </div>
     </div>        
 </body>
