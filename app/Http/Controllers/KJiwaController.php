@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\KJiwa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\KJiwa;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KJiwaController extends Controller
 {
@@ -16,7 +18,7 @@ class KJiwaController extends Controller
      */
     public function index()
     {
-        $data = DB::table('kesehatan_jiwa')->paginate(10);
+        $data = DB::table('kesehatan_jiwa')->orderByDesc('id_kesehatan_jiwa')->paginate(10);
         return view('partial.kesehatan_jiwa.index', ['data' => $data]);
     }
 
@@ -28,12 +30,12 @@ class KJiwaController extends Controller
     public function create()
     {
         $identitas_pasien = DB::table('identitas_pasien')->get();
-        // $produk = DB::table('produk')->get();
+
         $data = array(
             'identitas_pasien' => $identitas_pasien,
-            // 'produk' => $produk,
+
         );
-        // return view('produk.create', $data);
+
         return view('partial.kesehatan_jiwa.create', $data);
     }
 
@@ -45,29 +47,51 @@ class KJiwaController extends Controller
      */
     public function insertKJiwa(Request $post)
     {
-        $valididatedData = $post->validate([
-            'id_kesehatan_jiwa'=> 'required',
-            'id_register'=>'required',
-            'pasien_id'=>'required',
-            'nama_pasien'=>'required',
-            'nik'=>'required',
-            'tanggal_lahir'=>'required',
-            'alamat'=>'required',
-            'jenis_kelamin'=>'required',
-            'no_bpjs'=>'required',
-            'kepala_keluarga'=>'required',
-            'pendidikan'=>'required',
-            'pekerjaan'=>'required',
-            'diagnosa'=>'required',
-            'terapi'=>'required',
-            'tanggal_kunjungan'=>'required',
-            'kunjungan'=>'required',
-            'keterangan'=>'required',
+        $data = $post->input('nama_pasien');
+
+        $nama_pasien = $this->get_namapasien($data);
+
+        $post->validate([
+            'id_register' => 'required',
+            'nama_pasien' => 'required',
+            'kunjungan' => 'required',
+            'tanggal_kunjungan' => 'required',
+            'diagnosa' => 'required',
+            'terapi' => 'required',
+            'dosis' => 'required',
+            'keterangan' => 'required',
         ]);
 
-        KJiwa::create($valididatedData);
 
-        return redirect('/kesehatan_jiwa')->with('success', 'Data baru berhasil ditambahkan!');
+        KJiwa::create([
+            'id_register' => $post->input('id_register'),
+            'nama_pasien' => $nama_pasien->nama_pasien,
+            'pasien_id' => $post->input('nama_pasien'),
+            'tanggal_lahir' => $post->input('tanggal_lahir'),
+            'jenis_kelamin' => $post->input('jenis_kelamin'),
+            'alamat' => $post->input('alamat'),
+            'kepala_keluarga' => $post->input('kepala_keluarga'),
+            'nik' => $post->input('nik'),
+            'no_bpjs' => $post->input('no_bpjs'),
+            'pendidikan' => $post->input('pendidikan'),
+            'pekerjaan' => $post->input('pekerjaan'),
+            'tanggal_kunjungan' => $post->input('tanggal_kunjungan'),
+            'kunjungan' => $post->input('kunjungan'),
+            'terapi' => $post->input('terapi'),
+            'diagnosa' => $post->input('diagnosa'),
+            'dosis' => $post->input('dosis'),
+            'keterangan' => $post->input('keterangan'),
+        ]);
+
+        DB::table('log_activity')->insert([
+            'nama_pasien' => $post->input('nama_pasien'),
+            'jenis_data' => 'Kesehatan Jiwa',
+            'deskripsi' => 'Tambah Data',
+            'tanggal' => Carbon::now(),
+        ]);
+
+        Alert::success('Sukses', 'Data Berhasil Tersimpan');
+        return redirect('/kesehatan_jiwa');
     }
 
     /**
@@ -88,13 +112,10 @@ class KJiwaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editKJiwa ($id_kjiwa)
+    public function editKJiwa($id_kjiwa)
     {
         $data = DB::table('kesehatan_jiwa')->where('id_kesehatan_jiwa', $id_kjiwa)->first();
         return view('partial.kesehatan_jiwa.edit', ['data' => $data]);
-        // return view('partial.kesehatan_jiwa.edit', compact(
-        //     'kjiwa'
-        // ));
     }
 
     /**
@@ -106,24 +127,35 @@ class KJiwaController extends Controller
      */
     public function updateKJiwa(Request $post)
     {
+        $data = $post->input('nama_pasien');
+
+        $nama_pasien = $this->get_namapasien($data);
+
         DB::table('kesehatan_jiwa')->where('id_kesehatan_jiwa', $post->id_kesehatan_jiwa)->update([
-            'id_kesehatan_jiwa'=>$post->id_kesehatan_jiwa,
-            'id_register'=>$post->id_register,
-            'pasien_id'=>$post->pasien_id,
-            'nama_pasien'=>$post->nama_pasien,
-            'nik'=>$post->nik,
-            'tanggal_lahir'=>$post->tanggal_lahir,
-            'alamat'=>$post->alamat,
-            'jenis_kelamin'=>$post->jenis_kelamin,
-            'no_bpjs'=>$post->no_bpjs,
-            'kepala_keluarga'=>$post->kepala_keluarga,
-            'pendidikan'=>$post->pendidikan,
-            'pekerjaan'=>$post->pekerjaan,
-            'diagnosa'=>$post->diagnosa,
-            'terapi'=>$post->terapi,
-            'tanggal_kunjungan'=>$post->tanggal_kunjungan,
-            'kunjungan'=>$post->kunjungan,
-            'keterangan'=>$post->keterangan,
+            'id_kesehatan_jiwa' => $post->input('id_kesehatan_jiwa'),
+            // 'pasien_id' => $post->pasien_id,
+            'nama_pasien' => $post->input('nama_pasien'),
+            'nik' => $post->input('nik'),
+            'tanggal_lahir' => $post->input('tanggal_lahir'),
+            'alamat' => $post->input('alamat'),
+            'jenis_kelamin' => $post->input('jenis_kelamin'),
+            'no_bpjs' => $post->input('no_bpjs'),
+            'kepala_keluarga' => $post->input('kepala_keluarga'),
+            'pendidikan' => $post->input('pendidikan'),
+            'pekerjaan' => $post->input('pekerjaan'),
+            'diagnosa' => $post->input('diagnosa'),
+            'terapi' => $post->input('terapi'),
+            'dosis' => $post->input('dosis'),
+            'tanggal_kunjungan' => $post->input('tanggal_kunjungan'),
+            'kunjungan' => $post->input('kunjungan'),
+            'keterangan' => $post->input('keterangan'),
+        ]);
+
+        DB::table('log_activity')->insert([
+            'nama_pasien' => $post->input('nama_pasien'),
+            'jenis_data' => 'Kesehatan Jiwa',
+            'deskripsi' => 'Ubah Data',
+            'tanggal' => Carbon::now(),
         ]);
 
         return redirect('/kesehatan_jiwa')->with('success', 'Data berhasil diupdate!');;
@@ -137,8 +169,45 @@ class KJiwaController extends Controller
      */
     public function hapusKJiwa($id_kjiwa)
     {
+        $items = DB::table('kesehatan_jiwa')
+            ->select('*')
+            ->where('id_kesehatan_jiwa', '=', $id_kjiwa)
+            ->first();
+
+        DB::table('log_activity')->insert([
+            'nama_pasien' => $items->nama_pasien,
+            'jenis_data' => 'Kesehatan Jiwa',
+            'deskripsi' => 'Hapus Data',
+            'tanggal' => Carbon::now(),
+        ]);
+
         $idkjiwa = DB::table('kesehatan_jiwa')->where('id_kesehatan_jiwa', $id_kjiwa)->delete();
 
-        return redirect('/kesehatan_jiwa')->with('success', 'Data berhasil dihapus!');
+        return redirect('/kesehatan_jiwa');
+    }
+
+    public function get_pasien($id)
+    {
+        $data_pasien = DB::table('identitas_pasien')->where('id_pasien', $id)->first();
+
+        return response()->json(['success' => true, 'data' => $data_pasien]);
+    }
+
+    public function get_namapasien($id_pasien)
+    {
+        $data_pasien = DB::table('identitas_pasien')->select('nama_pasien')->where('id_pasien', $id_pasien)->first();
+
+        return $data_pasien;
+    }
+
+    public function SearchKJiwa(Request $request)
+    {
+        $cari = $request->cari;
+
+        $pegawai = DB::table('kesehatan_jiwa')
+            ->where('nama_pasien', 'like', "%" . $cari . "%")
+            ->paginate();
+
+        return view('partial.kesehatan_jiwa.index', ['data' => $pegawai]);
     }
 }

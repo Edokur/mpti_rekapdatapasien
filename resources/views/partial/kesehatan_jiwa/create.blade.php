@@ -29,14 +29,8 @@
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
                                 <div class="dropdown">
-                                    <select name="pasien_id" id="pasien_id" class="btn border btn-block text-left form-control">
-                                        <!-- <option value="" selected>-- Pilih Pasien --</option> -->
-                                        @foreach($identitas_pasien as $key)
-                                        <option name="id_register" value="{{ $key->id_register}}"> {{ $key->id_register }} - {{ $key->nama_pasien }} </option>
-                                        @endforeach
-                                    </select>
+                                    <input type="text" class="form-control" name="id_register" id="">
                                 </div>
-                                <!-- <input type="text" class="form-control" id="" name="nama_pasien"> -->
                             </div>
                         </div>
                         
@@ -47,7 +41,7 @@
                                     <select name="nama_pasien" id="nama_pasien" class="btn border btn-block text-left form-control">
                                         <option value="" selected>-- Pilih Pasien --</option>
                                         @foreach($identitas_pasien as $key)
-                                        <option value="{{ $key->nama_pasien }}">{{ $key->nama_pasien }}</option>
+                                        <option value="{{ $key->id_pasien }}">{{ $key->nama_pasien }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -57,71 +51,69 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control" name="tanggal_lahir" id="">
+                                <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" readonly>
                             </div>
                         </div>
                         
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
-                                <div class="dropdown"> 
-                                    <select name="status" id="status" class="btn border btn-block text-left form-control" name="jenis_kelamin" id="">
-                                        <option> </option>
-                                        <option>Laki-laki</option>
-                                        <option>Perempuan</option>
-                                    </select>
-                                </div>
+                                <input type="text" class="form-control" name="jenis_kelamin" id="jenis_kelamin" readonly>
                             </div>
                         </div>
                         
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
-                                <input type="textarea" class="form-control" name="alamat" id="">
+                                <input type="textarea" class="form-control" name="alamat" id="alamat" readonly>
                             </div>
                         </div>
                         
-                        <div class="form-group py-2 row">
+                        <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Kepala Keluarga</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" nama="kepala_keluarga" id="">
+                                <input type="text" class="form-control" name="kepala_keluarga" id="kepala_keluarga" readonly>
                             </div>
                         </div>
                         
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">NIK</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" name="nik" id="">
+                                <input type="number" class="form-control" name="nik" id="nik" readonly>
                             </div>
                         </div>
                         
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" name="no_bpjs" id="">
+                                <input type="number" class="form-control" name="no_bpjs" id="no_bpjs" readonly>
                             </div>
                         </div>
                         
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
-                                <div class="dropdown"> 
-                                    <select name="status" id="status" class="btn border btn-block text-left form-control" name="pendidikan">
-                                    <option></option>
-                                        <option>SD</option>
-                                        <option>SMP</option>
-                                        <option>SMA</option>
-                                    </select>
-                                </div>
+                                <input type="text" class="form-control" name="pendidikan" id="pendidikan" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row py-2">
+                            <label for="" class="col-sm-3 col-form-label">Pekerjaan</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="pekerjaan" id="pekerjaan" readonly>
                             </div>
                         </div>
                         
-                        <div class="form-group py-2 row">
-                            <label for="" class="col-sm-3 col-form-label">ID Kunjungan</label>
+                        <div class="form-group row py-2">
+                            <label for="" class="col-sm-3 col-form-label">Kunjungan</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" name="id_kesehatan_jiwa" id="">
-                            </div>    
-                        </div>    
+                                <select name="kunjungan" id="kunjungan" class="btn border btn-block text-left color-neutral-400 px-4">
+                                    <option disabled selected>Pilih Kunjungan</option>
+                                    <option value="LAMA">Lama</option>
+                                    <option value="BARU">Baru</option>
+                                </select>
+                            </div>
+                        </div>   
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Kunjungan</label>
@@ -129,13 +121,6 @@
                                 <input type="date" class="form-control" name="tanggal_kunjungan" id="" placeholder="">    
                             </div>
                         </div>    
-                        
-                        <div class="form-group py-2 row">
-                            <label for="" class="col-sm-3 col-form-label">Kunjungan</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" name="kunjungan" id="">
-                            </div>
-                        </div>
 
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Diagnosa</label>
@@ -154,7 +139,7 @@
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Dosis</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="dosis" id="">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" name="dosis" rows="3"></textarea>
                             </div>
                         </div>
 
@@ -176,19 +161,38 @@
         </div>
     </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <script src="js/script.js"></script>
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-    -->
 </body>
+
+<script>
+    $(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('#nama_pasien').change(function(){
+            var id = $(this).val();
+            console.log(id)
+            $.ajax({
+                type: 'get',
+                url: '/get_pasien' + '/' + id,
+                dataType: 'json',
+                success: function(response){
+                    console.log(response['data']);
+                    $('#tanggal_lahir').val(response['data'].tanggal_lahir);
+                    $('#jenis_kelamin').val(response['data'].jenis_kelamin);
+                    $('#alamat').val(response['data'].alamat);
+                    $('#kepala_keluarga').val(response['data'].kepala_keluarga);
+                    $('#nik').val(response['data'].nik);
+                    $('#no_bpjs').val(response['data'].no_bpjs);
+                    $('#pendidikan').val(response['data'].pendidikan);
+                    $('#pekerjaan').val(response['data'].pekerjaan);
+                }
+            });
+        });
+    });
+
+</script>
 
 </html>

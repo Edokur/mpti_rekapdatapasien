@@ -29,5 +29,6 @@ class KJiwa extends Model
         'tanggal_kunjungan',
         'kunjungan',
         'keterangan',
+        'dosis'
     ];
 }
