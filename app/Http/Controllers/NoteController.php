@@ -20,7 +20,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $data = DB::table('note')->paginate(10);
+        $data = DB::table('note')->orderByDesc('id_note')->paginate(10);
         return view('partial.catatan.note', ['data' => $data]);
     }
 
@@ -50,13 +50,8 @@ class NoteController extends Controller
 
         Note::create($validatedData);
 
-        Alert::success('Sukses', 'Data Berhasil Tersimpan');     //dapat digunakan
+        Alert::success('Sukses', 'Data Berhasil Tersimpan');
         return redirect('/note');
-
-
-        // return redirect('/note')->with('success', 'Data Berhasil Tersimpan');;
-
-        // return redirect()->route('note.index');
     }
 
     /**
@@ -92,7 +87,6 @@ class NoteController extends Controller
      */
     public function updateNote(Request $post)
     {
-        // dd($post);
         $get = DB::table('note')->where('id_note', $post->id_note)->update([
             'status' => $post->status,
             'judul' => $post->judul,
@@ -100,10 +94,10 @@ class NoteController extends Controller
         ]);
 
         if ($get = true) {
-            Alert::success('Sukses', 'Data Berhasil Di Update');     //dapat digunakan
+            Alert::success('Sukses', 'Data Berhasil Di Update');
             return redirect('/note');
         } else {
-            Alert::error('Gagal', 'Data Gagal Di Update');     //dapat digunakan
+            Alert::error('Gagal', 'Data Gagal Di Update');
             return redirect('/note');
         }
     }
@@ -116,9 +110,8 @@ class NoteController extends Controller
      */
     public function hapusNote($id_note)
     {
-        $note = DB::table('note')->where('id_note', $id_note)->delete();
+        DB::table('note')->where('id_note', $id_note)->delete();
 
         return redirect('/note');
-        // return redirect('/note')->with('success', 'Data berhasil dihapus!');;
     }
 }
