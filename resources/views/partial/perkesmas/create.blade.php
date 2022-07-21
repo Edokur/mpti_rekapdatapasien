@@ -17,7 +17,7 @@
                 <h1 class="color-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor adipiscing in consectetur sem ut netus scelerisque. Viverra urna vitae viverra habitant a magna vitae, fermentum morbi. Magna magna non ridiculus vitae viverra feugiat morbi sed.</h1>
             </div>
 
-            <div class="ttable border-line bg-white border-radius my-4">
+            <div class="ttable border-line bg-white my-4">
                 <div class="p-2 bg-light rounded-bottom-0">
                     <p class="m-3 text-dark">Tambah Data</p>
                 </div>
@@ -150,7 +150,7 @@
 
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
-                            <button type="button" class="col-4 py-3 mr-1 btn btn-outline-danger">Batal</button>
+                            <a href="/perkesmas" type="button" class="col-4 py-3 mr-1 btn btn-outline-danger">Batal</a>
                             <button type="submit" class="col-4 py-3 btn btn-purple text-white ">Simpan</button>
                         </div>
                     </form>

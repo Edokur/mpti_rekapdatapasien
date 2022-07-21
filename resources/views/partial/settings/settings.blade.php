@@ -106,7 +106,7 @@
                     <div class="ml-2 form-group row py-3">
                         <label for="" class="col-sm-3"></label>
                         <div class="col-sm-9">
-                            <button type="reset" class="col-5 btn btn-outline-danger mr-4">Batal</button>
+                            <button type="reset" class="col-5 btn btn-outline-danger mr-4">Reset</button>
                             <button type="submit" class="col-5 btn btn-purple text-white ml-3">Simpan</button>
                         </div>
                     </div>
