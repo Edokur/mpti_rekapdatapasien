@@ -64,6 +64,13 @@
                     </form>
                 </div>
 
+                {{-- @if ($message = Session::get('gagal'))
+                    <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $message }}</strong>
+                    </div>
+                @endif --}}
+            
                 <div class="p-4">
                     <table class="table table-bordered">
                         @csrf
@@ -102,12 +109,7 @@
                                             <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                                         </svg>
                                     </a>
-                                    <!-- <a href="/identitas_pasien/hapusIdentitas/{{ $value->id_register}}" class="btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4C4C" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
-                                        </svg>
-                                    </a> -->
-                                    <button data-id="{{ $value->id_pasien}}" data-name="{{ $value->nama_pasien }}" type="submit" class="btn btn-simpanidentitas">
+                                    <button data-id="{{ $value->id_pasien}}" data-name="{{ $value->nama_pasien }}" type="submit" class="btn btn-hapusidentitas">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4C4C" class="bi bi-trash3-fill" viewBox="0 0 16 16">
                                             <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
                                         </svg>
@@ -118,13 +120,18 @@
                         </tbody>
                     </table>
                 </div>
+
             </div>
+            <p style="color: red;" class="my-3">Halaman : {{$data->currentPage()}}</p>
+            <p style="color: red;" class="mb-3">Jumlah Data : {{$data->total()}}</p>
+            <p style="color: red;" class="mb-3">Data Per Halaman : {{$data->perPage()}}</p>
+            {{ $data->links()}}
         </div>
     </div>
     @include('sweetalert::alert')
 </body>
 <script>
-    $('.btn-simpanidentitas').click(function() {
+    $('.btn-hapusidentitas').click(function() {
         var id_pasien = $(this).attr('data-id');
         var nama_pasien = $(this).attr('data-name');
         swal({
@@ -137,13 +144,10 @@
             .then((willDelete) => {
                 if (willDelete) {
                     window.location = "/identitas_pasien/hapusIdentitas/" + id_pasien + "";
-                    swal("Data Berhasil di hapus", {
-                        title: "Sukses",
-                        icon: "success",
-                    });
                     window.reload();
                 } else {
-                    swal("Data Tidak jadi Di hapus");
+                    swal("Data Tidak Di Hapus");
+                    window.reload();
                 }
             });
     })

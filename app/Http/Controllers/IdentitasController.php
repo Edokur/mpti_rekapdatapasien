@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Activity;
+use App\Models\Identitas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Identitas;
-use App\Models\Activity;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class IdentitasController extends Controller
@@ -19,11 +20,7 @@ class IdentitasController extends Controller
      */
     public function index()
     {
-        // $data = Identitas::all();
-        // return view('partial.identitas-pasien.identitas-pasien', compact(
-        //     'data'
-        // ));
-        $data = DB::table('identitas_pasien')->paginate(10);
+        $data = DB::table('identitas_pasien')->orderByDesc('id_pasien')->paginate(10);
         return view('partial.identitas_pasien.identitas_pasien', ['data' => $data]);
     }
 
@@ -45,32 +42,44 @@ class IdentitasController extends Controller
      */
     public function insertIdentitas(Request $post)
     {
-        $valididatedData = $post->validate([
-            'id_register' => 'required',
-            'nama_pasien' => 'required',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'alamat' => 'required',
-            'kepala_keluarga' => 'required',
-            'nik' => 'required',
-            'no_bpjs' => 'required',
-            'pendidikan' => 'required',
-            'pekerjaan' => 'required',
-        ]);
+        $nik_16 = strlen($post->nik);
+        $bpjs_16 = strlen($post->no_bpjs);
 
-        Identitas::create($valididatedData);
+        if ($nik_16 != 16) {
+            Session::flash('gagal', 'Nik harus berisi 16 Angka');
+            return redirect('/identitas_pasien/create');
+        } else if ($bpjs_16 != 13) {
+            Session::flash('gagal', 'No BPJS harus berisi 13 Angka');
+            return redirect('/identitas_pasien/create');
+        } else {
+            $valididatedData = $post->validate([
+                'id_register' => 'required',
+                'nama_pasien' => 'required',
+                'tanggal_lahir' => 'required',
+                'jenis_kelamin' => 'required',
+                'alamat' => 'required',
+                'kepala_keluarga' => 'required',
+                'nik' => 'required',
+                'no_bpjs' => 'required',
+                'pendidikan' => 'required',
+                'pekerjaan' => 'required',
+            ]);
 
-        // tambah ke db log
-        DB::table('log_activity')->insert([
-            'nama_pasien' => $post->nama_pasien,
-            'jenis_data' => 'Identitas Pasien',
-            'deskripsi' => 'Tambah Data',
-            'tanggal' => Carbon::now(),
-        ]);
+            Identitas::create($valididatedData);
 
-        Alert::success('Sukses', 'Data Berhasil Tersimpan');
-        return redirect('/identitas_pasien')->with('success', 'Data baru berhasil ditambahkan!');
+            DB::table('log_activity')->insert([
+                'nama_pasien' => $post->nama_pasien,
+                'jenis_data' => 'Identitas Pasien',
+                'deskripsi' => 'Tambah Data',
+                'tanggal' => Carbon::now(),
+            ]);
+
+            Alert::success('Sukses', 'Data Berhasil Tersimpan');
+            return redirect('/identitas_pasien');
+        }
     }
+
+
 
     /**
      * Display the specified resource.
@@ -80,7 +89,7 @@ class IdentitasController extends Controller
      */
     public function detailIdentitas($id_identitas)
     {
-        $data = DB::table('identitas_pasien')->where('id_register', $id_identitas)->first();
+        $data = DB::table('identitas_pasien')->where('id_pasien', $id_identitas)->first();
         return view('partial.identitas_pasien.show', ['data' => $data]);
     }
 
@@ -105,26 +114,39 @@ class IdentitasController extends Controller
      */
     public function updateIdentitas(Request $post)
     {
-        DB::table('identitas_pasien')->where('id_pasien', $post->id_pasien)->update([
-            'id_register' => $post->id_register,
-            'nama_pasien' => $post->nama_pasien,
-            'tanggal_lahir' => $post->tanggal_lahir,
-            'jenis_kelamin' => $post->jenis_kelamin,
-            'alamat' => $post->alamat,
-            'kepala_keluarga' => $post->kepala_keluarga,
-            'nik' => $post->nik,
-            'no_bpjs' => $post->no_bpjs,
-            'pendidikan' => $post->pendidikan,
-            'pekerjaan' => $post->pekerjaan,
-        ]);
-        DB::table('log_activity')->insert([
-            'nama_pasien' => $post->nama_pasien,
-            'jenis_data' => 'Identitas Pasien',
-            'deskripsi' => 'Ubah Data',
-            'tanggal' => Carbon::now(),
-        ]);
+        $nik_16 = strlen($post->nik);
+        $bpjs_16 = strlen($post->no_bpjs);
 
-        return redirect('/identitas_pasien')->with('success', 'Data berhasil diupdate!');;
+        $id = $post->id_pasien;
+
+        if ($nik_16 != 16) {
+            Session::flash('gagal', 'Nik harus berisi 16 Angka');
+            return redirect('/identitas_pasien/editIdentitas/' . $id . '');
+        } else if ($bpjs_16 != 13) {
+            Session::flash('gagal', 'No BPJS harus berisi 13 Angka');
+            return redirect('/identitas_pasien/editIdentitas/' . $id . '');
+        } else {
+            DB::table('identitas_pasien')->where('id_pasien', $post->id_pasien)->update([
+                'id_register' => $post->id_register,
+                'nama_pasien' => $post->nama_pasien,
+                'tanggal_lahir' => $post->tanggal_lahir,
+                'jenis_kelamin' => $post->jenis_kelamin,
+                'alamat' => $post->alamat,
+                'kepala_keluarga' => $post->kepala_keluarga,
+                'nik' => $post->nik,
+                'no_bpjs' => $post->no_bpjs,
+                'pendidikan' => $post->pendidikan,
+                'pekerjaan' => $post->pekerjaan,
+            ]);
+            DB::table('log_activity')->insert([
+                'nama_pasien' => $post->nama_pasien,
+                'jenis_data' => 'Identitas Pasien',
+                'deskripsi' => 'Ubah Data',
+                'tanggal' => Carbon::now(),
+            ]);
+
+            return redirect('/identitas_pasien')->with('success', 'Data berhasil diupdate!');;
+        }
     }
 
     /**
@@ -135,38 +157,57 @@ class IdentitasController extends Controller
      */
     public function hapusIdentitas($id_identitas)
     {
-       
+
         $items = DB::table('identitas_pasien')
-             ->select('*')
-             ->where('id_register','=', $id_identitas)
-             ->first();
-        // $nama = DB::select('SELECT nama_pasien FROM identitas_pasien WHERE id_register = ?', [$id_identitas]);
-        // var_dump($items->nama_pasien);
-        // die;
+            ->select('*')
+            ->where('id_pasien', '=', $id_identitas)
+            ->first();
 
-        DB::table('log_activity')->insert([
-            'nama_pasien' => $items->nama_pasien,
-            'jenis_data' => 'Identitas Pasien',
-            'deskripsi' => 'Hapus Data',
-            'tanggal' => Carbon::now(),
-        ]);
+        $cek_data = $this->validasipasien($id_identitas);
+        if ($cek_data == true) {
+            // Session::flash('gagal', 'Data Pasien Digunakan');
+            Alert::warning('Peringatan', 'Data Sedang Digunakan');
+            return redirect('/identitas_pasien');
+        } else {
+            DB::table('log_activity')->insert([
+                'nama_pasien' => $items->nama_pasien,
+                'jenis_data' => 'Identitas Pasien',
+                'deskripsi' => 'Hapus Data',
+                'tanggal' => Carbon::now(),
+            ]);
 
-        $identitas = DB::table('identitas_pasien')->where('id_register', $id_identitas)->delete();
-        return redirect('/identitas_pasien')->with('success', 'Data berhasil dihapus!');;
+            DB::table('identitas_pasien')->where('id_pasien', $id_identitas)->delete();
+            Alert::success('Sukses', 'Data Berhasil di hapus');
+            return redirect('/identitas_pasien');
+        }
     }
+
+    public function validasipasien($id_pasien)
+    {
+        $get_perkesmas = DB::select('SELECT pasien_id FROM perkesmas
+        WHERE pasien_id = ?', [$id_pasien]);
+
+        $get_kesehatan_jiwa = DB::select('SELECT pasien_id FROM kesehatan_jiwa
+        WHERE pasien_id = ?', [$id_pasien]);
+
+        if (count($get_perkesmas) || count($get_kesehatan_jiwa) != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function searchIdentitas(Request $request)
     {
-        // menangkap data pencarian
         $cari = $request->cari;
 
-        // mengambil data dari table pegawai sesuai pencarian data
         $pasien = DB::table('identitas_pasien')
             ->where('nama_pasien', 'like', "%" . $cari . "%")
             ->paginate();
 
-        // mengirim data pasien ke view index
         return view('partial.identitas_pasien.identitas_pasien', ['data' => $pasien]);
     }
+
     public function get_pasien($id)
     {
         $data_pasien = DB::table('identitas_pasien')->where('id_pasien', $id)->first();
