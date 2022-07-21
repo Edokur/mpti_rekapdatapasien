@@ -34,7 +34,6 @@
                 <div class="p-2 bg-light border-bottom rounded-bottom-0">
                     <div class="m-3 row">
                         <p class="col-6 text-dark">General Account Settings</p>
-                        <!-- <div class=""><label>Detail Data</label></div> -->
                         <div class="col-6 text-right"><a href="/settings-edit"><small class="text-dark"> Ubah data</small></a></div>
                     </div>
                 </div>

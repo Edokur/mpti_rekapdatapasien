@@ -170,3 +170,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/penyakit/cari', [PenyakitController::class, 'searchPenyakit']);
     Route::get('/penyakit/get_pasien/{id}', [PenyakitController::class, 'get_pasien']);
 });
+
+// Tamabahan View untuk Settings by Jangkung
+
+Route::get('/settings', function () {
+    return view('partial/settings/settings');
+});
+Route::get('/settings-edit', function () {
+    return view('partial/settings/edit');
+});
+
+// End

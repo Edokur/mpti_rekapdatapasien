@@ -36,7 +36,7 @@
                     <div class="ml-2 form-group row">
                         <label for="" class="col-sm-3 col-form-label">Nama</label>
                         <div class="col-sm-8 mt-2">
-                            <p>Karoni Marliani</p>
+                            <input type="text" class="form-control color-neutral-400">
                         </div>
                     </div>
                     <div class="ml-2 form-group row">
