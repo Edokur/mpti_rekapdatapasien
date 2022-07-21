@@ -19,7 +19,7 @@
 
             <div class="row mt-5">
                 <div class="col">
-                    <a href="/note/create" class="btn btn-purple text-white border-radius px-5 py-3">+ Tambah Data</a>
+                    <a href="/note/create" class="btn btn-purple text-white px-5 py-3">+ Tambah Data</a>
                 </div>
             </div>
 
