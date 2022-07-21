@@ -10,12 +10,12 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $log_activity = DB::table('log_activity')->get();
-        $kesehatan_jiwa = DB::table('kesehatan_jiwa')->get();
-        $surveilans_1 = DB::table('surveilans_1')->get();
-        $perkesmas = DB::table('perkesmas')->get();
+        $log_activity = DB::table('log_activity')->orderByDesc('id')->get();
+        $kesehatan_jiwa = DB::table('kesehatan_jiwa')->orderByDesc('id_kesehatan_jiwa')->get();
+        $surveilans_1 = DB::table('surveilans_1')->orderByDesc('id_surveilens1')->get();
+        $perkesmas = DB::table('perkesmas')->orderByDesc('id_perkesmas')->get();
         $surveilans_2 = DB::table('surveilans_2')->get();
-        $note = DB::table('note')->get();
+        $note = DB::table('note')->orderByDesc('id_note')->get();
 
         $jumlah_surveilans_2 = count($surveilans_2);
         $jumlah_kesehatan_jiwa = count($kesehatan_jiwa);
