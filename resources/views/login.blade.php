@@ -10,8 +10,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-	<!-- <script src="https://kit.fontawesome.com/a81368914c.js"></script> -->
-	<script src="js/dist/sweetalert1.all.min.js"></script>
+
 	<script src="js/dist/sweetalert2.all.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -53,14 +52,23 @@
 							@enderror
 						</div>
 						<div class="mx-5 form-group">
-							<input type="password" class="form-control p-4" id="password" name="password" placeholder="Masukkan password anda">
+							<input type="password" class="form-control p-4 @error('password') is-invalid @enderror" id="password" name="password" placeholder="Masukkan password anda">
+							@error('password')
+							<div class="invalid-feedback">
+								{{ $message }}
+							</div>
+							@enderror
 						</div>
 						<div class="mx-5 form-group">
 							<div class="input-group mb-2">
-								<div class="input-group-prepend">
-									<span class="input-group-text captcha" id="basic-addon3">B12RE3</span>
+								<div class="input-group-prepend captcha">
+									<span>{!! captcha_img() !!}</span>
+									{{-- <span><?= dd(captcha_img()) ?></span> --}}
+									<button type="button" class="btn btn-danger" class="reload" id="reload">
+										&#x21bb;
+									</button>
 								</div>
-								<input type="text" class="form-control p-4" id="basic-url" aria-describedby="basic-addon3"  placeholder="Input captcha" disabled>
+								<input type="text" class="form-control p-4" id="basic-url" aria-describedby="basic-addon3"  placeholder="Input captcha" name="remember_token" disabled>
 							</div>
 							<div class="text-right">
 								<a href="resetpw" class=" text-secondary">Forgot password ?</a>
@@ -73,8 +81,28 @@
 		</div>
 	</div>
 
-	<script>
-    </script>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+		// 	$(document).ready(function(){
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
+				$('#reload').click(function () {
+					console.log('masuk')
+					$.ajax({
+						type: 'get',
+						url: '/reload-captcha',
+						dataType: 'json',
+						success: function (data) {
+							console.log(data);
+							$(".captcha span").html(data.captcha);
+						}
+					});
+				});
+			// });
+		</script>
 
 </html>

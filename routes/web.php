@@ -30,9 +30,6 @@ Route::get('/activity', function () {
     return view('partial/activity');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
 
 Route::get('/resetpw', function () {
     return view('resetpw');
@@ -115,6 +112,9 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/reload-captcha', [LoginController::class, 'reloadCaptcha']);
+// Route::get('/reload-captcha', [App\Http\Controllers\Auth\RegisterController::class, 'reloadCaptcha']);
 
 //  START SENDY
 
