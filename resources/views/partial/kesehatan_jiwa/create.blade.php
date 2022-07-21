@@ -26,21 +26,7 @@
                         @csrf
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                         <div class="form-group py-2 row">
-                            <label for="" class="col-sm-3 col-form-label">Tanggal Kunjungan</label>
-                            <div class="col-sm-8">
-                                <input type="date" class="form-control" name="tanggal_kunjungan" id="" placeholder="">
-                            </div>
-                        </div>
-
-                        <div class="form-group py-2 row">
-                            <label for="" class="col-sm-3 col-form-label">ID Kunjungan</label>
-                            <div class="col-sm-8">
-                                <input type="number" class="form-control" name="id_kesehatan_jiwa" id="">
-                            </div>
-                        </div>
-
-                        <div class="form-group py-2 row">
-                        <label for="" class="col-sm-3 col-form-label">ID Register</label>
+                            <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
                                 <div class="dropdown">
                                     <select name="pasien_id" id="pasien_id" class="btn border btn-block text-left form-control">
@@ -53,7 +39,7 @@
                                 <!-- <input type="text" class="form-control" id="" name="nama_pasien"> -->
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
@@ -67,14 +53,14 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
                                 <input type="date" class="form-control" name="tanggal_lahir" id="">
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-8">
@@ -87,35 +73,35 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
                                 <input type="textarea" class="form-control" name="alamat" id="">
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Kepala Keluarga</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" nama="kepala_keluarga" id="">
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">NIK</label>
                             <div class="col-sm-8">
                                 <input type="number" class="form-control" name="nik" id="">
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
                             <div class="col-sm-8">
                                 <input type="number" class="form-control" name="no_bpjs" id="">
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
@@ -127,6 +113,27 @@
                                         <option>SMA</option>
                                     </select>
                                 </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group py-2 row">
+                            <label for="" class="col-sm-3 col-form-label">ID Kunjungan</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" name="id_kesehatan_jiwa" id="">
+                            </div>    
+                        </div>    
+
+                        <div class="form-group py-2 row">
+                            <label for="" class="col-sm-3 col-form-label">Tanggal Kunjungan</label>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" name="tanggal_kunjungan" id="" placeholder="">    
+                            </div>
+                        </div>    
+                        
+                        <div class="form-group py-2 row">
+                            <label for="" class="col-sm-3 col-form-label">Kunjungan</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="kunjungan" id="">
                             </div>
                         </div>
 
@@ -155,13 +162,6 @@
                             <label for="" class="col-sm-3 col-form-label">Keterangan</label>
                             <div class="col-sm-8">
                                 <textarea class="form-control" id="exampleFormControlTextarea1" name="keterangan" rows="3"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group py-2 row">
-                            <label for="" class="col-sm-3 col-form-label">Kunjungan</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" name="kunjungan" id="">
                             </div>
                         </div>
 
