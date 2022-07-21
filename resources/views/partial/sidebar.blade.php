@@ -47,7 +47,7 @@
             <div class="item ml-4">
                 <form action="/logout" method="post">
                     @csrf
-                    <button type="submit"><img src="../../vectors/icon_keluar.svg" alt="">Keluar</button>
+                    <a><button type="submit"><img src="../../vectors/icon_keluar.svg" alt="">Keluar</button></a>
                 </form>
             </div>
             {{-- <div class="item ml-4"><a href="#"><img src="../../vectors/icon_keluar.svg" alt="">Keluar</a></div> --}}

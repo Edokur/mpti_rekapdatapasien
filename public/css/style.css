@@ -82,6 +82,11 @@ div div #item a:hover{
     position: relative;
     cursor: pointer;
 }
+.side-bar .menu .item button{
+    background: none;
+    border: none;
+    color: #FFFFFF;
+}
 .side-bar .menu .item a{
     color: #FFFFFF;
     font-size: 16px;
