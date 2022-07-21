@@ -26,26 +26,12 @@
                         @csrf
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                         <div class="form-group py-2 row">
-                            <label for="" class="col-sm-3 col-form-label">Tanggal Kunjungan</label>
-                            <div class="col-sm-8">
-                                <input type="date" class="form-control" value="{{ $data->tanggal_kunjungan}}" name="tanggal_kunjungan" id="" placeholder="">
-                            </div>
-                        </div>
-
-                        <div class="form-group py-2 row">
-                            <label for="" class="col-sm-3 col-form-label">ID Kunjungan</label>
-                            <div class="col-sm-8">
-                                <input type="number" class="form-control" value="{{ $data->id_kesehatan_jiwa}}" name="id_kesehatan_jiwa" id="">
-                            </div>
-                        </div>
-
-                        <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
                                 <input type="number" class="form-control" value="{{ $data->id_register}}" name="id_register" id="" disabled>
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Nama Pasien</label>
                             <div class="col-sm-8">
@@ -66,51 +52,63 @@
                                 <input type="input" class="form-control" id="" disabled value="{{ $data->jenis_kelamin }}" name="jenis_kelamin">
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
                                 <input type="textarea" class="form-control" value="{{ $data->alamat}}" name="alamat" id="" disabled>
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Kepala Keluarga</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" value="{{ $data->kepala_keluarga}}" nama="kepala_keluarga" id="" disabled>
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">NIK</label>
                             <div class="col-sm-8">
                                 <input type="number" class="form-control" value="{{ $data->nik}}" name="nik" id="" disabled>
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">No. BPJS</label>
                             <div class="col-sm-8">
                                 <input type="number" class="form-control" value="{{ $data->no_bpjs}}" name="no_bpjs" id="" disabled>
                             </div>
                         </div>
-
+                        
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" value="{{ $data->pendidikan}}" name="pendidikan" id="" disabled>
                             </div>
                         </div>
-
                         
-
+                        <div class="form-group py-2 row">
+                            <label for="" class="col-sm-3 col-form-label">ID Kunjungan</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" value="{{ $data->id_kesehatan_jiwa}}" name="id_kesehatan_jiwa" id="">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group py-2 row">
+                            <label for="" class="col-sm-3 col-form-label">Tanggal Kunjungan</label>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" value="{{ $data->tanggal_kunjungan}}" name="tanggal_kunjungan" id="" placeholder="">
+                            </div>
+                        </div>
+                                                
                         <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Keterangan</label>
                             <div class="col-sm-8">
                                 <textarea class="form-control" id="exampleFormControlTextarea1" value="{{ $data->keterangan}}" name="keterangan" rows="3"></textarea>
                             </div>
                         </div>
-
+                        
                         <div class="form-group row mx-1 py-2">
                             <label for="" class="col-3"></label>
                             <a href="/kesehatan_jiwa" type="button" class="col-4 py-3 mr-1 btn btn-outline-danger  ">Batal</a>
