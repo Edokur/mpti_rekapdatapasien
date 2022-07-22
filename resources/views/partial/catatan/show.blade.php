@@ -33,10 +33,10 @@
             </div>
             <div class="row mt-5">
                 <div class="col">
-                    <a href="/note" class="btn btn-purple text-white border-radius px-5 py-3">Kembali</a>
+                    <a href="/note" class="btn btn-purple text-white px-5 py-3">Kembali</a>
                 </div>
             </div>
-            <div class="ttable border-line bg-white border-radius mt-4">
+            <div class="ttable border-line bg-white mt-4">
                 <div class="p-2 bg-light rounded-bottom-0">
                     <p class="m-3 text-secondary">Detail Data</p>
                 </div>

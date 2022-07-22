@@ -42,8 +42,8 @@
                 
             </div>
 
-            <div class="ttable border bg-white border-radius mt-4">
-            <div class="p-4">
+            <div class="ttable border-line bg-white mt-4">
+                <div class="p-4">
                     <form class="input-group mb-3" action="/penyakit/cari" method="GET">
                         <input type="text" class="form-control" placeholder="Search" name="cari" value="{{ old('cari') }}">
                         <div class="input-group-append">

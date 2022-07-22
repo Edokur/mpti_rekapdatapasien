@@ -15,7 +15,7 @@
                 <h4 class="text-title color-black lead font-bold">Penyakit</h4>
                 <h1 class="color-neutral-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor adipiscing in consectetur sem ut netus scelerisque. Viverra urna vitae viverra habitant a magna vitae, fermentum morbi. Magna magna non ridiculus vitae viverra feugiat morbi sed.</h1>
             </div>
-            <div class="ttable border-line bg-white border-radius mt-4">
+            <div class="ttable border-line bg-white mt-4">
                 <div class="p-2 bg-light rounded-bottom-0">
                     <p class="m-3 text-dark">Tambah Data</p>
                 </div>
