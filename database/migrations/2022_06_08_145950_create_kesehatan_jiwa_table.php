@@ -22,8 +22,8 @@ class CreateKesehatanJiwaTable extends Migration
             $table->string('nama_pasien');
             $table->string('nik', 16);
             $table->date('tanggal_lahir');
-            $table->text('alamat');
             $table->string('jenis_kelamin');
+            $table->text('alamat');
             $table->string('no_bpjs', 15);
             $table->string('kepala_keluarga');
             $table->string('pendidikan');

@@ -9,6 +9,7 @@ use App\Models\Perkesmas;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PerkesmasController extends Controller
@@ -206,5 +207,15 @@ class PerkesmasController extends Controller
             ->paginate();
 
         return view('partial.perkesmas.index', ['data' => $pegawai]);
+    }
+
+    public function import($path)
+    {
+        $objPHPExcel = IOFactory::load($path);
+        $objWorksheet = $objPHPExcel->getActiveSheet();
+        $highestRow = $objWorksheet->getHighestRow();
+        for ($row = 1; $row <= $highestRow; ++$row) {
+            var_dump($objWorksheet->getCellByColumnAndRow(1, $row));
+        }
     }
 }
