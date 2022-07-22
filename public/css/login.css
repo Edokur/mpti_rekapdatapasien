@@ -2,6 +2,7 @@ body {
     background-color: #f6f6f6;
     font-family: 'Poppins';
     color: #FFFFFF;
+    scroll-behavior: smooth;
 }
 
 .bg{
@@ -69,4 +70,9 @@ div div div div form div a{
     background: #6145E3 !important;
     width: 80%;
     height: 64px;
+}
+
+.toast{
+    z-index: 100;
+    margin-left: 70%;
 }

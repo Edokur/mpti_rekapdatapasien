@@ -11,12 +11,25 @@
     
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 
-	<script src="js/dist/sweetalert2.all.min.js"></script>
+	<!-- <script src="js/dist/sweetalert2.all.min.js"></script> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<div class="bg mx-3 my-4">
+		@if(session()->has('loginError'))
+			<div class="toast show" role="alert">
+				<div class="toast-header">
+					<strong class="mr-auto">
+						{{ session('loginError') }}
+					</strong>
+				</div>
+				<div class="toast-body">
+					Silahkan pastikan email dan kata sandi sudah benar.
+				</div>
+			</div>
+		@endif
 		<div class="row">
+
 			<div class="col-7">
 				<div class="col">
 					<img class="m-5" src="image/icon_problemsolver.png" alt="">
@@ -30,12 +43,6 @@
 				</div>
 			</div>
 
-			@if(session()->has('loginError'))
-				<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					{{ session('loginError') }}
-					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				</div>
-			@endif
 
 			<div class="col">
 				<div class="border m-5 py-5 bg-white login text-center">
@@ -82,27 +89,18 @@
 	</div>
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script>
-		// 	$(document).ready(function(){
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
-				$('#reload').click(function () {
-					console.log('masuk')
-					$.ajax({
-						type: 'get',
-						url: '/reload-captcha',
-						dataType: 'json',
-						success: function (data) {
-							console.log(data);
-							$(".captcha span").html(data.captcha);
-						}
-					});
-				});
-			// });
-		</script>
-
+<script>
+	$('#reload').click(function () {
+		console.log('masuk')
+		$.ajax({
+			type: 'get',
+			url: '/reload-captcha',
+			dataType: 'json',
+			success: function (data) {
+				console.log(data);
+				$(".captcha span").html(data.captcha);
+			}
+		});
+	});
+</script>			
 </html>
