@@ -44,8 +44,14 @@ class IdentitasController extends Controller
     {
         $nik_16 = strlen($post->nik);
         $bpjs_16 = strlen($post->no_bpjs);
+        $dateover = Carbon::now()->format('Y-m-d');
+        $datein = $post->tanggal_lahir;
 
-        if ($nik_16 != 16) {
+        if ($datein > $dateover) {
+            Session::flash('gagal', 'Tanggal Invalid');
+            return redirect('/identitas_pasien/create');
+        }
+        else if ($nik_16 != 16) {
             Session::flash('gagal', 'Nik harus berisi 16 Angka');
             return redirect('/identitas_pasien/create');
         } else if ($bpjs_16 != 13) {
@@ -119,7 +125,14 @@ class IdentitasController extends Controller
 
         $id = $post->id_pasien;
 
-        if ($nik_16 != 16) {
+        $dateover = Carbon::now()->format('Y-m-d');
+        $datein = $post->tanggal_lahir;
+
+        if ($datein > $dateover) {
+            Session::flash('gagal', 'Tanggal Invalid');
+            return redirect('/identitas_pasien/create');
+        }
+        else if ($nik_16 != 16) {
             Session::flash('gagal', 'Nik harus berisi 16 Angka');
             return redirect('/identitas_pasien/editIdentitas/' . $id . '');
         } else if ($bpjs_16 != 13) {

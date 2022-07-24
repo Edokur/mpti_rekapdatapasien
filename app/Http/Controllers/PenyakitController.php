@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Penyakit;
+use Illuminate\Support\Facades\Session;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PenyakitController extends Controller
@@ -39,13 +41,13 @@ class PenyakitController extends Controller
      */
     public function insertPenyakit(Request $post)
     {
-        $valididatedData = $post->validate([
-            'id_register' => 'required',
-            'nama_penyakit' => 'required',
-            'tanggal' => 'required',
-            'deskripsi' => 'required',
-        ]);
-
+            $valididatedData = $post->validate([
+                'id_register' => 'required',
+                'nama_penyakit' => 'required',
+                'tanggal' => 'required',
+                'deskripsi' => 'required',
+            ]);
+        
         Penyakit::create($valididatedData);
 
         Alert::success('Sukses', 'Data Berhasil Tersimpan');
