@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdentitasController;
 use App\Http\Controllers\PerkesmasController;
 use App\Http\Controllers\Surveilans1Controller;
+use App\Http\Controllers\Surveilans2Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,18 +65,18 @@ Route::get('/tambahdata_identitas_pasien', function () {
 //     return view('partial/surveilans_1/edit');
 // });
 
-// Surveilans 2
-Route::get('/surveilans_2', function () {
-    return view('partial/surveilans_2/surveilans_2');
-});
+// // Surveilans 2
+// Route::get('/surveilans_2', function () {
+//     return view('partial/surveilans_2/surveilans_2');
+// });
 
-Route::get('/detaildata-surveilans-2', function () {
-    return view('partial/surveilans-2/show');
-});
+// Route::get('/detaildata-surveilans-2', function () {
+//     return view('partial/surveilans-2/show');
+// });
 
-Route::get('/edit-surveilans-2', function () {
-    return view('partial/surveilans-2/edit');
-});
+// Route::get('/edit-surveilans-2', function () {
+//     return view('partial/surveilans-2/edit');
+// });
 
 // Route Catatan
 Route::middleware('auth')->group(function () {
@@ -158,6 +159,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/surveilans_1/get_pasien/{id}', [Surveilans1Controller::class, 'get_pasien']);
 });
 
+// Surveilans 2
+Route::middleware('auth')->group(function () {
+    Route::get('/surveilans_2', [Surveilans2Controller::class, 'index']);
+    Route::get('/surveilans_2/create', [Surveilans2Controller::class, 'create']);
+    Route::post('/surveilans_2/insertSurveilans2', [Surveilans2Controller::class, 'insertSurveilans2']);
+    Route::get('/surveilans_2/editSurveilans2/{id}', [Surveilans2Controller::class, 'editSurveilans2']);
+    Route::post('/surveilans_2/updateSurveilans2', [Surveilans2Controller::class, 'updateSurveilans2']);
+    Route::get('/surveilans_2/hapusSurveilans2/{id}', [Surveilans2Controller::class, 'hapusSurveilans2']);
+    Route::get('/surveilans_2/detailSurveilans2/{id}', [Surveilans2Controller::class, 'detailSurveilans2']);
+    Route::get('/surveilans_2/cari', [Surveilans2Controller::class, 'searchSurveilans2']);
+    Route::get('/surveilans_2/get_pasien/{id}', [Surveilans2Controller::class, 'get_pasien']);
+});
+
 // Penyakit
 Route::middleware('auth')->group(function () {
     Route::get('/penyakit', [PenyakitController::class, 'index']);
@@ -170,6 +184,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/penyakit/cari', [PenyakitController::class, 'searchPenyakit']);
     Route::get('/penyakit/get_pasien/{id}', [PenyakitController::class, 'get_pasien']);
 });
+
+// END SENDY
 
 // Tamabahan View untuk Settings by Jangkung
 

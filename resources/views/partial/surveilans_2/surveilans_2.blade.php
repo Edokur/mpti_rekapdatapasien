@@ -54,15 +54,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($data as $key=>$value)
                             <tr class="color-neutral-400">
-                                <td class="col-1 td1">1.</td>
-                                <td class="col-1 td1">#12345</td>
-                                <td class="col-1 td1">Kolera</td>
-                                <td class="col-1 td1">120</td>
-                                <td class="col-1 td1">40</td>
-                                <td class="col-1 td1">180</td>
-                                <td class="col-1 td1"><a href="/detaildata-surveilans-2">Lihat Detail</a></td>
+                                <td class="col-1 td1">{{ $loop->iteration }}</td>
+                                <td class="col-1 td1">{{ $value->id_register }}</td>
+                                <td class="col-1 td1">{{ $value->nama_penyakit }}</td>
+                                <td class="col-1 td1">{{ $value->lakilaki }}</td>
+                                <td class="col-1 td1">{{ $value->perempuan }}</td>
+                                <td class="col-1 td1">{{ $value->total_kunjungan }}</td>
+                                <td class="col-1 td1"><a href="/surveilans_2/detailSurveilans2/{{ $value->id_register}}">Lihat Detail</a></td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
             </div>

@@ -21,15 +21,15 @@
                 <div class="p-2 text-dark bg-light rounded-bottom-0">
                     <div class="m-3 row">
                         <div class="col-6"><label>Detail Data</label></div>
-                        <div class="col-6 text-right"><a href="/edit-surveilans-2"><small class="text-dark"> Ubah data</small></a></div>
+                        <div class="col-6 text-right"><a href="/surveilans_2/editSurveilans2/{{$data->id_surveilens2}}"><small class="text-dark"> Ubah data</small></a></div>
                     </div>
                 </div>
                 <div class="text-dark border-top">
-                    <form class="mx-5 p-5">
+                    <form class="mx-5 p-5" method="POST" action="/surveilans_2">
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
                             <div class="col-sm-8">
-                                <input type="number" class="pl-4 form-control" id="" placeholder="1234" disabled>
+                                <input type="text" class="form-control" id="" disabled value="{{$data->id_register}}">
                             </div>
                         </div>
                         
@@ -37,7 +37,7 @@
                             <label for="" class="col-sm-3 col-form-label">Jenis Penyakit</label>
                             <div class="col-sm-8">
                                 <div class="dropdown"> 
-                                    <input type="text" class="pl-4 form-control" placeholder="Kolera" disabled>
+                                <input type="text" class="form-control" id="" disabled value="{{$data->nama_penyakit}}">
                                 </div>
                             </div>
                         </div>
@@ -47,11 +47,11 @@
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lga}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->pga}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -61,11 +61,11 @@
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lgb}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->pgb}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -75,11 +75,11 @@
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lgc}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->pgc}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -89,11 +89,11 @@
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lgd}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->pgd}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -103,11 +103,11 @@
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lge}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->pge}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -117,11 +117,11 @@
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lgf}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->pgf}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -131,11 +131,11 @@
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lgg}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->pgg}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -145,11 +145,11 @@
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lgh}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->pgh}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -159,11 +159,11 @@
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lgi}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->pgi}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -173,11 +173,11 @@
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lgj}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->pgj}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -187,11 +187,11 @@
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lgk}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->pgk}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -201,32 +201,32 @@
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lgl}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->pgl}}" disabled>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group row py-2">
+                        <!-- <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Total Kasus</label>
                             <div class="row mx-3">
                                 <div class="mr-5">
                                     <label for="">Laki-laki</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->lakilaki}}" disabled>
                                 </div>
                                 <div class="ml-5">
                                     <label for="">Perempuan</label>
-                                    <input type="text" class="form-control text-center px-4" id="" placeholder="0" disabled>
+                                    <input type="text" class="form-control text-center px-4" id="" value="{{$data->perempuan}}" disabled>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row py-5 border-top">
                             <div class="col-6"><h1>Total Kunjungan : </h1></div>
-                            <div class="col-5 text-right"><h4>123</h4></div>
+                            <div class="col-5 text-right"><h4>{{$data->total_kunjungan}}</h4></div>
                         </div>
                     </form>
                 </div>

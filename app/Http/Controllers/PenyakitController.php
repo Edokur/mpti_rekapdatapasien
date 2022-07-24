@@ -50,6 +50,40 @@ class PenyakitController extends Controller
         
         Penyakit::create($valididatedData);
 
+        DB::table('surveilans_2')->insert([
+            // 'identitas_penyakit_id' => $post->id_identitas_penyakit,
+            'id_register' => $post->id_register,
+            'nama_penyakit' => $post->nama_penyakit,
+            'lakilaki' => 0,
+            'perempuan' => 0,
+            'lga' => 0,
+            'lgb' => 0,
+            'lgc' => 0,
+            'lgd' => 0,
+            'lge' => 0,
+            'lgf' => 0,
+            'lgg' => 0,
+            'lgh' => 0,
+            'lgi' => 0,
+            'lgj' => 0,
+            'lgk' => 0,
+            'lgl' => 0,
+            'pga' => 0,
+            'pgb' => 0,
+            'pgc' => 0,
+            'pgd' => 0,
+            'pge' => 0,
+            'pgf' => 0,
+            'pgg' => 0,
+            'pgh' => 0,
+            'pgi' => 0,
+            'pgj' => 0,
+            'pgk' => 0,
+            'pgl' => 0,
+            'total_kunjungan' => 0,
+
+        ]);
+
         Alert::success('Sukses', 'Data Berhasil Tersimpan');
         return redirect('/penyakit');
     }
@@ -94,6 +128,10 @@ class PenyakitController extends Controller
             'tanggal' => $post->tanggal,
             'deskripsi' => $post->deskripsi,
         ]);
+        DB::table('surveilans_2')->where('id_surveilens2', $post->id_identitas_penyakit)->update([
+            'id_register' => $post->id_register,
+            'nama_penyakit' => $post->nama_penyakit,
+        ]);
 
         return redirect('/penyakit')->with('success', 'Data berhasil diupdate!');;
     }
@@ -106,7 +144,8 @@ class PenyakitController extends Controller
      */
     public function hapusPenyakit($id_penyakit)
     {
-        $idpenyakit = DB::table('identitas_penyakit')->where('id_identitas_penyakit', $id_penyakit)->delete();
+        DB::table('identitas_penyakit')->where('id_identitas_penyakit', $id_penyakit)->delete();
+        DB::table('surveilans_2')->where('id_surveilens2', $id_penyakit)->delete();
 
         return redirect('/penyakit');
     }
