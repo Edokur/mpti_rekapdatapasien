@@ -8,6 +8,7 @@ use App\Models\KJiwa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Session;
 
 class KJiwaController extends Controller
 {
@@ -51,45 +52,53 @@ class KJiwaController extends Controller
 
         $nama_pasien = $this->get_namapasien($data);
 
-        $post->validate([
-            'id_register' => 'required',
-            'nama_pasien' => 'required',
-            'kunjungan' => 'required',
-            'tanggal_kunjungan' => 'required',
-            'diagnosa' => 'required',
-            'terapi' => 'required',
-            'dosis' => 'required',
-            'keterangan' => 'required',
-        ]);
+        $dateover = Carbon::now()->format('Y-m-d');
+        $datein = $post->tanggal_kunjungan;
+
+        if ($datein > $dateover) {
+            Session::flash('gagal', 'Tanggal Invalid');
+            return redirect('/kesehatan_jiwa/create');
+        }else {
+
+            $post->validate([
+                'id_register' => 'required',
+                'nama_pasien' => 'required',
+                'kunjungan' => 'required',
+                'tanggal_kunjungan' => 'required',
+                'diagnosa' => 'required',
+                'terapi' => 'required',
+                'dosis' => 'required',
+                'keterangan' => 'required',
+            ]);
 
 
-        KJiwa::create([
-            'id_register' => $post->input('id_register'),
-            'nama_pasien' => $nama_pasien->nama_pasien,
-            'pasien_id' => $post->input('nama_pasien'),
-            'tanggal_lahir' => $post->input('tanggal_lahir'),
-            'jenis_kelamin' => $post->input('jenis_kelamin'),
-            'alamat' => $post->input('alamat'),
-            'kepala_keluarga' => $post->input('kepala_keluarga'),
-            'nik' => $post->input('nik'),
-            'no_bpjs' => $post->input('no_bpjs'),
-            'pendidikan' => $post->input('pendidikan'),
-            'pekerjaan' => $post->input('pekerjaan'),
-            'tanggal_kunjungan' => $post->input('tanggal_kunjungan'),
-            'kunjungan' => $post->input('kunjungan'),
-            'terapi' => $post->input('terapi'),
-            'diagnosa' => $post->input('diagnosa'),
-            'dosis' => $post->input('dosis'),
-            'keterangan' => $post->input('keterangan'),
-        ]);
+            KJiwa::create([
+                'id_register' => $post->input('id_register'),
+                'nama_pasien' => $nama_pasien->nama_pasien,
+                'pasien_id' => $post->input('nama_pasien'),
+                'tanggal_lahir' => $post->input('tanggal_lahir'),
+                'jenis_kelamin' => $post->input('jenis_kelamin'),
+                'alamat' => $post->input('alamat'),
+                'kepala_keluarga' => $post->input('kepala_keluarga'),
+                'nik' => $post->input('nik'),
+                'no_bpjs' => $post->input('no_bpjs'),
+                'pendidikan' => $post->input('pendidikan'),
+                'pekerjaan' => $post->input('pekerjaan'),
+                'tanggal_kunjungan' => $post->input('tanggal_kunjungan'),
+                'kunjungan' => $post->input('kunjungan'),
+                'terapi' => $post->input('terapi'),
+                'diagnosa' => $post->input('diagnosa'),
+                'dosis' => $post->input('dosis'),
+                'keterangan' => $post->input('keterangan'),
+            ]);
 
-        DB::table('log_activity')->insert([
-            'nama_pasien' => $post->input('nama_pasien'),
-            'jenis_data' => 'Kesehatan Jiwa',
-            'deskripsi' => 'Tambah Data',
-            'tanggal' => Carbon::now(),
-        ]);
-
+            DB::table('log_activity')->insert([
+                'nama_pasien' => $post->input('nama_pasien'),
+                'jenis_data' => 'Kesehatan Jiwa',
+                'deskripsi' => 'Tambah Data',
+                'tanggal' => Carbon::now(),
+            ]);
+        }
         Alert::success('Sukses', 'Data Berhasil Tersimpan');
         return redirect('/kesehatan_jiwa');
     }
@@ -131,33 +140,41 @@ class KJiwaController extends Controller
 
         $nama_pasien = $this->get_namapasien($data);
 
-        DB::table('kesehatan_jiwa')->where('id_kesehatan_jiwa', $post->id_kesehatan_jiwa)->update([
-            'id_kesehatan_jiwa' => $post->input('id_kesehatan_jiwa'),
-            // 'pasien_id' => $post->pasien_id,
-            'nama_pasien' => $post->input('nama_pasien'),
-            'nik' => $post->input('nik'),
-            'tanggal_lahir' => $post->input('tanggal_lahir'),
-            'alamat' => $post->input('alamat'),
-            'jenis_kelamin' => $post->input('jenis_kelamin'),
-            'no_bpjs' => $post->input('no_bpjs'),
-            'kepala_keluarga' => $post->input('kepala_keluarga'),
-            'pendidikan' => $post->input('pendidikan'),
-            'pekerjaan' => $post->input('pekerjaan'),
-            'diagnosa' => $post->input('diagnosa'),
-            'terapi' => $post->input('terapi'),
-            'dosis' => $post->input('dosis'),
-            'tanggal_kunjungan' => $post->input('tanggal_kunjungan'),
-            'kunjungan' => $post->input('kunjungan'),
-            'keterangan' => $post->input('keterangan'),
-        ]);
+        $dateover = Carbon::now()->format('Y-m-d');
+        $datein = $post->tanggal_kunjungan;
 
-        DB::table('log_activity')->insert([
-            'nama_pasien' => $post->input('nama_pasien'),
-            'jenis_data' => 'Kesehatan Jiwa',
-            'deskripsi' => 'Ubah Data',
-            'tanggal' => Carbon::now(),
-        ]);
+        if ($datein > $dateover) {
+            Session::flash('gagal', 'Tanggal Invalid');
+            return redirect('/kesehatan_jiwa/editKJiwa/'.$post->id_kesehatan_jiwa);
+        }else {
 
+            DB::table('kesehatan_jiwa')->where('id_kesehatan_jiwa', $post->id_kesehatan_jiwa)->update([
+                'id_kesehatan_jiwa' => $post->input('id_kesehatan_jiwa'),
+                // 'pasien_id' => $post->pasien_id,
+                'nama_pasien' => $post->input('nama_pasien'),
+                'nik' => $post->input('nik'),
+                'tanggal_lahir' => $post->input('tanggal_lahir'),
+                'alamat' => $post->input('alamat'),
+                'jenis_kelamin' => $post->input('jenis_kelamin'),
+                'no_bpjs' => $post->input('no_bpjs'),
+                'kepala_keluarga' => $post->input('kepala_keluarga'),
+                'pendidikan' => $post->input('pendidikan'),
+                'pekerjaan' => $post->input('pekerjaan'),
+                'diagnosa' => $post->input('diagnosa'),
+                'terapi' => $post->input('terapi'),
+                'dosis' => $post->input('dosis'),
+                'tanggal_kunjungan' => $post->input('tanggal_kunjungan'),
+                'kunjungan' => $post->input('kunjungan'),
+                'keterangan' => $post->input('keterangan'),
+            ]);
+
+            DB::table('log_activity')->insert([
+                'nama_pasien' => $post->input('nama_pasien'),
+                'jenis_data' => 'Kesehatan Jiwa',
+                'deskripsi' => 'Ubah Data',
+                'tanggal' => Carbon::now(),
+            ]);
+        }
         return redirect('/kesehatan_jiwa')->with('success', 'Data berhasil diupdate!');;
     }
 

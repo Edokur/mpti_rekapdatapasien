@@ -21,6 +21,12 @@
                 <div class="p-2 bg-light rounded-bottom-0">
                     <p class="m-3 text-dark">Tambah Data</p>
                 </div>
+                @if ($message = Session::get('gagal'))
+                    <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $message }}</strong>
+                    </div>
+                @endif
                 <div class="text-dark border-top">
                     <form class="ml-5 p-5" method="POST" action="insertKJiwa">
                         @csrf

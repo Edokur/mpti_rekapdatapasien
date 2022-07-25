@@ -19,10 +19,15 @@
                 <div class="p-2 bg-light rounded-bottom-0">
                     <p class="m-3 text-dark">Tambah Data</p>
                 </div>
+                @if ($message = Session::get('gagal'))
+                    <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $message }}</strong>
+                    </div>
+                @endif
                 <div class="text-dark border-top">
                     <form class="ml-5 p-5" method="POST" action="insertSurveilans1">
                         @csrf
-                       
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                         <!-- <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">ID Register</label>
@@ -69,6 +74,20 @@
                         </div>
 
                         <div class="form-group py-2 row">
+                            <label for="" class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group py-2 row">
+                            <label for="" class="col-sm-3 col-form-label">Alamat</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="alamat" name="alamat" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group py-2 row">
                             <label for="" class="col-sm-3 col-form-label">Diagnosa</label>
                             <div class="col-sm-8">
                                 <textarea class="form-control" name="diagnosa" rows="3" placeholder="EX : Sakit Gigi"></textarea>
@@ -104,6 +123,8 @@
                 success: function(response){
                     console.log(response['data']);
                     $('#id_register').val(response['data'].id_register);
+                    $('#jenis_kelamin').val(response['data'].jenis_kelamin);
+                    $('#alamat').val(response['data'].alamat);
                 }
             });
         });

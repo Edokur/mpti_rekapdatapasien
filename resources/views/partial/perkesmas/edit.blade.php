@@ -21,7 +21,12 @@
                 <div class="p-2 bg-light rounded-bottom-0">
                     <p class="m-3 text-dark">Edit Data</p>
                 </div>
-
+                @if ($message = Session::get('gagal'))
+                    <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $message }}</strong>
+                    </div>
+                @endif
                 <div class="p-2 text-dark border-top">
                     <form class="ml-5 p-5" action="/perkesmas/updatePerkesmas/" method="POST">
                         <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">

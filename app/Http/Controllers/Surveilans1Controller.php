@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Surveilans1;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Session;
 
 class Surveilans1Controller extends Controller
 {
@@ -47,19 +49,31 @@ class Surveilans1Controller extends Controller
 
         $nama_pasien = $this->get_namapasien($data);
 
-        $post->validate([
-            'id_register' => 'required',
-            'nama_pasien' => 'required',
-            'umur' => 'required',
-            'tanggal' => 'required',
-            'diagnosa' => 'required',
-        ]);
+        $dateover = Carbon::now()->format('Y-m-d');
+        $datein = $post->tanggal;
 
+        if ($datein > $dateover) {
+            Session::flash('gagal', 'Tanggal Invalid');
+            return redirect('/surveilans_1/create');
+        }
+        else {
+            $post->validate([
+                'id_register' => 'required',
+                'nama_pasien' => 'required',
+                'umur' => 'required',
+                'jenis_kelamin' => 'required',
+                'alamat' => 'required',
+                'tanggal' => 'required',
+                'diagnosa' => 'required',
+            ]);
+        }
         // Surveilans1::create($valididatedData); 
         Surveilans1::create([
             'id_register' => $post->input('id_register'),
             'nama_pasien' => $nama_pasien->nama_pasien,
             'umur' => $post->input('umur'),
+            'jenis_kelamin' => $post->input('jenis_kelamin'),
+            'alamat' => $post->input('alamat'),
             'tanggal' => $post->input('tanggal'),
             'diagnosa' => $post->input('diagnosa'),
         ]);
@@ -76,9 +90,8 @@ class Surveilans1Controller extends Controller
      */
     public function detailSurveilans1($id_surveilans1) //done
     {
-        $data1 = DB::table('identitas_pasien')->where('id_register', $id_surveilans1)->first();
-        $data = DB::table('surveilans_1')->where('id_register', $id_surveilans1)->first();
-        return view('partial.surveilans_1.show', ['data' => $data], ['data1' => $data1]);
+        $data = DB::table('surveilans_1')->where('id_surveilens1', $id_surveilans1)->first();
+        return view('partial.surveilans_1.show', ['data' => $data]);
     }
 
     /**
@@ -89,7 +102,6 @@ class Surveilans1Controller extends Controller
      */
     public function editSurveilans1($id_surveilens1)
     {
-        // $data1 = DB::table('identitas_pasien')->where('id_register', $id_surveilans1)->first();
         $data = DB::table('surveilans_1')->where('id_surveilens1', $id_surveilens1)->first();
         return view('partial.surveilans_1.edit', ['data' => $data]);
     }
@@ -103,12 +115,21 @@ class Surveilans1Controller extends Controller
      */
     public function updateSurveilans1(Request $post) // done
     {
-        DB::table('surveilans_1')->where('id_surveilens1', $post->id_surveilens1)->update([
-            // 'id_register' => $post->id_register,
-            'umur' => $post->umur,
-            'tanggal' => $post->tanggal,
-            'diagnosa' => $post->diagnosa,
-        ]);
+        $dateover = Carbon::now()->format('Y-m-d');
+        $datein = $post->tanggal;
+
+        if ($datein > $dateover) {
+            Session::flash('gagal', 'Tanggal Invalid');
+            return redirect('/surveilans_1/editSurveilans1/'.$post->id_surveilens1);
+        }
+        else {
+            DB::table('surveilans_1')->where('id_surveilens1', $post->id_surveilens1)->update([
+                // 'id_register' => $post->id_register,
+                'umur' => $post->umur,
+                'tanggal' => $post->tanggal,
+                'diagnosa' => $post->diagnosa,
+            ]);
+        }
         return redirect('/surveilans_1')->with('success', 'Data berhasil diupdate!');;
     }
 

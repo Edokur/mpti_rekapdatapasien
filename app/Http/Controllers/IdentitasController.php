@@ -138,7 +138,8 @@ class IdentitasController extends Controller
         } else if ($bpjs_16 != 13) {
             Session::flash('gagal', 'No BPJS harus berisi 13 Angka');
             return redirect('/identitas_pasien/editIdentitas/' . $id . '');
-        } else {
+        } 
+        else {
             DB::table('identitas_pasien')->where('id_pasien', $post->id_pasien)->update([
                 'id_register' => $post->id_register,
                 'nama_pasien' => $post->nama_pasien,

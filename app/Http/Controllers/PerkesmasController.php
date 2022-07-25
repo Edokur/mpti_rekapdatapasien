@@ -11,6 +11,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Session;
 
 class PerkesmasController extends Controller
 {
@@ -53,35 +54,42 @@ class PerkesmasController extends Controller
 
         $nama_pasien = $this->get_namapasien($data);
 
-        $post->validate([
-            'id_register' => 'required',
-            'nama_pasien' => 'required',
-            'intervensi_keperawatan' => 'required',
-            'diagnosa_keperawatan' => 'required',
-            'implementasi_keperawatan' => 'required',
-            'keterangan' => 'required',
-        ]);
+        $dateover = Carbon::now()->format('Y-m-d');
+        $datein = $post->tanggal_kunjungan;
 
-        Perkesmas::create([
-            'id_register' => $post->input('id_register'),
-            'nama_pasien' => $nama_pasien->nama_pasien,
-            'pasien_id' => $post->input('nama_pasien'),
-            'tanggal_lahir' => $post->input('tanggal_lahir'),
-            'jenis_kelamin' => $post->input('jenis_kelamin'),
-            'alamat' => $post->input('alamat'),
-            'kepala_keluarga' => $post->input('kepala_keluarga'),
-            'nik' => $post->input('nik'),
-            'no_bpjs' => $post->input('no_bpjs'),
-            'pendidikan' => $post->input('pendidikan'),
-            'pekerjaan' => $post->input('pekerjaan'),
-            'tanggal_kunjungan' => $post->input('tanggal_kunjungan'),
-            'kunjungan' => $post->input('kunjungan'),
-            'intervensi_keperawatan' => $post->input('intervensi_keperawatan'),
-            'diagnosa_keperawatan' => $post->input('diagnosa_keperawatan'),
-            'implementasi_keperawatan' => $post->input('implementasi_keperawatan'),
-            'keterangan' => $post->input('keterangan'),
-        ]);
+        if ($datein > $dateover) {
+            Session::flash('gagal', 'Tanggal Invalid');
+            return redirect('/perkesmas/create');
+        }else {
+            $post->validate([
+                'id_register' => 'required',
+                'nama_pasien' => 'required',
+                'intervensi_keperawatan' => 'required',
+                'diagnosa_keperawatan' => 'required',
+                'implementasi_keperawatan' => 'required',
+                'keterangan' => 'required',
+            ]);
 
+            Perkesmas::create([
+                'id_register' => $post->input('id_register'),
+                'nama_pasien' => $nama_pasien->nama_pasien,
+                'pasien_id' => $post->input('nama_pasien'),
+                'tanggal_lahir' => $post->input('tanggal_lahir'),
+                'jenis_kelamin' => $post->input('jenis_kelamin'),
+                'alamat' => $post->input('alamat'),
+                'kepala_keluarga' => $post->input('kepala_keluarga'),
+                'nik' => $post->input('nik'),
+                'no_bpjs' => $post->input('no_bpjs'),
+                'pendidikan' => $post->input('pendidikan'),
+                'pekerjaan' => $post->input('pekerjaan'),
+                'tanggal_kunjungan' => $post->input('tanggal_kunjungan'),
+                'kunjungan' => $post->input('kunjungan'),
+                'intervensi_keperawatan' => $post->input('intervensi_keperawatan'),
+                'diagnosa_keperawatan' => $post->input('diagnosa_keperawatan'),
+                'implementasi_keperawatan' => $post->input('implementasi_keperawatan'),
+                'keterangan' => $post->input('keterangan'),
+            ]);
+        }
         DB::table('log_activity')->insert([
             'nama_pasien' => $post->input('nama_pasien'),
             'jenis_data' => 'Perkesmas',
@@ -137,32 +145,39 @@ class PerkesmasController extends Controller
         $data = $post->input('nama_pasien');
 
         $nama_pasien = $this->get_namapasien($data);
+        $dateover = Carbon::now()->format('Y-m-d');
+        $datein = $post->tanggal_kunjungan;
 
-        DB::table('perkesmas')->where('id_perkesmas', $post->id_perkesmas)->update([
-            'nama_pasien' => $post->input('nama_pasien'),
-            // 'pasien_id' => $post->input('nama_pasien'),
-            'tanggal_lahir' => $post->input('tanggal_lahir'),
-            'jenis_kelamin' => $post->input('jenis_kelamin'),
-            'alamat' => $post->input('alamat'),
-            'kepala_keluarga' => $post->input('kepala_keluarga'),
-            'nik' => $post->input('nik'),
-            'no_bpjs' => $post->input('no_bpjs'),
-            'pendidikan' => $post->input('pendidikan'),
-            'pekerjaan' => $post->input('pekerjaan'),
-            'tanggal_kunjungan' => $post->input('tanggal_kunjungan'),
-            'kunjungan' => $post->input('kunjungan'),
-            'intervensi_keperawatan' => $post->input('intervensi_keperawatan'),
-            'diagnosa_keperawatan' => $post->input('diagnosa_keperawatan'),
-            'implementasi_keperawatan' => $post->input('implementasi_keperawatan'),
-            'keterangan' => $post->input('keterangan'),
-        ]);
+        if ($datein > $dateover) {
+            Session::flash('gagal', 'Tanggal Invalid');
+            return redirect('/perkesmas/editPerkesmas/'.$post->id_perkesmas);
+        }else {
+            DB::table('perkesmas')->where('id_perkesmas', $post->id_perkesmas)->update([
+                'nama_pasien' => $post->input('nama_pasien'),
+                // 'pasien_id' => $post->input('nama_pasien'),
+                'tanggal_lahir' => $post->input('tanggal_lahir'),
+                'jenis_kelamin' => $post->input('jenis_kelamin'),
+                'alamat' => $post->input('alamat'),
+                'kepala_keluarga' => $post->input('kepala_keluarga'),
+                'nik' => $post->input('nik'),
+                'no_bpjs' => $post->input('no_bpjs'),
+                'pendidikan' => $post->input('pendidikan'),
+                'pekerjaan' => $post->input('pekerjaan'),
+                'tanggal_kunjungan' => $post->input('tanggal_kunjungan'),
+                'kunjungan' => $post->input('kunjungan'),
+                'intervensi_keperawatan' => $post->input('intervensi_keperawatan'),
+                'diagnosa_keperawatan' => $post->input('diagnosa_keperawatan'),
+                'implementasi_keperawatan' => $post->input('implementasi_keperawatan'),
+                'keterangan' => $post->input('keterangan'),
+            ]);
 
-        DB::table('log_activity')->insert([
-            'nama_pasien' => $post->input('nama_pasien'),
-            'jenis_data' => 'Perkesmas',
-            'deskripsi' => 'Ubah Data',
-            'tanggal' => Carbon::now(),
-        ]);
+            DB::table('log_activity')->insert([
+                'nama_pasien' => $post->input('nama_pasien'),
+                'jenis_data' => 'Perkesmas',
+                'deskripsi' => 'Ubah Data',
+                'tanggal' => Carbon::now(),
+            ]);
+        }
         return redirect('/perkesmas')->with('success', 'Data berhasil diupdate!');;
     }
 
