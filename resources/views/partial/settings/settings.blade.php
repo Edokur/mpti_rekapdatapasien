@@ -29,43 +29,36 @@
             <div class="title mt-3">
                 <h4 class="text-title color-black lead font-bold">Setting</h4>
             </div>
-            
             <div class="ttable border-line bg-white mt-3">
                 <div class="p-2 bg-light border-bottom rounded-bottom-0">
                     <div class="m-3 row">
                         <p class="col-6 text-dark">General Account Settings</p>
-                        <div class="col-6 text-right"><a href="/settings-edit"><small class="text-dark"> Ubah data</small></a></div>
+                        <div class="col-6 text-right"><a href="/settings/editSetting/{{ $data->id }}"><small class="text-dark"> Ubah data</small></a></div>
                     </div>
-                </div>
+                </div>                    
                 <div class="text-dark p-5">
                     <div class="ml-2 form-group row">
                         <label for="" class="col-sm-3 col-form-label">Nama</label>
                         <div class="col-sm-8 mt-2">
-                            <p>Karoni Marliani</p>
-                        </div>
-                    </div>
-                    <div class="ml-2 form-group row">
-                        <label for="" class="col-sm-3 col-form-label">Username</label>
-                        <div class="col-sm-8 mt-2">
-                            <p>Admin123</p>
+                            <p>{{ $data->name }}</p>
                         </div>
                     </div>
                     <div class="ml-2 form-group row">
                         <label for="" class="col-sm-3 col-form-label">Email</label>
                         <div class="col-sm-8 mt-2">
-                            <p>Admin123@gmail.com</p>
+                            <p>{{ $data->email }}</p>
                         </div>
                     </div>
                     <div class="ml-2 form-group row">
                         <label for="" class="col-sm-3 col-form-label">Alamat</label>
                         <div class="col-sm-8 mt-2">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At placerat pellentesque fusce felis at ultricies.</p>
+                            <p>{{ $data->alamat }}</p>
                         </div>
                     </div>
                     <div class="ml-2 form-group row">
                         <label for="" class="col-sm-3 col-form-label">Kontak</label>
                         <div class="col-sm-8 mt-2">
-                            <p>081234567890</p>
+                            <p>{{ $data->no_hp }}</p>
                         </div>
                     </div>
                 </div>
@@ -84,23 +77,25 @@
                         </div>
                     </div>
                 </a>
-                <div class="text-dark border-top p-5" id="form-password">
+                <form class="text-dark border-top p-5" method="POST" action="/updatePassword">
+                    <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                    <input type="hidden" value="{{ $data->id }}" name="id_settings">
                     <div class="ml-2 form-group row py-3">
                         <label for="" class="col-sm-3 col-form-label">Kata Sandi Sebelumnya</label>
                         <div class="col-sm-8">
-                            <input type="textarea" class="form-control">
+                            <input type="text" class="form-control" name="sandi_lama" required>
                         </div>
                     </div>
                     <div class="ml-2 form-group row py-3">
                         <label for="" class="col-sm-3 col-form-label">Kata Sandi Baru</label>
                         <div class="col-sm-8">
-                            <input type="textarea" class="form-control">
+                            <input type="text" class="form-control" name="sandi_baru" required>
                         </div>
                     </div>
                     <div class="ml-2 form-group row pt-3">
                         <label for="" class="col-sm-3 col-form-label">Konfirmasi Kata Sandi</label>
                         <div class="col-sm-8">
-                            <input type="textarea" class="form-control">
+                            <input type="text" class="form-control" name="konfirmasi_sandi" required>
                         </div>
                     </div>
                     <div class="ml-2 form-group row py-3">
@@ -110,11 +105,13 @@
                             <button type="submit" class="col-5 btn btn-purple text-white ml-3">Simpan</button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div> 
         </div>
     </div>  
 
+@include('sweetalert::alert')
+</body>
     <script type="text/javascript">
         $(document).ready(function(){
             // 
@@ -123,5 +120,4 @@
             });
         });
     </script>
-</body>
 </html>

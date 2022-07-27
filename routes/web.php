@@ -9,6 +9,7 @@ use App\Http\Controllers\PenyakitController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdentitasController;
 use App\Http\Controllers\PerkesmasController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\Surveilans1Controller;
 use App\Http\Controllers\Surveilans2Controller;
 
@@ -52,32 +53,6 @@ Route::get('/tambahdata_identitas_pasien', function () {
     return view('partial/identitas_pasien/create');
 });
 
-// // Surveilans 1
-// Route::get('/surveilans_1', function () {
-//     return view('partial/surveilans_1/surveilans_1');
-// });
-
-// Route::get('/detaildata_surveilans_1', function () {
-//     return view('partial/surveilans_1/show');
-// });
-
-// Route::get('/edit_surveilans_1', function () {
-//     return view('partial/surveilans_1/edit');
-// });
-
-// // Surveilans 2
-// Route::get('/surveilans_2', function () {
-//     return view('partial/surveilans_2/surveilans_2');
-// });
-
-// Route::get('/detaildata-surveilans-2', function () {
-//     return view('partial/surveilans-2/show');
-// });
-
-// Route::get('/edit-surveilans-2', function () {
-//     return view('partial/surveilans-2/edit');
-// });
-
 // Route Catatan
 Route::middleware('auth')->group(function () {
     Route::get('/note', [NoteController::class, 'index']);
@@ -87,6 +62,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/note/updateNote', [NoteController::class, 'updateNote']);
     Route::get('/note/hapusNote/{id_note}', [NoteController::class, 'hapusNote']);
     Route::get('/note/detailNote/{id_note}', [NoteController::class, 'detailNote']);
+});
+
+//Setting
+Route::middleware('auth')->group(function () {
+    Route::get('/settings', [SettingController::class, 'index']);
+    Route::get('/settings/editSetting/{id_setting}', [SettingController::class, 'editSetting']);
+    Route::post('/settings/updateSettings', [SettingController::class, 'updateSettings']);
+    Route::post('/updatePassword', [SettingController::class, 'updatePassword']);
 });
 
 // Route Perkesmas
@@ -186,14 +169,3 @@ Route::middleware('auth')->group(function () {
 });
 
 // END SENDY
-
-// Tamabahan View untuk Settings by Jangkung
-
-Route::get('/settings', function () {
-    return view('partial/settings/settings');
-});
-Route::get('/settings-edit', function () {
-    return view('partial/settings/edit');
-});
-
-// End

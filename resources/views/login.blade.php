@@ -67,16 +67,15 @@
 							@enderror
 						</div>
 						<div class="mx-5 form-group">
-							<div class="input-group mb-2">
+							{{-- <div class="input-group mb-2">
 								<div class="input-group-prepend captcha">
 									<span>{!! captcha_img() !!}</span>
-									{{-- <span><?= dd(captcha_img()) ?></span> --}}
 									<button type="button" class="btn btn-danger" class="reload" id="reload">
 										&#x21bb;
 									</button>
 								</div>
 								<input type="text" class="form-control p-4" id="basic-url" aria-describedby="basic-addon3"  placeholder="Input captcha" name="remember_token" disabled>
-							</div>
+							</div> --}}
 							<div class="text-right">
 								<a href="resetpw" class=" text-secondary">Forgot password ?</a>
 							</div>

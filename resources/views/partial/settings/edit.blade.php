@@ -33,35 +33,31 @@
                     </div>
                 </div>
                 <div class="text-dark p-5">
-                    <form action="/settings" class="ml-5">
+                    <form method="POST" action="/settings/updateSettings/" class="ml-5">
+                        <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                        <input type="hidden" value="{{ $data->id }}" name="id_settings">
                         <div class="form-group row py-2">
                             <label for="" class="col-sm-3 col-form-label">Nama</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" placeholder="Edo Kurniawan">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3 col-form-label">Username</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" placeholder="AwanKinton">
+                                <input type="text" class="form-control color-neutral-400" name="nama" value="{{ $data->name }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Email</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" placeholder="admin@admin.com">
+                                <input type="email" class="form-control color-neutral-400" name="email" value="{{ $data->email }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Alamat</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" placeholder="admin@admin.com">
+                                <input type="text" class="form-control color-neutral-400" name="alamat" value="{{ $data->alamat }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="" class="col-sm-3 col-form-label">Kontak</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control color-neutral-400" placeholder="081234567890">
+                                <input type="text" class="form-control color-neutral-400" name="no_hp" value="{{ $data->no_hp }}" required>
                             </div>
                         </div>
                         <div class="form-group row mx-1 py-2">
