@@ -49,39 +49,23 @@ class SettingController extends Controller
 
     public function updatePassword(Request $post)
     {
-        $sandi_baru = $post->sandi_baru;
-        $konfirmasi_sandi = $post->konfirmasi_sandi;
 
-        $validasi_password = strlen($sandi_baru);
-        $get = DB::table('users')->get()->first();
-
-        $enkripsi = md5($post->sandi_lama);
-
-        if ($enkripsi != $get->password) {
-            Alert::toast('Password Salah', 'warning');
-            return redirect('/settings');
-        }
-
-        if ($validasi_password < 8) {
-            Alert::toast('Password minimal berisi 8 karakter', 'warning');
-            return redirect('/settings');
-        }
-
-
-        if ($konfirmasi_sandi != $sandi_baru) {
-            Alert::toast('Password Tidak Sama', 'warning');
-            return redirect('/settings');
-        }
-
-        $get = DB::table('users')->where('id', $post->id_settings)->update([
-            'password' => md5($post->sandi_baru),
+        $post->validate([
+            'old_password' => 'required',
+            'password' => ['required', 'string', 'min:8', 'confirmed']
         ]);
 
-        if ($get = true) {
-            Alert::success('Sukses', 'Sandi Berhasil Di Perbarui');
+        $currentPassword = auth()->user()->password;
+        $old_password = $post->old_password;
+
+        if (Hash::check($old_password, $currentPassword)) {
+            auth()->user()->update([
+                'password' => bcrypt($post->password),
+            ]);
+            Alert::toast('Password Berhasil Di ganti', 'success');
             return redirect('/settings');
         } else {
-            Alert::error('Gagal', 'Sandi Gagal Di Perbarui');
+            Alert::toast('Password Salah', 'warning');
             return redirect('/settings');
         }
     }

@@ -24,9 +24,6 @@ use App\Http\Controllers\Surveilans2Controller;
 |
 */
 
-Route::get('/', function () {
-    return view('partial/home');
-});
 
 Route::get('/activity', function () {
     return view('partial/activity');
@@ -41,9 +38,6 @@ Route::get('/ubahpw', function () {
     return view('ubahpw');
 });
 
-// Route::get('/penyakit', function () {
-//     return view('partial/penyakit/penyakit');
-// });
 // Indentitas Pasien
 Route::get('/identitas_pasien', function () {
     return view('partial/identitas_pasien/identitas_pasien');
@@ -107,7 +101,8 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/reload-captcha', [LoginController::class, 'reloadCaptcha']);
+//dalam proses
+// Route::get('/reload-captcha', [LoginController::class, 'reloadCaptcha']);
 // Route::get('/reload-captcha', [App\Http\Controllers\Auth\RegisterController::class, 'reloadCaptcha']);
 
 //  START SENDY

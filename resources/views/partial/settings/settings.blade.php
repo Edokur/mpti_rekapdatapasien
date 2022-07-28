@@ -83,19 +83,25 @@
                     <div class="ml-2 form-group row py-3">
                         <label for="" class="col-sm-3 col-form-label">Kata Sandi Sebelumnya</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="sandi_lama" required>
+                            <input type="text" class="form-control" name="old_password">
+                            @error('old_password')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="ml-2 form-group row py-3">
                         <label for="" class="col-sm-3 col-form-label">Kata Sandi Baru</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="sandi_baru" required>
+                            <input type="text" class="form-control" name="password">
+                            @error('password')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="ml-2 form-group row pt-3">
                         <label for="" class="col-sm-3 col-form-label">Konfirmasi Kata Sandi</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="konfirmasi_sandi" required>
+                            <input type="text" class="form-control" name="password_confirmation">
                         </div>
                     </div>
                     <div class="ml-2 form-group row py-3">
