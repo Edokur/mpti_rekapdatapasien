@@ -55,8 +55,7 @@ class Surveilans1Controller extends Controller
         if ($datein > $dateover) {
             Session::flash('gagal', 'Tanggal Invalid');
             return redirect('/surveilans_1/create');
-        }
-        else {
+        } else {
             $post->validate([
                 'id_register' => 'required',
                 'nama_pasien' => 'required',
@@ -78,8 +77,15 @@ class Surveilans1Controller extends Controller
             'diagnosa' => $post->input('diagnosa'),
         ]);
 
+        DB::table('log_activity')->insert([
+            'nama_pasien' => $nama_pasien->nama_pasien,
+            'jenis_data' => 'Surveilans 1',
+            'deskripsi' => 'Tambah Data',
+            'tanggal' => Carbon::now(),
+        ]);
+
         Alert::success('Sukses', 'Data Berhasil Tersimpan');
-        return redirect('/surveilans_1')->with('success', 'Data baru berhasil ditambahkan!');
+        return redirect('/surveilans_1');
     }
 
     /**
@@ -118,19 +124,41 @@ class Surveilans1Controller extends Controller
         $dateover = Carbon::now()->format('Y-m-d');
         $datein = $post->tanggal;
 
+        $data = $this->nama_surveilans1($post->id_surveilens1);
+
         if ($datein > $dateover) {
             Session::flash('gagal', 'Tanggal Invalid');
-            return redirect('/surveilans_1/editSurveilans1/'.$post->id_surveilens1);
-        }
-        else {
-            DB::table('surveilans_1')->where('id_surveilens1', $post->id_surveilens1)->update([
+            return redirect('/surveilans_1/editSurveilans1/' . $post->id_surveilens1);
+        } else {
+            $get = DB::table('surveilans_1')->where('id_surveilens1', $post->id_surveilens1)->update([
                 // 'id_register' => $post->id_register,
                 'umur' => $post->umur,
                 'tanggal' => $post->tanggal,
                 'diagnosa' => $post->diagnosa,
             ]);
+
+            DB::table('log_activity')->insert([
+                'nama_pasien' => $data->nama_pasien,
+                'jenis_data' => 'Surveilans 1',
+                'deskripsi' => 'Ubah Data',
+                'tanggal' => Carbon::now(),
+            ]);
         }
-        return redirect('/surveilans_1')->with('success', 'Data berhasil diupdate!');;
+
+        if ($get = true) {
+            Alert::success('Sukses', 'Data Berhasil Di Update');
+            return redirect('/surveilans_1');
+        } else {
+            Alert::error('Gagal', 'Data Gagal Di Update');
+            return redirect('/surveilans_1');
+        }
+    }
+
+    public function nama_surveilans1($id_surveilans1)
+    {
+        $data_pasien = DB::table('surveilans_1')->select('nama_pasien')->where('id_surveilens1', $id_surveilans1)->first();
+
+        return $data_pasien;
     }
 
     /**
@@ -141,29 +169,38 @@ class Surveilans1Controller extends Controller
      */
     public function hapusSurveilans1($id_surveilans1) // done
     {
+        $data = $this->nama_surveilans1($id_surveilans1);
         $surveilans1 = DB::table('surveilans_1')->where('id_surveilens1', $id_surveilans1)->delete();
+
+        DB::table('log_activity')->insert([
+            'nama_pasien' => $data->nama_pasien,
+            'jenis_data' => 'Surveilans 1',
+            'deskripsi' => 'Hapus Data',
+            'tanggal' => Carbon::now(),
+        ]);
 
         return redirect('/surveilans_1');
     }
+
     public function searchSurveilans1(Request $request)
     {
-        // menangkap data pencarian
+
         $cari = $request->cari;
 
-        // mengambil data dari table pegawai sesuai pencarian data
         $pasien = DB::table('surveilans_1')
             ->where('nama_pasien', 'like', "%" . $cari . "%")
             ->paginate();
 
-        // mengirim data pasien ke view index
         return view('partial.surveilans_1.index', ['data' => $pasien]);
     }
+
     public function get_pasien($id)
     {
         $data_pasien = DB::table('identitas_pasien')->where('id_pasien', $id)->first();
 
         return response()->json(['success' => true, 'data' => $data_pasien]);
     }
+
     public function get_namapasien($id_pasien)
     {
         $data_pasien = DB::table('identitas_pasien')->select('nama_pasien')->where('id_pasien', $id_pasien)->first();

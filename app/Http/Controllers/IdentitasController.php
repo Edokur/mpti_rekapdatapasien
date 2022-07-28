@@ -48,10 +48,10 @@ class IdentitasController extends Controller
         $datein = $post->tanggal_lahir;
 
         if ($datein > $dateover) {
-            Session::flash('gagal', 'Tanggal Invalid');
-            return redirect('/identitas_pasien/create');
-        }
-        else if ($nik_16 != 16) {
+            return back()->withErrors(['tanggal' => 'Tanggal Invalid']);
+            // Session::flash('gagal', 'Tanggal Invalid');
+            // return redirect('/identitas_pasien/create');
+        } else if ($nik_16 != 16) {
             Session::flash('gagal', 'Nik harus berisi 16 Angka');
             return redirect('/identitas_pasien/create');
         } else if ($bpjs_16 != 13) {
@@ -131,15 +131,13 @@ class IdentitasController extends Controller
         if ($datein > $dateover) {
             Session::flash('gagal', 'Tanggal Invalid');
             return redirect('/identitas_pasien/create');
-        }
-        else if ($nik_16 != 16) {
+        } else if ($nik_16 != 16) {
             Session::flash('gagal', 'Nik harus berisi 16 Angka');
             return redirect('/identitas_pasien/editIdentitas/' . $id . '');
         } else if ($bpjs_16 != 13) {
             Session::flash('gagal', 'No BPJS harus berisi 13 Angka');
             return redirect('/identitas_pasien/editIdentitas/' . $id . '');
-        } 
-        else {
+        } else {
             DB::table('identitas_pasien')->where('id_pasien', $post->id_pasien)->update([
                 'id_register' => $post->id_register,
                 'nama_pasien' => $post->nama_pasien,
