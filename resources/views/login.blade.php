@@ -16,18 +16,6 @@
 </head>
 <body>
 	<div class="bg mx-3 my-4">
-		@if(session()->has('loginError'))
-			<div class="toast show" role="alert">
-				<div class="toast-header">
-					<strong class="mr-auto">
-						{{ session('loginError') }}
-					</strong>
-				</div>
-				<div class="toast-body">
-					Silahkan pastikan email dan kata sandi sudah benar.
-				</div>
-			</div>
-		@endif
 		<div class="row">
 
 			<div class="col-7">
@@ -77,7 +65,7 @@
 								<input type="text" class="form-control p-4" id="basic-url" aria-describedby="basic-addon3"  placeholder="Input captcha" name="remember_token" disabled>
 							</div> --}}
 							<div class="text-right">
-								<a href="resetpw" class=" text-secondary">Forgot password ?</a>
+								<a href="/resetpass" class=" text-secondary">Forgot password ?</a>
 							</div>
 						</div>
 							<button type="submit" class="mt-5 btn btn-login text-white">Login</button>
@@ -86,7 +74,7 @@
 			</div>
 		</div>
 	</div>
-
+	@include('sweetalert::alert')
 </body>
 <script>
 	$('#reload').click(function () {

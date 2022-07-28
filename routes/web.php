@@ -24,29 +24,6 @@ use App\Http\Controllers\Surveilans2Controller;
 |
 */
 
-
-Route::get('/activity', function () {
-    return view('partial/activity');
-});
-
-
-Route::get('/resetpw', function () {
-    return view('resetpw');
-});
-
-Route::get('/ubahpw', function () {
-    return view('ubahpw');
-});
-
-// Indentitas Pasien
-Route::get('/identitas_pasien', function () {
-    return view('partial/identitas_pasien/identitas_pasien');
-});
-
-Route::get('/tambahdata_identitas_pasien', function () {
-    return view('partial/identitas_pasien/create');
-});
-
 // Route Catatan
 Route::middleware('auth')->group(function () {
     Route::get('/note', [NoteController::class, 'index']);
@@ -100,6 +77,14 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [LoginController::class, 'logout']);
+
+//reset password
+Route::get('/resetpass', [LoginController::class, 'resetpass']);
+Route::post('/cek_pass', [LoginController::class, 'cek_pass']);
+Route::get('/change_pass', [LoginController::class, 'change_pass']);
+Route::post('/update_pass', [LoginController::class, 'update_pass']);
+
+
 
 //dalam proses
 // Route::get('/reload-captcha', [LoginController::class, 'reloadCaptcha']);

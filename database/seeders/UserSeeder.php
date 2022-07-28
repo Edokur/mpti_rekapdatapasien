@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Admin Aplikasi',
             'email' => 'admin@admin.com',
-            'no_hp' => '0822',
+            'no_hp' => '62822',
             'alamat' => 'Yogyakarta',
             'password' => bcrypt('admin'),
             'remember_token' => Str::random(60),

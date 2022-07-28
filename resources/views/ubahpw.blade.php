@@ -24,27 +24,32 @@
             <li>Berhasil</li>
 </div>
 	<div class="container mt-5">
-		<form action="cek_login.php" method="POST" class="login-email" >
-			<p class="login-text mt-4" style="font-size: 2rem; ">Ubah Kata Sandi</p>
+        <p class="login-text mt-4" style="font-size: 2rem; ">Ubah Kata Sandi</p>
+        @error('password')
+            <div class="text-danger mt-2">{{ $message }}</div>
+        @enderror
+		<form action="/update_pass" method="POST" class="login-email" >
+
+            <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
 			<div class="input-group">
-				<input type="email" placeholder="Kata Sandi Baru" name="email" required>
+				<input type="password" placeholder="Kata Sandi Baru" name="password">
 			</div>
 			<div class="input-group">
-				<input type="text" placeholder="Konfirmasi Kata Sandi Baru" name="password" required>
+				<input type="password" placeholder="Konfirmasi Kata Sandi Baru" name="password_confirmation">
 			</div>
 			<div class="mt-3 btn-group">
-				<a href="/ubahpw">
-                    <button class="kirim">
+				{{-- <a href="/ubahpw"> --}}
+                    <button class="kirim" type="submit">
                         Kirim
                     </button>
-                </a>
+                {{-- </a> --}}
 			</div>
             <div class="btn-group">
-				<a href="/resetpw">
-                    <button class="btn mb-5">
+				{{-- <a href="/resetpw"> --}}
+                    <button class="btn mb-5" type="reset">
                         Reset
                     </button>
-                </a>
+                {{-- </a> --}}
 			</div>
 		</form>
 	</div>

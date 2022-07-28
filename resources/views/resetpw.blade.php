@@ -24,27 +24,33 @@
             <li>Berhasil</li>
 	</div>
 	<div class="container mt-5" >
-		<form action="cek_login.php" method="POST" class="login-email" >
+		<form action="cek_pass" method="POST" class="login-email" >
+            @csrf
+            <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
 			<p class="login-text mt-4">Identitas</p>
+            @error('gagal')
+                <div class="text-danger mt-2">{{ $message }}</div>
+            @enderror
 			<div class="input-group">
 				<input type="email" placeholder="Masukkan e-mail Anda" name="email" required>
+                
 			</div>
 			<div class="input-group">
-				<input type="text" placeholder="Masukkan No. Handphone" name="password" required>
+				<input type="text" placeholder="Masukkan No. Handphone" name="no_hp" required>
 			</div>
 			<div class="mt-3 btn-group">
-				<a href="/ubahpw">
-                    <button class="kirim">
+				{{-- <a href="/ubahpw"> --}}
+                    <button class="kirim" type="submit">
                         Kirim
                     </button>
-                </a>
+                {{-- </a> --}}
 			</div>
             <div class="btn-group">
-				<a href="/resetpw">
-                    <button class="btn mb-5">
+				{{-- <a href="/resetpw"> --}}
+                    <button class="btn mb-5" type="reset">
                         Reset
                     </button>
-                </a>
+                {{-- </a> --}}
 			</div>
 		</form>
 	</div>
