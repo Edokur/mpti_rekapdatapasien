@@ -17,41 +17,63 @@
 	<title>Ubah Kata Sandi</title>
 </head>
 <body>
-
+    
 	<div class="progressbar">
-            <li>Identitas</li>
-            <li class="active">Ubah Kata Sandi</li>
-            <li>Berhasil</li>
-</div>
-	<div class="container mt-5">
-        <p class="login-text mt-4" style="font-size: 2rem; ">Ubah Kata Sandi</p>
+        <li>Identitas</li>
+        <li class="active">Ubah Kata Sandi</li>
+        <li>Berhasil</li>
+    </div>
+    <div class="container mt-5">
+        <!-- <p class="login-text mt-4" style="font-size: 2rem; ">Ubah Kata Sandi</p>
         @error('password')
             <div class="text-danger mt-2">{{ $message }}</div>
         @enderror
-		<form action="/update_pass" method="POST" class="login-email" >
-
+        <form action="/update_pass" method="POST" class="login-email" >
+    
             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
-			<div class="input-group">
-				<input type="password" placeholder="Kata Sandi Baru" name="password">
-			</div>
-			<div class="input-group">
-				<input type="password" placeholder="Konfirmasi Kata Sandi Baru" name="password_confirmation">
-			</div>
-			<div class="mt-3 btn-group">
-				{{-- <a href="/ubahpw"> --}}
+            <div class="input-group">
+                <input type="password" placeholder="Kata Sandi Baru" name="password">
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Konfirmasi Kata Sandi Baru" name="password_confirmation">
+            </div>
+            <div class="mt-3 btn-group">
+                {{-- <a href="/ubahpw"> --}}
                     <button class="kirim" type="submit">
                         Kirim
                     </button>
                 {{-- </a> --}}
-			</div>
+            </div>
             <div class="btn-group">
-				{{-- <a href="/resetpw"> --}}
+                {{-- <a href="/resetpw"> --}}
                     <button class="btn mb-5" type="reset">
                         Reset
                     </button>
                 {{-- </a> --}}
+            </div>
+        </form> -->
+        <form action="/update_pass" method="POST" class="login-email" >
+            @csrf
+            <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+			<p class="login-text mt-4">Ubah Kata Sandi</p>
+			<div class="input-group">
+                <input type="password" placeholder="Kata Sandi Baru" name="password" required>
 			</div>
+			<div class="input-group">
+                <input type="password" placeholder="Konfirmasi Kata Sandi Baru" name="password_confirmation" required>
+			</div>
+            <div class="btn-groub">
+                <button class="btn btn-purple text-white" type="submit">
+                    Kirim
+                </button>
+                <button class="btn btn-outline-danger mt-3" type="reset">
+                    Reset
+                </button>
+            </div>
+            @error('password')
+            <div class="text-danger mt-5">{{ $message }}</div>
+            @enderror
 		</form>
-	</div>
+    </div>
 </body>
 </html>

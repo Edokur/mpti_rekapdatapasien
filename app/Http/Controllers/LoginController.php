@@ -63,7 +63,7 @@ class LoginController extends Controller
         $get = DB::table('users')->get()->first();
 
         if ($email != $get->email || $no_hp != $get->no_hp) {
-            return back()->withErrors(['gagal' => 'email dan password salah']);
+            return back()->withErrors(['gagal' => 'Email dan Nomor yang anda masukkan salah']);
         } else {
             return redirect('/change_pass');
         }

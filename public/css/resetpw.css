@@ -19,10 +19,10 @@ body {
 }
 
 .progressbar {
-    counter-reset: step;
-    font-size: 10px;
     position: absolute;
-    top: 30px;
+    top: 15px;
+    counter-reset: step;
+    font-size: 12px;
 }
 
 .progressbar li {
@@ -51,11 +51,11 @@ body {
 .progressbar li:after {
     content: "";
     position: absolute;
-    width: 100%;
+    width: 80%;
     height: 2px;
     background-color: #ddd;
-    top: 15px;
-    left: -50%;
+    top: 9px;
+    left: -40%;
     z-index: -1;
 }
 
@@ -118,25 +118,16 @@ body {
     border-color: #6145e3;
 }
 
-button {
+.btn {
     width: 337px;
     height: 50px;
     border-radius: 12px;
-    font-family: "Source Code Pro";
-    font-size: 20px;
 }
 
-.btn-group a .kirim {
-    outline: none;
-    border: none;
+.btn-purple{
     background-color: #6145e3;
-    margin: 1rem 0;
-    color: #fff;
 }
 
-.btn-group a .btn {
-    border-color: #6145e3;
-    border-radius: 12px;
-    color: #6145e3;
-    font-size: 20px;
+.btn-purple:hover{
+    background-color: #4e2de0;
 }

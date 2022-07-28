@@ -18,41 +18,34 @@
 	<title>Reset Password - Identitas</title>
 </head>
 <body>
-	<div class="progressbar">
-            <li class="active">Identitas</li>
-            <li>Ubah Kata Sandi</li>
-            <li>Berhasil</li>
+    <div class="progressbar mt-5">
+        <li class="active">Identitas</li>
+        <li>Ubah Kata Sandi</li>
+        <li>Berhasil</li>
 	</div>
 	<div class="container mt-5" >
 		<form action="cek_pass" method="POST" class="login-email" >
             @csrf
             <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
 			<p class="login-text mt-4">Identitas</p>
-            @error('gagal')
-                <div class="text-danger mt-2">{{ $message }}</div>
-            @enderror
 			<div class="input-group">
-				<input type="email" placeholder="Masukkan e-mail Anda" name="email" required>
-                
+                <input type="email" placeholder="Masukkan e-mail Anda" name="email" required>
 			</div>
 			<div class="input-group">
-				<input type="text" placeholder="Masukkan No. Handphone" name="no_hp" required>
+                <input type="text" placeholder="Masukkan No. Handphone" name="no_hp" required>
 			</div>
-			<div class="mt-3 btn-group">
-				{{-- <a href="/ubahpw"> --}}
-                    <button class="kirim" type="submit">
-                        Kirim
-                    </button>
-                {{-- </a> --}}
-			</div>
-            <div class="btn-group">
-				{{-- <a href="/resetpw"> --}}
-                    <button class="btn mb-5" type="reset">
-                        Reset
-                    </button>
-                {{-- </a> --}}
-			</div>
+            <div class="btn-groub">
+                <button class="btn btn-purple text-white" type="submit">
+                    Kirim
+                </button>
+                <button class="btn btn-outline-danger mt-3" type="reset">
+                    Reset
+                </button>
+            </div>
 		</form>
+        @error('gagal')
+            <div class="text-danger mt-5">{{ $message }}</div>
+        @enderror
 	</div>
 </body>
 </html>
