@@ -48,9 +48,9 @@ class IdentitasController extends Controller
         $datein = $post->tanggal_lahir;
 
         if ($datein > $dateover) {
-            return back()->withErrors(['tanggal' => 'Tanggal Invalid']);
-            // Session::flash('gagal', 'Tanggal Invalid');
-            // return redirect('/identitas_pasien/create');
+            // return back()->withErrors(['tanggal' => 'Tanggal Invalid']);
+            Session::flash('gagal', 'Tanggal Invalid');
+            return redirect('/identitas_pasien/create');
         } else if ($nik_16 != 16) {
             Session::flash('gagal', 'Nik harus berisi 16 Angka');
             return redirect('/identitas_pasien/create');
