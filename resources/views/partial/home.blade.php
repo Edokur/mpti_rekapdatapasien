@@ -149,7 +149,7 @@
         
                         <div class="content-body bg-white border-line">
                             <div class="row">
-                                <h2 class="col-9 color-black">Kesehatan Jiwa</h2>
+                                <h2 class="col-9 color-black">Perkesmas</h2>
                                 <a class="col-3 color-grey h7 text-right" href="/surveilans_1">Lihat Semua</a>
                             </div>
         
@@ -160,7 +160,7 @@
                                             <th class="th2" scope="col">No.</th>
                                             <th class="th2" scope="col">ID. Register</th>
                                             <th class="th2" scope="col">Tanggal</th>
-                                            <th class="th2" scope="col">Minggu</th>
+                                            <!-- <th class="th2" scope="col">Minggu</th> -->
                                             <th class="th2" scope="col">Nama Pasien</th>
                                             <th class="th2" scope="col">Diagnosa</th>
                                         </tr>
@@ -172,7 +172,7 @@
                                             <td class="td2">{{ $loop->iteration }}</td>
                                             <td class="td2">{{ $key->id_register }}</td>
                                             <td class="td2">{{ $key->tanggal }}</td>
-                                            <td class="td2">1</td>
+                                            <!-- <td class="td2">1</td> -->
                                             <td class="td2">{{ $key->nama_pasien }}</td>
                                             <td class="td2">{{ $key->diagnosa }}</td>
                                         </tr>

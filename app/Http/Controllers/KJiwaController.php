@@ -93,7 +93,7 @@ class KJiwaController extends Controller
             ]);
 
             DB::table('log_activity')->insert([
-                'nama_pasien' => $post->input('nama_pasien'),
+                'nama_pasien' => $nama_pasien->nama_pasien,
                 'jenis_data' => 'Kesehatan Jiwa',
                 'deskripsi' => 'Tambah Data',
                 'tanggal' => Carbon::now(),
