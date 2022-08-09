@@ -1,0 +1,44 @@
+body {
+    scroll-behavior: smooth;
+    font-family: 'Poppins';
+}
+
+.login{
+    background-color: #6145E3;
+    min-height: 1000px;
+    width: 97%;
+    border-radius: 40px;
+
+    .img-logo{
+        min-width: 20%;
+    }
+
+    h2{
+        font-weight: bolder;
+    }
+
+    .card-login{
+        margin-top: 100px;
+        border-radius: 12px;
+
+        .button{
+            .btn-login{
+                background-color: #6145E3;
+                height: 64px;
+                width: 100%;
+            }
+            
+            .btn-login:hover{
+                background-color: #7359e4;
+            }
+        }
+    }
+}
+
+.footer{
+
+    h2{
+        font-style: italic;
+        font-weight: bolder;
+    }
+}
